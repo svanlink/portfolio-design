@@ -1,12 +1,16 @@
-# Van Eickelen — Filmmaker & Visual Storyteller
+# Van Eickelen — Filmmaker, Videographer & Photographer | Cinéaste, Vidéaste & Photographe
 
-> Sebastian Van Eickelen is a filmmaker, cinematographer, and visual storyteller based in Geneva, Switzerland. He creates cinematic brand films, commercials, and documentary work for global brands including Adidas, Nike, Cartier, Red Bull, Richemont, Decathlon, Salomon, and Mammut.
+> Sebastian Van Eickelen is a filmmaker, videographer, and photographer based in Geneva (Genève), Switzerland (Suisse). He creates cinematic brand films, commercials, documentary work, and photography for global brands including Adidas, Nike, Cartier, Red Bull, Richemont, Decathlon, Salomon, and Mammut. Serving Geneva, Lausanne, Vaud, and all of Switzerland.
 
-## About
-- [Homepage](https://vaneickelen.com): Overview of services, selected work, client testimonials, and contact
-- [All Projects](https://vaneickelen.com/projects): Complete archive of film and commercial work
+> Sebastian Van Eickelen est un cinéaste, vidéaste et photographe basé à Genève, Suisse. Il crée des films de marque cinématographiques, des publicités, des documentaires et de la photographie pour des marques internationales dont Adidas, Nike, Cartier, Red Bull, Richemont, Decathlon, Salomon et Mammut. Disponible à Genève, Lausanne, Vaud et dans toute la Suisse.
 
-## Case Studies
+## About / À Propos
+- [Homepage (EN)](https://vaneickelen.com): Overview of services, selected work, client testimonials, and contact
+- [Page d'accueil (FR)](https://vaneickelen.com/fr/): Présentation des services, travaux sélectionnés, témoignages clients et contact
+- [All Projects (EN)](https://vaneickelen.com/projects): Complete archive of film, video, and photography work
+- [Tous les Projets (FR)](https://vaneickelen.com/fr/projects): Archive complète des films, vidéos et travaux photographiques
+
+## Case Studies / Études de Cas
 - [Adidas Terrex Campaign](https://vaneickelen.com/case-study-adidas-terrex): Mountain running campaign filmed in the Swiss Alps — 2.4M views, 156% above engagement benchmark, deployed across 12 markets
 - [Decathlon Switzerland](https://vaneickelen.com/case-study-decathlon): Brand identity film for Decathlon's Swiss market launch — 1.8M impressions, 42% brand lift
 - [Swiss Athletics](https://vaneickelen.com/case-study-swiss-athletics): Athlete portrait series for the Swiss Athletics federation — 820K views, picked up by SRF national broadcast
@@ -15,19 +19,28 @@
 - [Startup Campaign](https://vaneickelen.com/case-study-startup-campaign): Product launch film for crowdfunding campaign — 340% funded in 72 hours, 520K views
 
 ## Services
-- Brand Films: Cinematic brand stories and identity pieces
-- Commercial Production: Ad spots for digital and broadcast
-- Documentary: Long-form storytelling and mini-series
-- Event Coverage: Premium event films and recap edits
-- Creative Direction: Concept development and visual strategy
+- Brand Films / Films de Marque: Cinematic brand stories and identity pieces
+- Commercial Production / Production Publicitaire: Ad spots for digital and broadcast
+- Documentary / Documentaire: Long-form storytelling and mini-series
+- Event Coverage / Couverture Événementielle: Premium event films and recap edits
+- Creative Direction / Direction Créative: Concept development and visual strategy
 - Post-Production: Editing, color grading, sound design, motion graphics
+- Photography / Photographie: Brand photography, portraits, commercial shoots
 
 ## Equipment & Technical
 - Primary camera: RED Komodo 6K
 - Lens systems: Cooke Anamorphic /i, cinema primes
 - Full post-production pipeline: non-linear editing, cinematic color grading, sound design
 
+## Location / Localisation
+- Based in: Geneva (Genève), Switzerland (Suisse)
+- Serving: Geneva, Lausanne, Vaud, all of Switzerland, Europe, Worldwide
+- Languages: English, French (Français)
+
 ## Contact
 - Email: hello@vaneickelen.com
 - Location: Rue de Montbrillant 28, 1201 Geneva, Switzerland
-- Available for projects worldwide
+- Instagram: @vaneickelen
+- Vimeo: vaneickelen
+- LinkedIn: vaneickelen
+- Available for projects worldwide / Disponible pour des projets dans le monde entier

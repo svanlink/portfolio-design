@@ -1,5 +1,6 @@
 // ─── Language Toggle System ───
-// Swaps text content between EN (default in HTML) and FR (from translations.js)
+// Redirects between /en and /fr/ page versions for proper SEO
+// Falls back to text-swap for same-page language switching
 // Persists choice in localStorage across all pages
 
 (function() {
@@ -8,12 +9,44 @@
   const STORAGE_KEY = 'lang';
   const DEFAULT_LANG = 'en';
 
+  // Detect if we're on a /fr/ page
+  function isOnFrenchPage() {
+    return window.location.pathname.includes('/fr/');
+  }
+
+  // Get the equivalent page URL in the other language
+  function getAlternateLangUrl(targetLang) {
+    var path = window.location.pathname;
+    var page = path.split('/').pop() || 'index.html';
+
+    // Ensure page has .html extension
+    if (!page.includes('.html') && page !== '') {
+      page = page + '.html';
+    }
+    if (page === '' || page === '/') {
+      page = 'index.html';
+    }
+
+    if (targetLang === 'fr' && !isOnFrenchPage()) {
+      // EN → FR: redirect to /fr/ version
+      // Get the base path (everything before the page filename)
+      var basePath = path.substring(0, path.lastIndexOf('/') + 1);
+      return basePath + 'fr/' + page;
+    } else if (targetLang === 'en' && isOnFrenchPage()) {
+      // FR → EN: redirect to root version
+      // Remove /fr/ from path
+      var basePath = path.substring(0, path.indexOf('/fr/') + 1);
+      return basePath + page;
+    }
+    return null; // Same language, no redirect needed
+  }
+
   // Get current language
   function getLang() {
     return localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG;
   }
 
-  // Apply language to all data-i18n elements
+  // Apply language to all data-i18n elements (text swap fallback)
   function applyLanguage(lang) {
     document.documentElement.lang = lang;
     localStorage.setItem(STORAGE_KEY, lang);
@@ -77,21 +110,35 @@
 
   // Initialize on DOM ready
   function init() {
-    const lang = getLang();
+    // Detect current page language from HTML lang attribute
+    var pageLang = document.documentElement.lang || 'en';
+    var storedLang = getLang();
 
     // Wire up ALL lang buttons (nav, glass nav, mobile menu)
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        const newLang = btn.dataset.lang;
+        var newLang = btn.dataset.lang;
+        localStorage.setItem(STORAGE_KEY, newLang);
+
+        // Try to redirect to the alternate language page
+        var redirectUrl = getAlternateLangUrl(newLang);
+        if (redirectUrl) {
+          window.location.href = redirectUrl;
+          return;
+        }
+
+        // Fallback: swap text on the same page
         applyLanguage(newLang);
       });
     });
 
-    // Apply saved language
-    if (lang !== DEFAULT_LANG) {
-      applyLanguage(lang);
+    // On /fr/ pages, always apply French
+    if (isOnFrenchPage()) {
+      localStorage.setItem(STORAGE_KEY, 'fr');
+      applyLanguage('fr');
+    } else if (storedLang !== DEFAULT_LANG) {
+      applyLanguage(storedLang);
     } else {
-      // Still update button states for EN
       applyLanguage('en');
     }
   }

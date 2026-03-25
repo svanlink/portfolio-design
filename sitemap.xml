@@ -1,50 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- English Pages -->
   <url>
     <loc>https://vaneickelen.com/</loc>
-    <lastmod>2026-03-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vaneickelen.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/"/>
+    <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://vaneickelen.com/projects</loc>
-    <lastmod>2026-03-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vaneickelen.com/projects"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/projects"/>
+    <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vaneickelen.com/case-study-adidas-terrex</loc>
-    <lastmod>2026-03-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vaneickelen.com/case-study-adidas-terrex"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/case-study-adidas-terrex"/>
+    <lastmod>2026-03-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vaneickelen.com/case-study-decathlon</loc>
-    <lastmod>2026-03-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vaneickelen.com/case-study-decathlon"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/case-study-decathlon"/>
+    <lastmod>2026-03-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vaneickelen.com/case-study-swiss-athletics</loc>
-    <lastmod>2026-03-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vaneickelen.com/case-study-swiss-athletics"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/case-study-swiss-athletics"/>
+    <lastmod>2026-03-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vaneickelen.com/case-study-beyond-the-summit</loc>
-    <lastmod>2026-03-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vaneickelen.com/case-study-beyond-the-summit"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/case-study-beyond-the-summit"/>
+    <lastmod>2026-03-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vaneickelen.com/case-study-luxury-hospitality</loc>
-    <lastmod>2026-03-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vaneickelen.com/case-study-luxury-hospitality"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/case-study-luxury-hospitality"/>
+    <lastmod>2026-03-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vaneickelen.com/case-study-startup-campaign</loc>
-    <lastmod>2026-03-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vaneickelen.com/case-study-startup-campaign"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/case-study-startup-campaign"/>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- French Pages -->
+  <url>
+    <loc>https://vaneickelen.com/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vaneickelen.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/"/>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://vaneickelen.com/fr/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vaneickelen.com/projects"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/projects"/>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vaneickelen.com/fr/case-study-adidas-terrex</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vaneickelen.com/case-study-adidas-terrex"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/case-study-adidas-terrex"/>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vaneickelen.com/fr/case-study-decathlon</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vaneickelen.com/case-study-decathlon"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/case-study-decathlon"/>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vaneickelen.com/fr/case-study-swiss-athletics</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vaneickelen.com/case-study-swiss-athletics"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/case-study-swiss-athletics"/>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vaneickelen.com/fr/case-study-beyond-the-summit</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vaneickelen.com/case-study-beyond-the-summit"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/case-study-beyond-the-summit"/>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vaneickelen.com/fr/case-study-luxury-hospitality</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vaneickelen.com/case-study-luxury-hospitality"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/case-study-luxury-hospitality"/>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vaneickelen.com/fr/case-study-startup-campaign</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vaneickelen.com/case-study-startup-campaign"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/case-study-startup-campaign"/>
+    <lastmod>2026-03-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
