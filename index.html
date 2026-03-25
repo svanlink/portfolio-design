@@ -821,28 +821,38 @@
 
       <!-- Right: Contact Form -->
       <div class="reveal">
-        <form class="flex flex-col gap-4">
+        <form id="contact-form" action="https://formspree.io/f/mojpqebp" method="POST" class="flex flex-col gap-4">
+          <!-- Honeypot spam protection -->
+          <input type="text" name="_gotcha" style="display:none">
+          <input type="hidden" name="_subject" value="New project inquiry from vaneickelen.com">
           <div class="grid grid-cols-2 gap-4">
-            <input type="text" placeholder="Name" class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
-            <input type="email" placeholder="Email" class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
+            <input type="text" name="name" placeholder="Name" required class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
+            <input type="email" name="email" placeholder="Email" required class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
           </div>
-          <select class="bg-[#1C1C1C] border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
-            <option>Project Type</option>
-            <option>Brand Film</option>
-            <option>Commercial</option>
-            <option>Documentary</option>
-            <option>Event Coverage</option>
-            <option>Creative Direction</option>
-            <option>Other</option>
+          <select name="project_type" class="bg-[#1C1C1C] border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
+            <option value="" disabled selected>Project Type</option>
+            <option value="Brand Film">Brand Film</option>
+            <option value="Commercial">Commercial</option>
+            <option value="Documentary">Documentary</option>
+            <option value="Event Coverage">Event Coverage</option>
+            <option value="Creative Direction">Creative Direction</option>
+            <option value="Other">Other</option>
           </select>
-          <input type="text" placeholder="Budget Range (optional)" class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
-          <textarea rows="5" placeholder="Tell me about your project..." class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors resize-none"></textarea>
-          <button type="submit" class="inline-flex items-center justify-center bg-transparent border border-[#EFEFEF]/20 text-[#EFEFEF]/50 font-heading uppercase text-[14px] tracking-[0.02em] px-8 py-3 rounded-sm gap-3 w-full mt-2 hover:border-[#F64E29]/40 hover:text-[#EFEFEF] hover:bg-[#F64E29]/5 transition-all duration-500">
+          <input type="text" name="budget" placeholder="Budget Range (optional)" class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
+          <textarea rows="5" name="message" placeholder="Tell me about your project..." required class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors resize-none"></textarea>
+          <button type="submit" id="contact-submit" class="inline-flex items-center justify-center bg-transparent border border-[#EFEFEF]/20 text-[#EFEFEF]/50 font-heading uppercase text-[14px] tracking-[0.02em] px-8 py-3 rounded-sm gap-3 w-full mt-2 hover:border-[#F64E29]/40 hover:text-[#EFEFEF] hover:bg-[#F64E29]/5 transition-all duration-500">
             Send Message
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path d="M7 17L17 7M17 7H7M17 7v10"/>
             </svg>
           </button>
+          <!-- Success/Error messages -->
+          <div id="form-success" class="hidden text-center py-4">
+            <p class="font-body text-[14px] text-green-400 tracking-[0.02em]">Message sent successfully. I'll get back to you soon.</p>
+          </div>
+          <div id="form-error" class="hidden text-center py-4">
+            <p class="font-body text-[14px] text-[#F64E29] tracking-[0.02em]">Something went wrong. Please try again or email me directly.</p>
+          </div>
         </form>
       </div>
     </div>
@@ -1022,6 +1032,45 @@
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => revealObserver.observe(el));
+
+    // ─── Contact Form (AJAX via Formspree) ───
+    const contactForm = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('contact-submit');
+    const formSuccess = document.getElementById('form-success');
+    const formError = document.getElementById('form-error');
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending...';
+      formSuccess.classList.add('hidden');
+      formError.classList.add('hidden');
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          formSuccess.classList.remove('hidden');
+          contactForm.reset();
+          submitBtn.innerHTML = `Sent ✓ <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>`;
+          setTimeout(() => {
+            submitBtn.innerHTML = `Send Message <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>`;
+            submitBtn.disabled = false;
+            formSuccess.classList.add('hidden');
+          }, 5000);
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        formError.classList.remove('hidden');
+        submitBtn.innerHTML = `Send Message <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>`;
+        submitBtn.disabled = false;
+      }
+    });
 
     // ─── Page Transitions ───
     const transition = document.getElementById('page-transition');
