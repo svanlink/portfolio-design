@@ -53,14 +53,6 @@
     }
     .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
 
-    /* Nav link underline */
-    .nav-link { position: relative; }
-    .nav-link::after {
-      content: ''; position: absolute; bottom: -4px; left: 0;
-      width: 0; height: 1px; background: #F64E29;
-      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .nav-link:hover::after { width: 100%; }
 
     /* Page load fade-in */
     body { animation: page-fade-in 1s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -84,14 +76,44 @@
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* Project card hover */
-    .project-card { transition: transform 0.6s, opacity 0.6s; }
-    .project-card:hover { transform: scale(1.01); }
-    .project-card:hover .project-thumb { transform: scale(1.05); }
-    .project-card:hover .project-number { color: #F64E29; }
+    /* Video loading skeleton */
+    .vimeo-card { background: #111111; }
+    .vimeo-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 25%, rgba(239,239,239,0.03) 50%, transparent 75%);
+      background-size: 200% 100%;
+      animation: shimmer 2s ease-in-out infinite;
+      z-index: 1;
+    }
+    .vimeo-card:has(iframe)::before { display: none; }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
 
-    /* Arrow hover */
-    span:hover > .arrow-icon { color: #F64E29; }
+    /* Vimeo cover for grid cards */
+    .vimeo-card iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 177.78vh;
+      height: 100vh;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Project card base transition */
+    .project-card { transition: transform 0.6s, opacity 0.6s; }
+
+    /* Hover effects — desktop only (no touch) */
+    @media (hover: hover) and (pointer: fine) {
+      .project-card:hover { transform: scale(1.01); }
+      .project-card:hover .project-number { color: #F64E29; }
+      span:hover > .arrow-icon { color: #F64E29; }
+    }
   </style>
 </head>
 <body class="bg-[#1C1C1C] text-[#EFEFEF]">
@@ -102,118 +124,159 @@
   <!-- Nav -->
   <header class="glass-nav fixed top-0 left-0 w-full z-50">
     <div class="relative flex items-center justify-between px-6 md:px-12 py-4">
-      <a href="index.html" class="font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Home</a>
-      <nav class="absolute left-1/2 -translate-x-1/2 flex items-center gap-8">
+      <a href="index.html" class="font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">
+        <span class="md:hidden">VAN EICKELEN</span>
+        <span class="hidden md:inline">Home</span>
+      </a>
+      <nav class="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-8">
         <a href="index.html#work" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Latest</a>
         <a href="projects.html" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#F64E29] transition-colors duration-400">Projects</a>
         <a href="index.html#services" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Expertise</a>
         <a href="index.html#contact" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Contact</a>
       </nav>
       <div class="flex items-center gap-3">
-        <div class="flex items-center gap-1 font-mono-nav text-[10px] uppercase tracking-[0.15em]">
+        <div class="hidden md:flex items-center gap-1 font-mono-nav text-[10px] uppercase tracking-[0.15em]">
           <button class="text-[#F64E29] transition-colors duration-400">EN</button>
           <span class="text-[#EFEFEF]/30">|</span>
           <button class="text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">FR</button>
         </div>
-        <div class="flex items-center gap-1 border border-[#EFEFEF]/15 rounded-full px-2 py-0.5">
+        <div class="hidden md:flex items-center gap-1 border border-[#EFEFEF]/15 rounded-full px-2 py-0.5">
           <span class="relative flex h-1 w-1">
             <span class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-1 w-1 bg-green-400"></span>
           </span>
           <span class="font-mono-nav text-[8px] uppercase tracking-[0.15em] text-[#EFEFEF]/70">Available</span>
         </div>
+        <!-- Mobile menu button -->
+        <button class="mobile-menu-btn md:hidden w-10 h-10 flex items-center justify-center" aria-label="Open menu">
+          <svg class="w-5 h-5 text-[#EFEFEF]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
       </div>
     </div>
   </header>
 
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#1C1C1C] flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-500 md:hidden">
+    <button id="mobile-menu-close" class="absolute top-5 right-6 w-10 h-10 flex items-center justify-center" aria-label="Close menu">
+      <svg class="w-5 h-5 text-[#EFEFEF]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <path d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+    <a href="index.html" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Home</a>
+    <a href="index.html#work" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Latest</a>
+    <a href="projects.html" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#F64E29] transition-colors duration-400">Projects</a>
+    <a href="index.html#services" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Expertise</a>
+    <a href="index.html#contact" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Contact</a>
+  </div>
+
   <!-- Page Header -->
-  <section class="pt-32 pb-16 px-6 md:px-12">
+  <section class="pt-24 md:pt-32 pb-10 md:pb-16 px-6 md:px-12">
     <div class="max-w-[1400px] mx-auto">
       <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block mb-3">Archive</span>
-      <h1 class="font-heading text-[48px] md:text-[72px] uppercase tracking-[0.02em] leading-[0.9]">All Projects</h1>
+      <h1 class="font-heading text-[36px] sm:text-[48px] md:text-[72px] uppercase tracking-[0.02em] leading-[0.9]">All Projects</h1>
     </div>
   </section>
 
-  <!-- Bento Grid -->
+  <!-- Project Grid -->
   <section class="px-6 md:px-12 pb-24">
-    <div class="max-w-[1400px] mx-auto grid grid-cols-6 gap-3">
+    <div class="max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
 
-      <!-- 01 — Adidas Terrex (spans 3 cols, 2 rows = large) -->
-      <a href="case-study-adidas-terrex.html" class="project-card col-span-3 row-span-2 relative overflow-hidden group cursor-pointer reveal">
-        <div class="flex items-center gap-3 mb-2">
+      <!-- 01 — Adidas Terrex -->
+      <a href="case-study-adidas-terrex.html" class="project-card relative overflow-hidden group cursor-pointer reveal">
+        <div class="flex items-center gap-2 mb-2">
           <span class="project-number font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/30 transition-colors duration-400">01</span>
           <span class="font-heading text-[16px] uppercase tracking-[0.02em] text-[#EFEFEF]">Adidas Terrex</span>
         </div>
-        <div class="relative overflow-hidden aspect-[4/3]">
-          <div class="w-full h-full bg-[#111111] flex items-center justify-center">
-            <iframe src="https://player.vimeo.com/video/460645906?background=1&autoplay=0&loop=1&muted=1" class="project-thumb w-[180%] h-[180%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-700" frameborder="0" allow="autoplay"></iframe>
-          </div>
+        <div class="relative overflow-hidden aspect-video bg-[#111111]">
+          <div id="vimeo-proj-1" class="vimeo-card absolute inset-0 z-0"></div>
         </div>
+        <span class="font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/20 mt-2 block">Commercial · 2025</span>
       </a>
 
-      <!-- 02 — Decathlon (spans 3 cols, 1 row) -->
-      <a href="case-study-decathlon.html" class="project-card col-span-3 relative overflow-hidden group cursor-pointer reveal">
-        <div class="flex items-center gap-3 mb-2">
+      <!-- 02 — Decathlon -->
+      <a href="case-study-decathlon.html" class="project-card relative overflow-hidden group cursor-pointer reveal">
+        <div class="flex items-center gap-2 mb-2">
           <span class="project-number font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/30 transition-colors duration-400">02</span>
           <span class="font-heading text-[16px] uppercase tracking-[0.02em] text-[#EFEFEF]">Decathlon Switzerland</span>
         </div>
-        <div class="relative overflow-hidden aspect-video">
-          <div class="w-full h-full bg-[#111111]">
-            <iframe src="https://player.vimeo.com/video/816041394?background=1&autoplay=0&loop=1&muted=1" class="project-thumb w-[180%] h-[180%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-700" frameborder="0" allow="autoplay"></iframe>
-          </div>
+        <div class="relative overflow-hidden aspect-video bg-[#111111]">
+          <div id="vimeo-proj-2" class="vimeo-card absolute inset-0 z-0"></div>
         </div>
+        <span class="font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/20 mt-2 block">Brand Film · 2025</span>
       </a>
 
-      <!-- 03 — Swiss Athletics (spans 3 cols, 1 row) -->
-      <a href="case-study-swiss-athletics.html" class="project-card col-span-3 relative overflow-hidden group cursor-pointer reveal">
-        <div class="flex items-center gap-3 mb-2">
+      <!-- 03 — Swiss Athletics -->
+      <a href="case-study-swiss-athletics.html" class="project-card relative overflow-hidden group cursor-pointer reveal">
+        <div class="flex items-center gap-2 mb-2">
           <span class="project-number font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/30 transition-colors duration-400">03</span>
           <span class="font-heading text-[16px] uppercase tracking-[0.02em] text-[#EFEFEF]">Swiss Athletics</span>
         </div>
-        <div class="relative overflow-hidden aspect-video">
-          <div class="w-full h-full bg-[#111111]">
-            <iframe src="https://player.vimeo.com/video/338000108?background=1&autoplay=0&loop=1&muted=1" class="project-thumb w-[180%] h-[180%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-700" frameborder="0" allow="autoplay"></iframe>
-          </div>
+        <div class="relative overflow-hidden aspect-video bg-[#111111]">
+          <div id="vimeo-proj-3" class="vimeo-card absolute inset-0 z-0"></div>
         </div>
+        <span class="font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/20 mt-2 block">Sports · 2024</span>
       </a>
 
-      <!-- 04 — Beyond The Summit (spans 2 cols) -->
-      <a href="case-study-beyond-the-summit.html" class="project-card col-span-2 relative overflow-hidden group cursor-pointer reveal">
-        <div class="flex items-center gap-3 mb-2">
+      <!-- 04 — Beyond The Summit -->
+      <a href="case-study-beyond-the-summit.html" class="project-card relative overflow-hidden group cursor-pointer reveal">
+        <div class="flex items-center gap-2 mb-2">
           <span class="project-number font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/30 transition-colors duration-400">04</span>
           <span class="font-heading text-[16px] uppercase tracking-[0.02em] text-[#EFEFEF]">Beyond The Summit</span>
         </div>
-        <div class="relative overflow-hidden aspect-video">
-          <div class="w-full h-full bg-[#111111]">
-            <iframe src="https://player.vimeo.com/video/188244968?background=1&autoplay=0&loop=1&muted=1" class="project-thumb w-[180%] h-[180%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-700" frameborder="0" allow="autoplay"></iframe>
-          </div>
+        <div class="relative overflow-hidden aspect-video bg-[#111111]">
+          <div id="vimeo-proj-4" class="vimeo-card absolute inset-0 z-0"></div>
         </div>
+        <span class="font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/20 mt-2 block">Documentary · 2024</span>
       </a>
 
-      <!-- 05 — Luxury Hospitality (spans 2 cols) -->
-      <a href="case-study-luxury-hospitality.html" class="project-card col-span-2 relative overflow-hidden group cursor-pointer reveal">
-        <div class="flex items-center gap-3 mb-2">
+      <!-- 05 — Luxury Hospitality -->
+      <a href="case-study-luxury-hospitality.html" class="project-card relative overflow-hidden group cursor-pointer reveal">
+        <div class="flex items-center gap-2 mb-2">
           <span class="project-number font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/30 transition-colors duration-400">05</span>
           <span class="font-heading text-[16px] uppercase tracking-[0.02em] text-[#EFEFEF]">Luxury Hospitality</span>
         </div>
-        <div class="relative overflow-hidden aspect-video">
-          <div class="w-full h-full bg-[#111111]">
-            <iframe src="https://player.vimeo.com/video/392226201?background=1&autoplay=0&loop=1&muted=1" class="project-thumb w-[180%] h-[180%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-700" frameborder="0" allow="autoplay"></iframe>
-          </div>
+        <div class="relative overflow-hidden aspect-video bg-[#111111]">
+          <div id="vimeo-proj-5" class="vimeo-card absolute inset-0 z-0"></div>
         </div>
+        <span class="font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/20 mt-2 block">Commercial · 2024</span>
       </a>
 
-      <!-- 06 — Startup Campaign (spans 2 cols) -->
-      <a href="case-study-startup-campaign.html" class="project-card col-span-2 relative overflow-hidden group cursor-pointer reveal">
-        <div class="flex items-center gap-3 mb-2">
+      <!-- 06 — Startup Campaign -->
+      <a href="case-study-startup-campaign.html" class="project-card relative overflow-hidden group cursor-pointer reveal">
+        <div class="flex items-center gap-2 mb-2">
           <span class="project-number font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/30 transition-colors duration-400">06</span>
           <span class="font-heading text-[16px] uppercase tracking-[0.02em] text-[#EFEFEF]">Startup Campaign</span>
         </div>
-        <div class="relative overflow-hidden aspect-video">
-          <div class="w-full h-full bg-[#111111]">
-            <iframe src="https://player.vimeo.com/video/928454658?background=1&autoplay=0&loop=1&muted=1" class="project-thumb w-[180%] h-[180%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-700" frameborder="0" allow="autoplay"></iframe>
-          </div>
+        <div class="relative overflow-hidden aspect-video bg-[#111111]">
+          <div id="vimeo-proj-6" class="vimeo-card absolute inset-0 z-0"></div>
         </div>
+        <span class="font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/20 mt-2 block">Brand Film · 2024</span>
+      </a>
+
+      <!-- 07 — Alpine Wellness -->
+      <a href="#" class="project-card relative overflow-hidden group cursor-pointer reveal">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="project-number font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/30 transition-colors duration-400">07</span>
+          <span class="font-heading text-[16px] uppercase tracking-[0.02em] text-[#EFEFEF]">Alpine Wellness</span>
+        </div>
+        <div class="relative overflow-hidden aspect-video bg-[#111111] flex items-center justify-center">
+          <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/10">Coming Soon</span>
+        </div>
+        <span class="font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/20 mt-2 block">Lifestyle · 2024</span>
+      </a>
+
+      <!-- 08 — Geneva Music Festival -->
+      <a href="#" class="project-card relative overflow-hidden group cursor-pointer reveal">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="project-number font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/30 transition-colors duration-400">08</span>
+          <span class="font-heading text-[16px] uppercase tracking-[0.02em] text-[#EFEFEF]">Geneva Music Festival</span>
+        </div>
+        <div class="relative overflow-hidden aspect-video bg-[#111111] flex items-center justify-center">
+          <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/10">Coming Soon</span>
+        </div>
+        <span class="font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/20 mt-2 block">Event · 2024</span>
       </a>
 
     </div>
@@ -231,7 +294,35 @@
     </div>
   </footer>
 
+  <script src="https://player.vimeo.com/api/player.js"></script>
   <script>
+    // ─── Vimeo Card Players ───
+    const projVideos = [
+      { el: 'vimeo-proj-1', id: 460645906 },
+      { el: 'vimeo-proj-2', id: 816041394 },
+      { el: 'vimeo-proj-3', id: 338000108 },
+      { el: 'vimeo-proj-4', id: 188244968 },
+      { el: 'vimeo-proj-5', id: 392226201 },
+      { el: 'vimeo-proj-6', id: 928454658 },
+    ];
+    projVideos.forEach(v => {
+      new Vimeo.Player(v.el, {
+        id: v.id,
+        background: true,
+        loop: true,
+        muted: true,
+        quality: '720p'
+      });
+    });
+
+    // ─── Mobile Menu ───
+    const mobileMenu = document.getElementById('mobile-menu');
+    const openMenu = () => { mobileMenu.classList.remove('opacity-0', 'pointer-events-none'); mobileMenu.classList.add('opacity-100'); document.body.style.overflow = 'hidden'; };
+    const closeMenu = () => { mobileMenu.classList.add('opacity-0', 'pointer-events-none'); mobileMenu.classList.remove('opacity-100'); document.body.style.overflow = ''; };
+    document.querySelectorAll('.mobile-menu-btn').forEach(btn => btn.addEventListener('click', openMenu));
+    document.getElementById('mobile-menu-close').addEventListener('click', closeMenu);
+    document.querySelectorAll('.mobile-menu-link').forEach(link => { link.addEventListener('click', closeMenu); });
+
     // ─── Scroll Reveal ───
     const revealEls = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries) => {
@@ -243,6 +334,11 @@
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => revealObserver.observe(el));
+
+    // Safety net: force-reveal after 3s
+    setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+    }, 3000);
 
     // ─── Page Transitions ───
     const transition = document.getElementById('page-transition');

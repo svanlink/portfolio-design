@@ -109,12 +109,26 @@
 
     /* Smooth scroll */
     html { scroll-behavior: smooth; }
-    .nav-link { position: relative; }
-    .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: #F64E29; transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-    .nav-link:hover::after { width: 100%; }
 
     @keyframes scroll-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
     .scroll-indicator { animation: scroll-bounce 2s ease-in-out infinite; }
+
+    /* Video loading skeleton */
+    .vimeo-card { background: #111111; }
+    .vimeo-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 25%, rgba(239,239,239,0.03) 50%, transparent 75%);
+      background-size: 200% 100%;
+      animation: shimmer 2s ease-in-out infinite;
+      z-index: 1;
+    }
+    .vimeo-card:has(iframe)::before { display: none; }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
   </style>
 </head>
 <body class="bg-[#1C1C1C] text-[#EFEFEF]">
@@ -125,33 +139,56 @@
   <!-- Glass Nav -->
   <header id="glass-nav" class="glass-nav fixed top-0 left-0 w-full z-50">
     <div class="relative flex items-center justify-between px-6 md:px-12 py-4">
-      <a href="index.html" class="font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Home</a>
-      <nav class="absolute left-1/2 -translate-x-1/2 flex items-center gap-8">
+      <a href="index.html" class="font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">
+        <span class="md:hidden">VAN EICKELEN</span>
+        <span class="hidden md:inline">Home</span>
+      </a>
+      <nav class="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-8">
         <a href="index.html#work" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Latest</a>
         <a href="projects.html" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Projects</a>
         <a href="index.html#services" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Expertise</a>
         <a href="index.html#contact" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Contact</a>
       </nav>
       <div class="flex items-center gap-3">
-        <div class="flex items-center gap-1 font-mono-nav text-[10px] uppercase tracking-[0.15em]">
+        <div class="hidden md:flex items-center gap-1 font-mono-nav text-[10px] uppercase tracking-[0.15em]">
           <button class="text-[#F64E29] transition-colors duration-400">EN</button>
           <span class="text-[#EFEFEF]/30">|</span>
           <button class="text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">FR</button>
         </div>
-        <div class="flex items-center gap-1 border border-[#EFEFEF]/15 rounded-full px-2 py-0.5">
+        <div class="hidden md:flex items-center gap-1 border border-[#EFEFEF]/15 rounded-full px-2 py-0.5">
           <span class="relative flex h-1 w-1">
             <span class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-1 w-1 bg-green-400"></span>
           </span>
           <span class="font-mono-nav text-[8px] uppercase tracking-[0.15em] text-[#EFEFEF]/70">Available</span>
         </div>
+        <!-- Mobile menu button -->
+        <button class="mobile-menu-btn md:hidden w-10 h-10 flex items-center justify-center" aria-label="Open menu">
+          <svg class="w-5 h-5 text-[#EFEFEF]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
       </div>
     </div>
   </header>
 
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#1C1C1C] flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-500 md:hidden">
+    <button id="mobile-menu-close" class="absolute top-5 right-6 w-10 h-10 flex items-center justify-center" aria-label="Close menu">
+      <svg class="w-5 h-5 text-[#EFEFEF]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <path d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+    <a href="index.html" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Home</a>
+    <a href="index.html#work" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Latest</a>
+    <a href="projects.html" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Projects</a>
+    <a href="index.html#services" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Expertise</a>
+    <a href="index.html#contact" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Contact</a>
+  </div>
+
   <!-- Back Link (visible before scroll) -->
-  <div class="fixed top-0 left-0 w-full z-40 px-6 md:px-12 py-5">
-    <a href="index.html#work" class="inline-flex items-center gap-3 font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">
+  <div class="fixed top-0 left-0 w-full z-40 px-6 md:px-12 py-5 hidden md:block">
+    <a href="projects.html" class="inline-flex items-center gap-3 font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">
       <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path d="M19 12H5M5 12l6-6M5 12l6 6"/>
       </svg>
@@ -168,7 +205,7 @@
     <div class="absolute inset-0 z-20 flex flex-col justify-end px-6 md:px-12 pb-16">
       <div class="max-w-4xl">
         <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block">Commercial · 2025</span>
-        <h1 class="font-heading text-[48px] md:text-[80px] lg:text-[96px] uppercase tracking-[0.02em] leading-[0.9] mb-4">
+        <h1 class="font-heading text-[36px] sm:text-[48px] md:text-[80px] lg:text-[96px] uppercase tracking-[0.02em] leading-[0.9] mb-4">
           Adidas Terrex
         </h1>
         <div class="flex items-center gap-6">
@@ -186,9 +223,9 @@
   </section>
 
   <!-- Project Meta Strip -->
-  <section class="reveal py-12 border-b border-[#EFEFEF]/10">
+  <section class="reveal py-8 md:py-12 border-b border-[#EFEFEF]/10">
     <div class="max-w-[960px] mx-auto px-6">
-    <div class="grid grid-cols-4 gap-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
       <div>
         <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block">Client</span>
         <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]">Adidas Terrex</p>
@@ -219,14 +256,14 @@
   </section>
 
   <!-- The Brief -->
-  <section class="reveal py-24">
+  <section class="reveal py-12 md:py-24">
     <div class="max-w-[960px] mx-auto px-6">
-    <div class="grid grid-cols-4 gap-8">
-      <div class="col-span-1">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+      <div class="col-span-2 md:col-span-1">
         <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block">01</span>
         <h2 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-2">The Brief</h2>
       </div>
-      <div class="col-span-3">
+      <div class="col-span-2 md:col-span-3">
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl">
           Adidas Terrex needed a campaign film that would redefine how trail running is perceived — not just as sport, but as a meditative encounter with nature. The brief was clear: capture the raw intensity of mountain running in the Swiss Alps while keeping the athlete's emotional journey at the center.
         </p>
@@ -239,14 +276,14 @@
   </section>
 
   <!-- The Approach -->
-  <section class="reveal bg-[#191919] py-24">
+  <section class="reveal bg-[#191919] py-12 md:py-24">
     <div class="max-w-[960px] mx-auto px-6">
-    <div class="grid grid-cols-4 gap-8">
-      <div class="col-span-1">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+      <div class="col-span-2 md:col-span-1">
         <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block">02</span>
         <h2 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-2">The Approach</h2>
       </div>
-      <div class="col-span-3">
+      <div class="col-span-2 md:col-span-3">
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl">
           We shot over four days at altitude, chasing golden hour across three different mountain passes. The creative direction leaned into contrast — the stillness of dawn against the violence of a sprint, silence broken only by breathing and gravel.
         </p>
@@ -255,7 +292,7 @@
         </p>
 
         <!-- Approach Details Grid -->
-        <div class="grid grid-cols-2 gap-6 mt-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-12">
           <div class="border border-[#EFEFEF]/10 p-6">
             <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block">Camera</span>
             <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]">RED Komodo 6K</p>
@@ -279,14 +316,14 @@
   </section>
 
   <!-- Behind the Scenes — Image Grid -->
-  <section class="reveal py-24">
+  <section class="reveal py-12 md:py-24">
     <div class="max-w-[960px] mx-auto px-6">
-    <div class="grid grid-cols-4 gap-8 mb-12">
-      <div class="col-span-1">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-12">
+      <div class="col-span-2 md:col-span-1">
         <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block">03</span>
         <h2 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-2">Behind<br>The Scenes</h2>
       </div>
-      <div class="col-span-3">
+      <div class="col-span-2 md:col-span-3">
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl">
           From 4am call times to scrambling up scree with a gimbal — this is what the production looked like on the ground.
         </p>
@@ -294,7 +331,7 @@
     </div>
 
     <!-- BTS Image Placeholders -->
-    <div class="grid grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div class="aspect-video bg-[#1C1C1C] border border-[#EFEFEF]/10 flex items-center justify-center">
         <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/20">BTS Photo 01</span>
       </div>
@@ -312,34 +349,34 @@
   </section>
 
   <!-- The Result -->
-  <section class="reveal bg-[#191919] py-24">
+  <section class="reveal bg-[#191919] py-12 md:py-24">
     <div class="max-w-[960px] mx-auto px-6">
-    <div class="grid grid-cols-4 gap-8">
-      <div class="col-span-1">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+      <div class="col-span-2 md:col-span-1">
         <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block">04</span>
         <h2 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-2">The Result</h2>
       </div>
-      <div class="col-span-3">
+      <div class="col-span-2 md:col-span-3">
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mb-12">
           The hero film launched across Adidas Terrex's global channels and was featured in their flagship retail locations. The campaign exceeded engagement benchmarks and reinforced the brand's position in the trail running space.
         </p>
 
         <!-- Metrics -->
-        <div class="grid grid-cols-4 gap-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           <div>
-            <span class="font-heading text-[48px] tracking-[0.02em] text-[#F64E29]">2.4M</span>
+            <span class="font-heading text-[36px] md:text-[48px] tracking-[0.02em] text-[#F64E29]">2.4M</span>
             <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/40 mt-1">Views</p>
           </div>
           <div>
-            <span class="font-heading text-[48px] tracking-[0.02em] text-[#EFEFEF]">156%</span>
+            <span class="font-heading text-[36px] md:text-[48px] tracking-[0.02em] text-[#EFEFEF]">156%</span>
             <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/40 mt-1">Above benchmark</p>
           </div>
           <div>
-            <span class="font-heading text-[48px] tracking-[0.02em] text-[#EFEFEF]">12</span>
+            <span class="font-heading text-[36px] md:text-[48px] tracking-[0.02em] text-[#EFEFEF]">12</span>
             <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/40 mt-1">Markets</p>
           </div>
           <div>
-            <span class="font-heading text-[48px] tracking-[0.02em] text-[#EFEFEF]">7</span>
+            <span class="font-heading text-[36px] md:text-[48px] tracking-[0.02em] text-[#EFEFEF]">7</span>
             <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/40 mt-1">Deliverables</p>
           </div>
         </div>
@@ -349,7 +386,7 @@
   </section>
 
   <!-- Client Quote -->
-  <section class="reveal py-24">
+  <section class="reveal py-12 md:py-24">
     <div class="max-w-[960px] mx-auto px-6">
     <div class="max-w-3xl mx-auto text-center">
       <svg class="w-8 h-8 text-[#F64E29]/30 mx-auto mb-8" fill="currentColor" viewBox="0 0 24 24">
@@ -369,16 +406,16 @@
   <!-- Next / Previous Project Navigation -->
   <section class="reveal bg-[#191919] border-t border-[#EFEFEF]/10">
     <div class="max-w-[960px] mx-auto px-6">
-    <div class="grid grid-cols-2">
+    <div class="grid grid-cols-1 md:grid-cols-2">
       <!-- Previous -->
-      <a href="index.html#work" class="group px-6 md:px-12 py-16 border-r border-[#EFEFEF]/10 hover:bg-[#EFEFEF]/[0.03] transition-colors duration-400">
+      <a href="projects.html" class="group px-6 md:px-12 py-16 border-b md:border-b-0 md:border-r border-[#EFEFEF]/10 hover:bg-[#EFEFEF]/[0.03] transition-colors duration-400">
         <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block">
           <svg class="w-3 h-3 inline mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M19 12H5M5 12l6-6M5 12l6 6"/>
           </svg>
           All Projects
         </span>
-        <span class="font-heading text-[24px] uppercase tracking-[0.02em] group-hover:text-[#F64E29] transition-colors duration-400">Back to Grid</span>
+        <span class="font-heading text-[18px] md:text-[24px] uppercase tracking-[0.02em] group-hover:text-[#F64E29] transition-colors duration-400">Back to Grid</span>
       </a>
       <!-- Next -->
       <a href="case-study-decathlon.html" class="group px-6 md:px-12 py-16 hover:bg-[#EFEFEF]/[0.03] transition-colors duration-400 text-right">
@@ -409,6 +446,14 @@
   <script src="https://player.vimeo.com/api/player.js"></script>
   <script>
     // Case study hero video
+    // ─── Mobile Menu ───
+    const mobileMenu = document.getElementById('mobile-menu');
+    const openMenu = () => { mobileMenu.classList.remove('opacity-0', 'pointer-events-none'); mobileMenu.classList.add('opacity-100'); document.body.style.overflow = 'hidden'; };
+    const closeMenu = () => { mobileMenu.classList.add('opacity-0', 'pointer-events-none'); mobileMenu.classList.remove('opacity-100'); document.body.style.overflow = ''; };
+    document.querySelectorAll('.mobile-menu-btn').forEach(btn => btn.addEventListener('click', openMenu));
+    document.getElementById('mobile-menu-close').addEventListener('click', closeMenu);
+    document.querySelectorAll('.mobile-menu-link').forEach(link => { link.addEventListener('click', closeMenu); });
+
     const heroPlayer = new Vimeo.Player('case-hero-video', {
       id: 460645906,
       background: true,
@@ -428,15 +473,6 @@
     });
 
     // Fade-in sections on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.15 });
-
-    
 
     // ─── Scroll Reveal ───
     const revealEls = document.querySelectorAll('.reveal');
@@ -450,6 +486,11 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => revealObserver.observe(el));
 
+    // Safety net: force-reveal after 3s
+    setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+    }, 3000);
+
     // ─── Page Transitions ───
     const transition = document.getElementById('page-transition');
     document.querySelectorAll('a[href$=".html"], a[href="index.html"], a[href="/"]').forEach(link => {
@@ -459,10 +500,6 @@
         transition.classList.add('active');
         setTimeout(() => { window.location.href = href; }, 400);
       });
-    });
-    // Also handle the back link if it goes to index.html or /
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      // skip anchor links
     });
   </script>
 

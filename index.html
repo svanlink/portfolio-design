@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
+  <script>document.documentElement.classList.remove('no-js')</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Van Eickelen — Filmmaker & Visual Storyteller | Geneva, Switzerland</title>
@@ -165,6 +166,31 @@
       opacity: 1;
       transform: translateY(0);
     }
+    /* Fallback: if JS fails, make content visible */
+    .no-js .reveal { opacity: 1; transform: none; }
+
+    /* Form focus glow */
+    input:focus, select:focus, textarea:focus {
+      border-color: #F64E29 !important;
+      box-shadow: 0 0 0 1px rgba(246, 78, 41, 0.3);
+    }
+
+    /* Video loading skeleton */
+    .vimeo-card { background: #111111; }
+    .vimeo-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 25%, rgba(239,239,239,0.03) 50%, transparent 75%);
+      background-size: 200% 100%;
+      animation: shimmer 2s ease-in-out infinite;
+      z-index: 1;
+    }
+    .vimeo-card:has(iframe)::before { display: none; }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
 
     /* Stagger children */
     .stagger-children .reveal:nth-child(1) { transition-delay: 0s; }
@@ -174,41 +200,24 @@
     .stagger-children .reveal:nth-child(5) { transition-delay: 0.6s; }
     .stagger-children .reveal:nth-child(6) { transition-delay: 0.75s; }
 
-    /* Card arrow button: orange arrow on hover */
-    span:hover > .arrow-icon {
-      color: #F64E29;
-    }
-
-    /* Grid hover: dim siblings + lift */
-    .grid-hover:hover > a {
-      opacity: 0.4;
-      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Hover effects — desktop only (no touch) */
+    @media (hover: hover) and (pointer: fine) {
+      span:hover > .arrow-icon {
+        color: #F64E29;
+      }
+      .grid-hover:hover > a {
+        opacity: 0.4;
+        transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .grid-hover:hover > a:hover {
+        opacity: 1;
+        transform: scale(1.02);
+      }
     }
     .grid-hover > a {
       transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .grid-hover:hover > a:hover {
-      opacity: 1;
-      transform: scale(1.02);
-    }
 
-    /* Nav link underline animation */
-    .nav-link {
-      position: relative;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: #F64E29;
-      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .nav-link:hover::after {
-      width: 100%;
-    }
 
     /* Service card lift */
     .service-card {
@@ -235,7 +244,7 @@
 
     /* Accordion */
     .accordion-step.open .accordion-content {
-      max-height: 200px;
+      max-height: 400px;
     }
     .accordion-step.open .accordion-icon {
       border-color: rgba(239, 239, 239, 0.4);
@@ -261,9 +270,6 @@
       pointer-events: none;
       position: absolute;
       visibility: hidden;
-    }
-    .grid-hover > a {
-      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     /* Smooth scroll */
@@ -298,71 +304,113 @@
   <!-- Page Transition Overlay -->
   <div class="page-transition" id="page-transition"></div>
 
-  <!-- Static Nav (visible at top) -->
-  <header id="static-nav" class="fixed top-0 left-0 w-full z-40">
+  <!-- Static Nav (visible at top, hides when glass nav appears) -->
+  <header id="static-nav" class="fixed top-0 left-0 w-full z-40 transition-opacity duration-500">
     <div class="relative flex items-center justify-between px-6 md:px-12 py-5">
 
-      <!-- Left: Home -->
-      <a href="#hero" class="font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Home</a>
+      <!-- Left: Brand on mobile, Home on desktop -->
+      <a href="#hero" class="font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">
+        <span class="md:hidden">VAN EICKELEN</span>
+        <span class="hidden md:inline">Home</span>
+      </a>
 
-      <!-- Center: Nav Links (absolute centered) -->
-      <nav class="absolute left-1/2 -translate-x-1/2 flex items-center gap-8">
+      <!-- Center: Nav Links (hidden on mobile) -->
+      <nav class="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-8">
         <a href="#work" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Latest</a>
         <a href="projects.html" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Projects</a>
         <a href="#services" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Expertise</a>
         <a href="#contact" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Contact</a>
       </nav>
 
-      <!-- Right: Lang Switch + Availability -->
+      <!-- Right: Hamburger (mobile) + Lang Switch + Availability -->
       <div class="flex items-center gap-3">
-        <div class="flex items-center gap-1 font-mono-nav text-[10px] uppercase tracking-[0.15em]">
+        <div class="hidden md:flex items-center gap-1 font-mono-nav text-[10px] uppercase tracking-[0.15em]">
           <button id="lang-en" class="text-[#F64E29] transition-colors duration-400">EN</button>
           <span class="text-[#EFEFEF]/30">|</span>
           <button id="lang-fr" class="text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">FR</button>
         </div>
 
-        <div class="flex items-center gap-1 border border-[#EFEFEF]/15 rounded-full px-2 py-0.5">
+        <div class="hidden md:flex items-center gap-1 border border-[#EFEFEF]/15 rounded-full px-2 py-0.5">
           <span class="relative flex h-1 w-1">
             <span class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-1 w-1 bg-green-400"></span>
           </span>
           <span class="font-mono-nav text-[8px] uppercase tracking-[0.15em] text-[#EFEFEF]/70">Available</span>
         </div>
+
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center" aria-label="Open menu">
+          <svg class="w-5 h-5 text-[#EFEFEF]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
       </div>
 
     </div>
   </header>
 
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#1C1C1C] flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-500 md:hidden">
+    <button id="mobile-menu-close" class="absolute top-5 right-6 w-10 h-10 flex items-center justify-center" aria-label="Close menu">
+      <svg class="w-5 h-5 text-[#EFEFEF]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <path d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+    <a href="#work" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Latest</a>
+    <a href="projects.html" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Projects</a>
+    <a href="#services" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Expertise</a>
+    <a href="#contact" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Contact</a>
+    <div class="flex items-center gap-3 mt-8">
+      <div class="flex items-center gap-1 border border-[#EFEFEF]/15 rounded-full px-3 py-1">
+        <span class="relative flex h-1.5 w-1.5">
+          <span class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-400"></span>
+        </span>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/70">Available</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Glass Nav (appears on scroll) -->
   <header id="glass-nav" class="glass-nav fixed top-0 left-0 w-full z-50">
     <div class="relative flex items-center justify-between px-6 md:px-12 py-4">
 
-      <!-- Left: Home -->
-      <a href="#hero" class="font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Home</a>
+      <!-- Left: Brand on mobile, Home on desktop -->
+      <a href="#hero" class="font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">
+        <span class="md:hidden">VAN EICKELEN</span>
+        <span class="hidden md:inline">Home</span>
+      </a>
 
-      <!-- Center: Nav Links (absolute centered) -->
-      <nav class="absolute left-1/2 -translate-x-1/2 flex items-center gap-8">
+      <!-- Center: Nav Links (hidden on mobile) -->
+      <nav class="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-8">
         <a href="#work" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Latest</a>
         <a href="projects.html" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Projects</a>
         <a href="#services" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Expertise</a>
         <a href="#contact" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Contact</a>
       </nav>
 
-      <!-- Right: Lang Switch + Availability -->
+      <!-- Right: Lang Switch + Availability (hidden on mobile) + Hamburger -->
       <div class="flex items-center gap-3">
-        <div class="flex items-center gap-1 font-mono-nav text-[10px] uppercase tracking-[0.15em]">
+        <div class="hidden md:flex items-center gap-1 font-mono-nav text-[10px] uppercase tracking-[0.15em]">
           <button class="lang-en-btn text-[#F64E29] transition-colors duration-400">EN</button>
           <span class="text-[#EFEFEF]/30">|</span>
           <button class="lang-fr-btn text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">FR</button>
         </div>
 
-        <div class="flex items-center gap-1 border border-[#EFEFEF]/15 rounded-full px-2 py-0.5">
+        <div class="hidden md:flex items-center gap-1 border border-[#EFEFEF]/15 rounded-full px-2 py-0.5">
           <span class="relative flex h-1 w-1">
             <span class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-1 w-1 bg-green-400"></span>
           </span>
           <span class="font-mono-nav text-[8px] uppercase tracking-[0.15em] text-[#EFEFEF]/70">Available</span>
         </div>
+
+        <!-- Mobile menu button -->
+        <button class="glass-mobile-menu-btn md:hidden w-10 h-10 flex items-center justify-center" aria-label="Open menu">
+          <svg class="w-5 h-5 text-[#EFEFEF]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
       </div>
 
     </div>
@@ -384,28 +432,28 @@
         <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/70 cursor-default">Filmmaker · Photographer · Visual Storyteller</p>
       </div>
     </div>
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2">
+    <!-- Scroll indicator (hidden on mobile) -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 hidden md:flex flex-col items-center gap-2">
       <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40">Scroll</span>
       <span class="scroll-indicator w-[1px] h-8 bg-[#EFEFEF]/20 block"></span>
     </div>
   </section>
 
   <!-- Featured Projects Grid -->
-  <section id="work" class="px-6 md:px-12 py-40">
-    <div class="flex items-center justify-between mb-12 reveal">
-      <h2 class="font-heading text-[36px] uppercase tracking-[0.02em]">Selected Work</h2>
-      <div class="flex items-center gap-4">
-        <button class="filter-btn active font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] transition-colors duration-400" data-filter="all">All</button>
-        <button class="filter-btn font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400" data-filter="commercial">Commercials</button>
-        <button class="filter-btn font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400" data-filter="brand-film">Brand Films</button>
-        <button class="filter-btn font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400" data-filter="sports">Sports</button>
-        <button class="filter-btn font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400" data-filter="documentary">Documentary</button>
+  <section id="work" class="px-6 md:px-12 py-20 md:py-40">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 md:mb-12 reveal">
+      <h2 class="font-heading text-[32px] md:text-[36px] uppercase tracking-[0.02em]">Selected Work</h2>
+      <div class="flex items-center gap-3 md:gap-4 flex-wrap">
+        <button class="filter-btn active font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] transition-colors duration-400 min-h-[44px] px-3" data-filter="all">All</button>
+        <button class="filter-btn font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400 min-h-[44px] px-3" data-filter="commercial">Commercials</button>
+        <button class="filter-btn font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400 min-h-[44px] px-3" data-filter="brand-film">Brand Films</button>
+        <button class="filter-btn font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400 min-h-[44px] px-3" data-filter="sports">Sports</button>
+        <button class="filter-btn font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400 min-h-[44px] px-3" data-filter="documentary">Documentary</button>
       </div>
     </div>
 
-    <!-- Symmetric 2-Column Grid -->
-    <div class="grid grid-cols-2 gap-4 stagger-children grid-hover">
+    <!-- Symmetric Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 stagger-children grid-hover">
       <!-- Card 1: Adidas Terrex -->
       <a href="case-study-adidas-terrex.html" class="group relative overflow-hidden rounded-none cursor-pointer block reveal" data-category="commercial">
         <div class="aspect-video bg-[#1C1C1C] relative">
@@ -416,7 +464,7 @@
             <h3 class="font-heading text-[26px] uppercase tracking-[0.02em]">Adidas Terrex</h3>
             <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60">Mountain running campaign</p>
           </div>
-          <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex">
             <span class="w-10 h-10 border border-[#EFEFEF] hover:border-[#F64E29] hover:bg-[#F64E29]/15 rounded-full flex items-center justify-center transition-colors duration-400">
               <svg class="w-4 h-4 text-[#EFEFEF] transition-colors duration-400 arrow-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path d="M7 17L17 7M17 7H7M17 7v10"/>
@@ -435,7 +483,7 @@
             <h3 class="font-heading text-[26px] uppercase tracking-[0.02em]">Decathlon Switzerland</h3>
             <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60">Brand identity film</p>
           </div>
-          <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex">
             <span class="w-10 h-10 border border-[#EFEFEF] hover:border-[#F64E29] hover:bg-[#F64E29]/15 rounded-full flex items-center justify-center transition-colors duration-400">
               <svg class="w-4 h-4 text-[#EFEFEF] transition-colors duration-400 arrow-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path d="M7 17L17 7M17 7H7M17 7v10"/>
@@ -454,7 +502,7 @@
             <h3 class="font-heading text-[26px] uppercase tracking-[0.02em]">Swiss Athletics</h3>
             <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60">Athlete portrait series</p>
           </div>
-          <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex">
             <span class="w-10 h-10 border border-[#EFEFEF] hover:border-[#F64E29] hover:bg-[#F64E29]/15 rounded-full flex items-center justify-center transition-colors duration-400">
               <svg class="w-4 h-4 text-[#EFEFEF] transition-colors duration-400 arrow-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path d="M7 17L17 7M17 7H7M17 7v10"/>
@@ -473,7 +521,7 @@
             <h3 class="font-heading text-[26px] uppercase tracking-[0.02em]">Beyond The Summit</h3>
             <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60">Mountaineering documentary</p>
           </div>
-          <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex">
             <span class="w-10 h-10 border border-[#EFEFEF] hover:border-[#F64E29] hover:bg-[#F64E29]/15 rounded-full flex items-center justify-center transition-colors duration-400">
               <svg class="w-4 h-4 text-[#EFEFEF] transition-colors duration-400 arrow-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path d="M7 17L17 7M17 7H7M17 7v10"/>
@@ -492,7 +540,7 @@
             <h3 class="font-heading text-[26px] uppercase tracking-[0.02em]">Luxury Hospitality</h3>
             <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60">Hotel brand campaign</p>
           </div>
-          <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex">
             <span class="w-10 h-10 border border-[#EFEFEF] hover:border-[#F64E29] hover:bg-[#F64E29]/15 rounded-full flex items-center justify-center transition-colors duration-400">
               <svg class="w-4 h-4 text-[#EFEFEF] transition-colors duration-400 arrow-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path d="M7 17L17 7M17 7H7M17 7v10"/>
@@ -511,7 +559,7 @@
             <h3 class="font-heading text-[26px] uppercase tracking-[0.02em]">Startup Campaign</h3>
             <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60">Product launch film</p>
           </div>
-          <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex">
             <span class="w-10 h-10 border border-[#EFEFEF] hover:border-[#F64E29] hover:bg-[#F64E29]/15 rounded-full flex items-center justify-center transition-colors duration-400">
               <svg class="w-4 h-4 text-[#EFEFEF] transition-colors duration-400 arrow-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path d="M7 17L17 7M17 7H7M17 7v10"/>
@@ -537,7 +585,7 @@
   <section class="py-20 overflow-hidden bg-[#191919]">
     <!-- Infinite scroll logo strip -->
     <div class="logo-scroll relative">
-      <div class="logo-track flex items-center gap-24">
+      <div class="logo-track flex items-center gap-16">
         <!-- First set -->
         <img src="assets/logos/adidas-terrex.svg" alt="Adidas Terrex" class="h-8 opacity-100 transition-opacity duration-300">
         <img src="assets/logos/decathlon.svg" alt="Decathlon" class="h-8 opacity-100 transition-opacity duration-300">
@@ -573,14 +621,14 @@
   <!-- ═══════════════════════════════════════════ -->
 
   <!-- Services Offered -->
-  <section id="services" class="px-6 md:px-12 py-40">
-    <div class="mb-16 reveal">
-      <h2 class="font-heading text-[48px] md:text-[64px] uppercase tracking-[0.02em] leading-[0.9]">
+  <section id="services" class="px-6 md:px-12 py-20 md:py-40">
+    <div class="mb-10 md:mb-16 reveal">
+      <h2 class="font-heading text-[36px] md:text-[48px] lg:text-[64px] uppercase tracking-[0.02em] leading-[0.9]">
         What I Offer
       </h2>
     </div>
 
-    <div class="grid grid-cols-3 gap-[1px] bg-[#EFEFEF]/10 reveal">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[1px] bg-[#EFEFEF]/10 reveal">
       <!-- Service 1: Brand Films -->
       <div class="service-card bg-[#1C1C1C] p-8 group hover:bg-[#222222] transition-colors duration-500">
         <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">01</span>
@@ -626,9 +674,9 @@
   </section>
 
   <!-- Process / How It Works -->
-  <section class="px-6 md:px-12 py-40 bg-[#191919]">
-    <div class="mb-16 reveal">
-      <h2 class="font-heading text-[48px] md:text-[64px] uppercase tracking-[0.02em] leading-[0.9]">
+  <section class="px-6 md:px-12 py-20 md:py-40 bg-[#191919]">
+    <div class="mb-10 md:mb-16 reveal">
+      <h2 class="font-heading text-[36px] md:text-[48px] lg:text-[64px] uppercase tracking-[0.02em] leading-[0.9]">
         How It Works
       </h2>
     </div>
@@ -636,7 +684,7 @@
     <!-- Accordion Steps -->
     <div class="accordion-step group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" onclick="toggleStep(this)">
       <div class="flex items-center justify-between p-6">
-        <div class="flex items-center gap-6">
+        <div class="flex items-center gap-3 md:gap-6">
           <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">01</span>
           <h3 class="font-heading text-[24px] uppercase tracking-[0.02em]">Discovery</h3>
         </div>
@@ -650,13 +698,13 @@
         </span>
       </div>
       <div class="accordion-content overflow-hidden max-h-0 transition-all duration-700 ease-in-out">
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-[74px]">Understanding the vision, goals, and audience. We align on tone, objectives, and creative direction before anything else.</p>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]">Understanding the vision, goals, and audience. We align on tone, objectives, and creative direction before anything else.</p>
       </div>
     </div>
 
     <div class="accordion-step group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" onclick="toggleStep(this)">
       <div class="flex items-center justify-between p-6">
-        <div class="flex items-center gap-6">
+        <div class="flex items-center gap-3 md:gap-6">
           <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">02</span>
           <h3 class="font-heading text-[24px] uppercase tracking-[0.02em]">Concept</h3>
         </div>
@@ -670,13 +718,13 @@
         </span>
       </div>
       <div class="accordion-content overflow-hidden max-h-0 transition-all duration-700 ease-in-out">
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-[74px]">Creative direction, mood boards, and treatment. Script, storyboard, location scout, casting — every decision made before a camera rolls.</p>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]">Creative direction, mood boards, and treatment. Script, storyboard, location scout, casting — every decision made before a camera rolls.</p>
       </div>
     </div>
 
     <div class="accordion-step group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" onclick="toggleStep(this)">
       <div class="flex items-center justify-between p-6">
-        <div class="flex items-center gap-6">
+        <div class="flex items-center gap-3 md:gap-6">
           <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">03</span>
           <h3 class="font-heading text-[24px] uppercase tracking-[0.02em]">Production</h3>
         </div>
@@ -690,13 +738,13 @@
         </span>
       </div>
       <div class="accordion-content overflow-hidden max-h-0 transition-all duration-700 ease-in-out">
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-[74px]">Principal photography with full crew. Cinema-grade cameras, natural and controlled lighting, directorial precision on set.</p>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]">Principal photography with full crew. Cinema-grade cameras, natural and controlled lighting, directorial precision on set.</p>
       </div>
     </div>
 
     <div class="accordion-step group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" onclick="toggleStep(this)">
       <div class="flex items-center justify-between p-6">
-        <div class="flex items-center gap-6">
+        <div class="flex items-center gap-3 md:gap-6">
           <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">04</span>
           <h3 class="font-heading text-[24px] uppercase tracking-[0.02em]">Post</h3>
         </div>
@@ -710,13 +758,13 @@
         </span>
       </div>
       <div class="accordion-content overflow-hidden max-h-0 transition-all duration-700 ease-in-out">
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-[74px]">Non-linear edit, cinematic color grade, sound design, and motion graphics — the final polish that elevates every frame.</p>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]">Non-linear edit, cinematic color grade, sound design, and motion graphics — the final polish that elevates every frame.</p>
       </div>
     </div>
 
     <div class="accordion-step group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" onclick="toggleStep(this)">
       <div class="flex items-center justify-between p-6">
-        <div class="flex items-center gap-6">
+        <div class="flex items-center gap-3 md:gap-6">
           <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">05</span>
           <h3 class="font-heading text-[24px] uppercase tracking-[0.02em]">Delivery</h3>
         </div>
@@ -730,13 +778,13 @@
         </span>
       </div>
       <div class="accordion-content overflow-hidden max-h-0 transition-all duration-700 ease-in-out">
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-[74px]">Final files, revisions, and multi-format export — from broadcast to social, delivered exactly how you need it.</p>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]">Final files, revisions, and multi-format export — from broadcast to social, delivered exactly how you need it.</p>
       </div>
     </div>
   </section>
 
   <!-- Testimonials -->
-  <section class="px-6 md:px-12 py-40">
+  <section class="px-6 md:px-12 py-20 md:py-40">
     <div class="max-w-4xl mx-auto text-center reveal">
 
       <!-- Testimonial container -->
@@ -780,9 +828,9 @@
 
       <!-- Dots navigation -->
       <div class="flex items-center justify-center gap-3 mt-8">
-        <button class="testimonial-dot w-2 h-2 rounded-full bg-[#F64E29] transition-all duration-300" data-index="0"></button>
-        <button class="testimonial-dot w-2 h-2 rounded-full bg-[#EFEFEF]/20 transition-all duration-300" data-index="1"></button>
-        <button class="testimonial-dot w-2 h-2 rounded-full bg-[#EFEFEF]/20 transition-all duration-300" data-index="2"></button>
+        <button class="testimonial-dot relative w-10 h-10 flex items-center justify-center transition-all duration-300" data-index="0"><span class="w-2.5 h-2.5 rounded-full bg-[#F64E29] block pointer-events-none"></span></button>
+        <button class="testimonial-dot relative w-10 h-10 flex items-center justify-center transition-all duration-300" data-index="1"><span class="w-2.5 h-2.5 rounded-full bg-[#EFEFEF]/20 block pointer-events-none"></span></button>
+        <button class="testimonial-dot relative w-10 h-10 flex items-center justify-center transition-all duration-300" data-index="2"><span class="w-2.5 h-2.5 rounded-full bg-[#EFEFEF]/20 block pointer-events-none"></span></button>
       </div>
     </div>
   </section>
@@ -792,8 +840,8 @@
   <!-- ═══════════════════════════════════════════ -->
 
   <!-- Contact / Let's Work Together -->
-  <section id="contact" class="px-6 md:px-12 py-40 bg-[#191919]">
-    <div class="grid grid-cols-2 gap-24">
+  <section id="contact" class="px-6 md:px-12 py-20 md:py-40 bg-[#191919]">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
       <!-- Left: Headline + Info -->
       <div class="reveal">
         <h2 class="font-heading text-[48px] md:text-[64px] uppercase tracking-[0.02em] leading-[0.9] mb-6">
@@ -827,11 +875,11 @@
           <!-- Honeypot spam protection -->
           <input type="text" name="_gotcha" style="display:none">
           <input type="hidden" name="_subject" value="New project inquiry from vaneickelen.com">
-          <div class="grid grid-cols-2 gap-4">
-            <input type="text" name="name" placeholder="Name" required class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
-            <input type="email" name="email" placeholder="Email" required class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <input type="text" name="name" placeholder="Name" required aria-label="Your name" class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
+            <input type="email" name="email" placeholder="Email" required aria-label="Your email" class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
           </div>
-          <select name="project_type" class="bg-[#1C1C1C] border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
+          <select name="project_type" aria-label="Project type" class="bg-[#1C1C1C] border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
             <option value="" disabled selected>Project Type</option>
             <option value="Brand Film">Brand Film</option>
             <option value="Commercial">Commercial</option>
@@ -840,8 +888,8 @@
             <option value="Creative Direction">Creative Direction</option>
             <option value="Other">Other</option>
           </select>
-          <input type="text" name="budget" placeholder="Budget Range (optional)" class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
-          <textarea rows="5" name="message" placeholder="Tell me about your project..." required class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors resize-none"></textarea>
+          <input type="text" name="budget" placeholder="Budget Range (optional)" aria-label="Budget range" class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
+          <textarea rows="5" name="message" placeholder="Tell me about your project..." required aria-label="Project details" class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors resize-none"></textarea>
           <button type="submit" id="contact-submit" class="inline-flex items-center justify-center bg-transparent border border-[#EFEFEF]/20 text-[#EFEFEF]/50 font-heading uppercase text-[14px] tracking-[0.02em] px-8 py-3 rounded-sm gap-3 w-full mt-2 hover:border-[#F64E29]/40 hover:text-[#EFEFEF] hover:bg-[#F64E29]/5 transition-all duration-500">
             Send Message
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -867,6 +915,7 @@
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2760.8!2d6.1409!3d46.2107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c652e0e615d3b%3A0x29be6e1bc92d7a2e!2sRue%20de%20Montbrillant%2028%2C%201201%20Gen%C3%A8ve%2C%20Switzerland!5e0!3m2!1sen!2sch!4v1711000000000!5m2!1sen!2sch"
         class="w-full h-full border-0"
+        title="Map showing Van Eickelen studio location in Geneva, Switzerland"
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade">
@@ -892,12 +941,13 @@
   </section>
 
   <!-- Footer -->
-  <footer class="px-6 md:px-12 py-12">
-    <div class="flex items-center justify-between mb-12">
+  <footer class="px-6 md:px-12 py-8 md:py-12">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-0 mb-12">
       <!-- Page Links -->
-      <div class="flex items-center gap-8">
+      <div class="hidden sm:flex items-center gap-8">
         <a href="#hero" class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">Home</a>
-        <a href="#work" class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">Work</a>
+        <a href="#work" class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">Latest</a>
+        <a href="projects.html" class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">Projects</a>
         <a href="#services" class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">Expertise</a>
         <a href="#contact" class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">Contact</a>
       </div>
@@ -929,6 +979,17 @@
 
   <script src="https://player.vimeo.com/api/player.js"></script>
   <script>
+    // ─── Mobile Menu ───
+    const mobileMenu = document.getElementById('mobile-menu');
+    const openMenu = () => { mobileMenu.classList.remove('opacity-0', 'pointer-events-none'); mobileMenu.classList.add('opacity-100'); document.body.style.overflow = 'hidden'; };
+    const closeMenu = () => { mobileMenu.classList.add('opacity-0', 'pointer-events-none'); mobileMenu.classList.remove('opacity-100'); document.body.style.overflow = ''; };
+    document.getElementById('mobile-menu-btn').addEventListener('click', openMenu);
+    document.getElementById('mobile-menu-close').addEventListener('click', closeMenu);
+    document.querySelectorAll('.glass-mobile-menu-btn').forEach(btn => btn.addEventListener('click', openMenu));
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+      link.addEventListener('click', () => { closeMenu(); });
+    });
+
     // Vimeo background video
     const player = new Vimeo.Player('vimeo-bg', {
       id: 777174258,
@@ -958,7 +1019,6 @@
     });
 
     // Filter buttons
-    // Filter buttons
     const gridCards = document.querySelectorAll('.grid-hover > a[data-category]');
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -983,11 +1043,16 @@
 
     // Glass nav scroll behavior
     const glassNav = document.getElementById('glass-nav');
+    const staticNav = document.getElementById('static-nav');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) {
         glassNav.classList.add('visible');
+        staticNav.style.opacity = '0';
+        staticNav.style.pointerEvents = 'none';
       } else {
         glassNav.classList.remove('visible');
+        staticNav.style.opacity = '1';
+        staticNav.style.pointerEvents = '';
       }
     });
 
@@ -1002,8 +1067,11 @@
         s.style.pointerEvents = i === index ? 'auto' : 'none';
       });
       dots.forEach((d, i) => {
-        d.classList.toggle('bg-[#F64E29]', i === index);
-        d.classList.toggle('bg-[#EFEFEF]/20', i !== index);
+        const span = d.querySelector('span');
+        if (span) {
+          span.classList.toggle('bg-[#F64E29]', i === index);
+          span.classList.toggle('bg-[#EFEFEF]/20', i !== index);
+        }
       });
       currentSlide = index;
     }
@@ -1034,6 +1102,11 @@
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => revealObserver.observe(el));
+
+    // Safety net: force-reveal all elements after 3s in case observer fails
+    setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+    }, 3000);
 
     // ─── Contact Form (AJAX via Formspree) ───
     const contactForm = document.getElementById('contact-form');
