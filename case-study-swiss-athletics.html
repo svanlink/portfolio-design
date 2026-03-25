@@ -29,6 +29,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://player.vimeo.com">
+  <link rel="preconnect" href="https://i.vimeocdn.com">
+  <link rel="preconnect" href="https://f.vimeocdn.com">
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Urbanist:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     .font-heading { font-family: 'Bebas Neue', sans-serif; }
@@ -98,7 +101,6 @@
     }
 
     /* Smooth scroll */
-    html { scroll-behavior: smooth; }
 
     @keyframes scroll-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
     .scroll-indicator { animation: scroll-bounce 2s ease-in-out infinite; }
@@ -119,6 +121,12 @@
       0% { background-position: 200% 0; }
       100% { background-position: -200% 0; }
     }
+
+    /* Lenis smooth scroll */
+    html.lenis, html.lenis body { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+    .lenis.lenis-stopped { overflow: hidden; }
   </style>
 </head>
 <body class="bg-[#1C1C1C] text-[#EFEFEF]">
@@ -200,7 +208,7 @@
 
   <!-- Case Study Hero -->
   <section class="relative w-full h-screen overflow-hidden bg-[#1C1C1C]">
-    <div id="case-hero-video" class="absolute inset-0 z-0"></div>
+    <div id="case-hero-video" class="vimeo-card absolute inset-0 z-0" data-vimeo-id="338000108" data-vimeo-quality="1080p"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-[#1C1C1C] via-[#1C1C1C]/20 to-transparent z-10"></div>
     <div class="absolute inset-0 z-20 flex flex-col justify-end px-6 md:px-12 pb-16">
       <div class="max-w-4xl">
@@ -434,20 +442,16 @@
     </div>
   </footer>
 
-  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script src="https://player.vimeo.com/api/player.js" defer></script>
   <script>
     // ─── Mobile Menu ───
     const mobileMenu = document.getElementById('mobile-menu');
-    const openMenu = () => { mobileMenu.classList.remove('opacity-0', 'pointer-events-none'); mobileMenu.classList.add('opacity-100'); document.body.style.overflow = 'hidden'; };
-    const closeMenu = () => { mobileMenu.classList.add('opacity-0', 'pointer-events-none'); mobileMenu.classList.remove('opacity-100'); document.body.style.overflow = ''; };
+    const openMenu = () => { mobileMenu.classList.remove('opacity-0', 'pointer-events-none'); mobileMenu.classList.add('opacity-100'); document.body.style.overflow = 'hidden'; if (window.lenis) window.lenis.stop(); };
+    const closeMenu = () => { mobileMenu.classList.add('opacity-0', 'pointer-events-none'); mobileMenu.classList.remove('opacity-100'); document.body.style.overflow = ''; if (window.lenis) window.lenis.start(); };
     document.querySelectorAll('.mobile-menu-btn').forEach(btn => btn.addEventListener('click', openMenu));
     document.getElementById('mobile-menu-close').addEventListener('click', closeMenu);
     document.querySelectorAll('.mobile-menu-link').forEach(link => { link.addEventListener('click', closeMenu); });
-
-    const heroPlayer = new Vimeo.Player('case-hero-video', {
-      id: 338000108,
-      background: true, loop: true, muted: true, quality: '1080p'
-    });
+    // Vimeo hero handled by performance.js (lazy loading)
 
     const glassNav = document.getElementById('glass-nav');
     window.addEventListener('scroll', () => {
@@ -485,5 +489,7 @@
 
   <script src="assets/js/translations.js"></script>
   <script src="assets/js/lang-toggle.js"></script>
+  <script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
+  <script src="assets/js/performance.js"></script>
 </body>
 </html>

@@ -29,6 +29,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://player.vimeo.com">
+  <link rel="preconnect" href="https://i.vimeocdn.com">
+  <link rel="preconnect" href="https://f.vimeocdn.com">
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Urbanist:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     .font-heading { font-family: 'Bebas Neue', sans-serif; }
@@ -114,6 +117,12 @@
       .project-card:hover .project-number { color: #F64E29; }
       span:hover > .arrow-icon { color: #F64E29; }
     }
+
+    /* Lenis smooth scroll */
+    html.lenis, html.lenis body { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+    .lenis.lenis-stopped { overflow: hidden; }
   </style>
 </head>
 <body class="bg-[#1C1C1C] text-[#EFEFEF]">
@@ -202,7 +211,7 @@
           <span class="font-heading text-[16px] uppercase tracking-[0.02em] text-[#EFEFEF]">Adidas Terrex</span>
         </div>
         <div class="relative overflow-hidden aspect-video bg-[#111111]">
-          <div id="vimeo-proj-1" class="vimeo-card absolute inset-0 z-0"></div>
+          <div id="vimeo-proj-1" class="vimeo-card absolute inset-0 z-0" data-vimeo-id="460645906" data-vimeo-quality="720p"></div>
         </div>
         <span class="font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/20 mt-2 block" data-i18n="projects.card1.cat">Commercial · 2025</span>
       </a>
@@ -214,7 +223,7 @@
           <span class="font-heading text-[16px] uppercase tracking-[0.02em] text-[#EFEFEF]">Decathlon Switzerland</span>
         </div>
         <div class="relative overflow-hidden aspect-video bg-[#111111]">
-          <div id="vimeo-proj-2" class="vimeo-card absolute inset-0 z-0"></div>
+          <div id="vimeo-proj-2" class="vimeo-card absolute inset-0 z-0" data-vimeo-id="816041394" data-vimeo-quality="720p"></div>
         </div>
         <span class="font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/20 mt-2 block" data-i18n="projects.card2.cat">Brand Film · 2025</span>
       </a>
@@ -226,7 +235,7 @@
           <span class="font-heading text-[16px] uppercase tracking-[0.02em] text-[#EFEFEF]">Swiss Athletics</span>
         </div>
         <div class="relative overflow-hidden aspect-video bg-[#111111]">
-          <div id="vimeo-proj-3" class="vimeo-card absolute inset-0 z-0"></div>
+          <div id="vimeo-proj-3" class="vimeo-card absolute inset-0 z-0" data-vimeo-id="338000108" data-vimeo-quality="720p"></div>
         </div>
         <span class="font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/20 mt-2 block" data-i18n="projects.card3.cat">Sports · 2024</span>
       </a>
@@ -238,7 +247,7 @@
           <span class="font-heading text-[16px] uppercase tracking-[0.02em] text-[#EFEFEF]">Beyond The Summit</span>
         </div>
         <div class="relative overflow-hidden aspect-video bg-[#111111]">
-          <div id="vimeo-proj-4" class="vimeo-card absolute inset-0 z-0"></div>
+          <div id="vimeo-proj-4" class="vimeo-card absolute inset-0 z-0" data-vimeo-id="188244968" data-vimeo-quality="720p"></div>
         </div>
         <span class="font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/20 mt-2 block" data-i18n="projects.card4.cat">Documentary · 2024</span>
       </a>
@@ -250,7 +259,7 @@
           <span class="font-heading text-[16px] uppercase tracking-[0.02em] text-[#EFEFEF]">Luxury Hospitality</span>
         </div>
         <div class="relative overflow-hidden aspect-video bg-[#111111]">
-          <div id="vimeo-proj-5" class="vimeo-card absolute inset-0 z-0"></div>
+          <div id="vimeo-proj-5" class="vimeo-card absolute inset-0 z-0" data-vimeo-id="392226201" data-vimeo-quality="720p"></div>
         </div>
         <span class="font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/20 mt-2 block" data-i18n="projects.card5.cat">Commercial · 2024</span>
       </a>
@@ -262,7 +271,7 @@
           <span class="font-heading text-[16px] uppercase tracking-[0.02em] text-[#EFEFEF]">Startup Campaign</span>
         </div>
         <div class="relative overflow-hidden aspect-video bg-[#111111]">
-          <div id="vimeo-proj-6" class="vimeo-card absolute inset-0 z-0"></div>
+          <div id="vimeo-proj-6" class="vimeo-card absolute inset-0 z-0" data-vimeo-id="928454658" data-vimeo-quality="720p"></div>
         </div>
         <span class="font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/20 mt-2 block" data-i18n="projects.card6.cat">Brand Film · 2024</span>
       </a>
@@ -306,31 +315,14 @@
     </div>
   </footer>
 
-  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script src="https://player.vimeo.com/api/player.js" defer></script>
   <script>
-    // ─── Vimeo Card Players ───
-    const projVideos = [
-      { el: 'vimeo-proj-1', id: 460645906 },
-      { el: 'vimeo-proj-2', id: 816041394 },
-      { el: 'vimeo-proj-3', id: 338000108 },
-      { el: 'vimeo-proj-4', id: 188244968 },
-      { el: 'vimeo-proj-5', id: 392226201 },
-      { el: 'vimeo-proj-6', id: 928454658 },
-    ];
-    projVideos.forEach(v => {
-      new Vimeo.Player(v.el, {
-        id: v.id,
-        background: true,
-        loop: true,
-        muted: true,
-        quality: '720p'
-      });
-    });
+    // Vimeo videos now handled by performance.js (lazy loading via IntersectionObserver)
 
     // ─── Mobile Menu ───
     const mobileMenu = document.getElementById('mobile-menu');
-    const openMenu = () => { mobileMenu.classList.remove('opacity-0', 'pointer-events-none'); mobileMenu.classList.add('opacity-100'); document.body.style.overflow = 'hidden'; };
-    const closeMenu = () => { mobileMenu.classList.add('opacity-0', 'pointer-events-none'); mobileMenu.classList.remove('opacity-100'); document.body.style.overflow = ''; };
+    const openMenu = () => { mobileMenu.classList.remove('opacity-0', 'pointer-events-none'); mobileMenu.classList.add('opacity-100'); document.body.style.overflow = 'hidden'; if (window.lenis) window.lenis.stop(); };
+    const closeMenu = () => { mobileMenu.classList.add('opacity-0', 'pointer-events-none'); mobileMenu.classList.remove('opacity-100'); document.body.style.overflow = ''; if (window.lenis) window.lenis.start(); };
     document.querySelectorAll('.mobile-menu-btn').forEach(btn => btn.addEventListener('click', openMenu));
     document.getElementById('mobile-menu-close').addEventListener('click', closeMenu);
     document.querySelectorAll('.mobile-menu-link').forEach(link => { link.addEventListener('click', closeMenu); });
@@ -366,5 +358,7 @@
 
   <script src="assets/js/translations.js"></script>
   <script src="assets/js/lang-toggle.js"></script>
+  <script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
+  <script src="assets/js/performance.js"></script>
 </body>
 </html>
