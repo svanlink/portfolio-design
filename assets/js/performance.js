@@ -4,34 +4,56 @@
 (function() {
   'use strict';
 
+  // ═══ VIMEO PLAYER HELPERS ═══
+
+  function createVimeoPlayer(card) {
+    var vimeoId = card.dataset.vimeoId;
+    var quality = card.dataset.vimeoQuality || '720p';
+    if (!vimeoId || card.dataset.vimeoLoaded) return;
+
+    card.dataset.vimeoLoaded = 'true';
+    var player = new Vimeo.Player(card, {
+      id: parseInt(vimeoId),
+      background: true,
+      autoplay: true,
+      loop: true,
+      muted: true,
+      quality: quality
+    });
+    player.ready().then(function() {
+      player.play().catch(function() {});
+    });
+  }
+
+  // ═══ EAGER HERO VIDEO ═══
+  // Load the hero background video immediately (always above the fold)
+
+  function initHeroVideo() {
+    // Load hero videos eagerly — homepage (#vimeo-bg) and case studies (#case-hero-video)
+    var heroes = document.querySelectorAll('#vimeo-bg, #case-hero-video');
+    heroes.forEach(function(hero) {
+      if (hero && hero.dataset.vimeoId) {
+        createVimeoPlayer(hero);
+      }
+    });
+  }
+
   // ═══ LAZY VIMEO LOADING ═══
   // Only load Vimeo players when they scroll into view
   // Saves ~2MB per video on initial page load
 
-  const VIMEO_OBSERVER_MARGIN = '200px'; // Start loading 200px before visible
+  var VIMEO_OBSERVER_MARGIN = '200px'; // Start loading 200px before visible
 
   function initLazyVimeo() {
-    const vimeoCards = document.querySelectorAll('.vimeo-card[data-vimeo-id]');
+    // Select all vimeo cards EXCEPT heroes (already loaded eagerly)
+    var vimeoCards = document.querySelectorAll('.vimeo-card[data-vimeo-id]:not(#vimeo-bg):not(#case-hero-video)');
     if (!vimeoCards.length) return;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
         if (entry.isIntersecting) {
-          const card = entry.target;
-          const vimeoId = card.dataset.vimeoId;
-          const quality = card.dataset.vimeoQuality || '720p';
-
-          if (vimeoId && !card.dataset.vimeoLoaded) {
-            card.dataset.vimeoLoaded = 'true';
-            new Vimeo.Player(card, {
-              id: parseInt(vimeoId),
-              background: true,
-              loop: true,
-              muted: true,
-              quality: quality
-            });
-          }
-          observer.unobserve(card);
+          createVimeoPlayer(entry.target);
+          observer.unobserve(entry.target);
         }
       });
     }, {
@@ -39,20 +61,20 @@
       threshold: 0
     });
 
-    vimeoCards.forEach(card => observer.observe(card));
+    vimeoCards.forEach(function(card) { observer.observe(card); });
   }
 
   // ═══ LENIS SMOOTH SCROLL ═══
   // Premium cinematic scrolling — replaces native scroll-behavior: smooth
 
-  let lenisInstance = null;
+  var lenisInstance = null;
 
   function initLenis() {
     if (typeof Lenis === 'undefined') return;
 
     lenisInstance = new Lenis({
       duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Expo ease-out
+      easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
@@ -68,11 +90,11 @@
     requestAnimationFrame(raf);
 
     // Handle anchor links — smooth scroll to target
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', (e) => {
-        const targetId = anchor.getAttribute('href');
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        var targetId = anchor.getAttribute('href');
         if (targetId === '#') return;
-        const target = document.querySelector(targetId);
+        var target = document.querySelector(targetId);
         if (target) {
           e.preventDefault();
           lenisInstance.scrollTo(target, { offset: 0, duration: 1.5 });
@@ -87,8 +109,8 @@
   // ═══ SCROLL LISTENER OPTIMIZATION ═══
   // Debounced passive scroll for nav/parallax — prevents jank
 
-  let ticking = false;
-  const scrollCallbacks = [];
+  var ticking = false;
+  var scrollCallbacks = [];
 
   function onOptimizedScroll(callback) {
     scrollCallbacks.push(callback);
@@ -96,9 +118,9 @@
 
   function handleScroll() {
     if (!ticking) {
-      requestAnimationFrame(() => {
-        const scrollY = window.scrollY;
-        scrollCallbacks.forEach(cb => cb(scrollY));
+      requestAnimationFrame(function() {
+        var scrollY = window.scrollY;
+        scrollCallbacks.forEach(function(cb) { cb(scrollY); });
         ticking = false;
       });
       ticking = true;
@@ -114,12 +136,26 @@
   function init() {
     initLenis();
 
-    // Wait for Vimeo player.js to load, then init lazy loading
-    if (typeof Vimeo !== 'undefined') {
+    // Wait for Vimeo player.js to be available, then initialize videos
+    function onVimeoReady() {
+      initHeroVideo();
       initLazyVimeo();
+    }
+
+    if (typeof Vimeo !== 'undefined') {
+      onVimeoReady();
     } else {
-      // Vimeo script loads with defer — wait for it
-      window.addEventListener('load', initLazyVimeo);
+      // Poll for Vimeo API — handles defer scripts and cached page loads
+      var attempts = 0;
+      var check = setInterval(function() {
+        attempts++;
+        if (typeof Vimeo !== 'undefined') {
+          clearInterval(check);
+          onVimeoReady();
+        } else if (attempts > 50) {
+          clearInterval(check);
+        }
+      }, 100);
     }
   }
 
