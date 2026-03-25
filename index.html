@@ -316,18 +316,18 @@
 
       <!-- Center: Nav Links (hidden on mobile) -->
       <nav class="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-8">
-        <a href="#work" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Latest</a>
-        <a href="projects.html" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Projects</a>
-        <a href="#services" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Expertise</a>
-        <a href="#contact" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Contact</a>
+        <a href="#work" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.latest">Latest</a>
+        <a href="projects.html" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.projects">Projects</a>
+        <a href="#services" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.expertise">Expertise</a>
+        <a href="#contact" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.contact">Contact</a>
       </nav>
 
       <!-- Right: Hamburger (mobile) + Lang Switch + Availability -->
       <div class="flex items-center gap-3">
         <div class="hidden md:flex items-center gap-1 font-mono-nav text-[10px] uppercase tracking-[0.15em]">
-          <button id="lang-en" class="text-[#F64E29] transition-colors duration-400">EN</button>
+          <button class="lang-btn text-[#F64E29] transition-colors duration-400" data-lang="en">EN</button>
           <span class="text-[#EFEFEF]/30">|</span>
-          <button id="lang-fr" class="text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">FR</button>
+          <button class="lang-btn text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400" data-lang="fr">FR</button>
         </div>
 
         <div class="hidden md:flex items-center gap-1 border border-[#EFEFEF]/15 rounded-full px-2 py-0.5">
@@ -335,7 +335,7 @@
             <span class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-1 w-1 bg-green-400"></span>
           </span>
-          <span class="font-mono-nav text-[8px] uppercase tracking-[0.15em] text-[#EFEFEF]/70">Available</span>
+          <span class="font-mono-nav text-[8px] uppercase tracking-[0.15em] text-[#EFEFEF]/70" data-i18n="nav.available">Available</span>
         </div>
 
         <!-- Mobile menu button -->
@@ -356,17 +356,22 @@
         <path d="M6 18L18 6M6 6l12 12"/>
       </svg>
     </button>
-    <a href="#work" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Latest</a>
-    <a href="projects.html" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Projects</a>
-    <a href="#services" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Expertise</a>
-    <a href="#contact" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Contact</a>
+    <a href="#work" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.latest">Latest</a>
+    <a href="projects.html" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.projects">Projects</a>
+    <a href="#services" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.expertise">Expertise</a>
+    <a href="#contact" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.contact">Contact</a>
+    <div class="flex items-center gap-2 font-mono-nav text-[14px] uppercase tracking-[0.15em] mt-4">
+      <button class="lang-btn text-[#F64E29] transition-colors duration-400" data-lang="en">EN</button>
+      <span class="text-[#EFEFEF]/30">|</span>
+      <button class="lang-btn text-[#EFEFEF]/50 transition-colors duration-400" data-lang="fr">FR</button>
+    </div>
     <div class="flex items-center gap-3 mt-8">
       <div class="flex items-center gap-1 border border-[#EFEFEF]/15 rounded-full px-3 py-1">
         <span class="relative flex h-1.5 w-1.5">
           <span class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
           <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-400"></span>
         </span>
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/70">Available</span>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/70" data-i18n="nav.available">Available</span>
       </div>
     </div>
   </div>
@@ -383,18 +388,18 @@
 
       <!-- Center: Nav Links (hidden on mobile) -->
       <nav class="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-8">
-        <a href="#work" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Latest</a>
-        <a href="projects.html" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Projects</a>
-        <a href="#services" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Expertise</a>
-        <a href="#contact" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Contact</a>
+        <a href="#work" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.latest">Latest</a>
+        <a href="projects.html" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.projects">Projects</a>
+        <a href="#services" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.expertise">Expertise</a>
+        <a href="#contact" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.contact">Contact</a>
       </nav>
 
       <!-- Right: Lang Switch + Availability (hidden on mobile) + Hamburger -->
       <div class="flex items-center gap-3">
         <div class="hidden md:flex items-center gap-1 font-mono-nav text-[10px] uppercase tracking-[0.15em]">
-          <button class="lang-en-btn text-[#F64E29] transition-colors duration-400">EN</button>
+          <button class="lang-btn text-[#F64E29] transition-colors duration-400" data-lang="en">EN</button>
           <span class="text-[#EFEFEF]/30">|</span>
-          <button class="lang-fr-btn text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">FR</button>
+          <button class="lang-btn text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400" data-lang="fr">FR</button>
         </div>
 
         <div class="hidden md:flex items-center gap-1 border border-[#EFEFEF]/15 rounded-full px-2 py-0.5">
@@ -402,7 +407,7 @@
             <span class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-1 w-1 bg-green-400"></span>
           </span>
-          <span class="font-mono-nav text-[8px] uppercase tracking-[0.15em] text-[#EFEFEF]/70">Available</span>
+          <span class="font-mono-nav text-[8px] uppercase tracking-[0.15em] text-[#EFEFEF]/70" data-i18n="nav.available">Available</span>
         </div>
 
         <!-- Mobile menu button -->
@@ -429,7 +434,7 @@
       </h1>
       <div class="flex items-center gap-6 mb-4">
         <span class="w-12 h-[1px] bg-[#F64E29]"></span>
-        <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/70 cursor-default">Filmmaker · Photographer · Visual Storyteller</p>
+        <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/70 cursor-default" data-i18n="hero.subtitle">Filmmaker · Photographer · Visual Storyteller</p>
       </div>
     </div>
     <!-- Scroll indicator (hidden on mobile) -->
@@ -442,13 +447,13 @@
   <!-- Featured Projects Grid -->
   <section id="work" class="px-6 md:px-12 py-20 md:py-40">
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 md:mb-12 reveal">
-      <h2 class="font-heading text-[32px] md:text-[36px] uppercase tracking-[0.02em]">Selected Work</h2>
+      <h2 class="font-heading text-[32px] md:text-[36px] uppercase tracking-[0.02em]" data-i18n="work.title">Selected Work</h2>
       <div class="flex items-center gap-3 md:gap-4 flex-wrap">
-        <button class="filter-btn active font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] transition-colors duration-400 min-h-[44px] px-3" data-filter="all">All</button>
-        <button class="filter-btn font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400 min-h-[44px] px-3" data-filter="commercial">Commercials</button>
-        <button class="filter-btn font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400 min-h-[44px] px-3" data-filter="brand-film">Brand Films</button>
-        <button class="filter-btn font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400 min-h-[44px] px-3" data-filter="sports">Sports</button>
-        <button class="filter-btn font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400 min-h-[44px] px-3" data-filter="documentary">Documentary</button>
+        <button class="filter-btn active font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] transition-colors duration-400 min-h-[44px] px-3" data-filter="all" data-i18n="work.filter.all">All</button>
+        <button class="filter-btn font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400 min-h-[44px] px-3" data-filter="commercial" data-i18n="work.filter.commercials">Commercials</button>
+        <button class="filter-btn font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400 min-h-[44px] px-3" data-filter="brand-film" data-i18n="work.filter.brand">Brand Films</button>
+        <button class="filter-btn font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400 min-h-[44px] px-3" data-filter="sports" data-i18n="work.filter.sports">Sports</button>
+        <button class="filter-btn font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400 min-h-[44px] px-3" data-filter="documentary" data-i18n="work.filter.documentary">Documentary</button>
       </div>
     </div>
 
@@ -460,9 +465,9 @@
           <div id="vimeo-card-1" class="vimeo-card absolute inset-0 z-0"></div>
           <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#1C1C1C]/90 to-transparent z-10"></div>
           <div class="absolute bottom-0 left-0 p-6 z-20">
-            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-1 block">Commercial · 2025</span>
+            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-1 block" data-i18n="work.card1.cat">Commercial · 2025</span>
             <h3 class="font-heading text-[26px] uppercase tracking-[0.02em]">Adidas Terrex</h3>
-            <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60">Mountain running campaign</p>
+            <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60" data-i18n="work.card1.desc">Mountain running campaign</p>
           </div>
           <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex">
             <span class="w-10 h-10 border border-[#EFEFEF] hover:border-[#F64E29] hover:bg-[#F64E29]/15 rounded-full flex items-center justify-center transition-colors duration-400">
@@ -479,9 +484,9 @@
           <div id="vimeo-card-2" class="vimeo-card absolute inset-0 z-0"></div>
           <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#1C1C1C]/90 to-transparent z-10"></div>
           <div class="absolute bottom-0 left-0 p-6 z-20">
-            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-1 block">Brand Film · 2025</span>
+            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-1 block" data-i18n="work.card2.cat">Brand Film · 2025</span>
             <h3 class="font-heading text-[26px] uppercase tracking-[0.02em]">Decathlon Switzerland</h3>
-            <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60">Brand identity film</p>
+            <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60" data-i18n="work.card2.desc">Brand identity film</p>
           </div>
           <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex">
             <span class="w-10 h-10 border border-[#EFEFEF] hover:border-[#F64E29] hover:bg-[#F64E29]/15 rounded-full flex items-center justify-center transition-colors duration-400">
@@ -498,9 +503,9 @@
           <div id="vimeo-card-3" class="vimeo-card absolute inset-0 z-0"></div>
           <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#1C1C1C]/90 to-transparent z-10"></div>
           <div class="absolute bottom-0 left-0 p-6 z-20">
-            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-1 block">Sports · 2024</span>
+            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-1 block" data-i18n="work.card3.cat">Sports · 2024</span>
             <h3 class="font-heading text-[26px] uppercase tracking-[0.02em]">Swiss Athletics</h3>
-            <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60">Athlete portrait series</p>
+            <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60" data-i18n="work.card3.desc">Athlete portrait series</p>
           </div>
           <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex">
             <span class="w-10 h-10 border border-[#EFEFEF] hover:border-[#F64E29] hover:bg-[#F64E29]/15 rounded-full flex items-center justify-center transition-colors duration-400">
@@ -517,9 +522,9 @@
           <div id="vimeo-card-4" class="vimeo-card absolute inset-0 z-0"></div>
           <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#1C1C1C]/90 to-transparent z-10"></div>
           <div class="absolute bottom-0 left-0 p-6 z-20">
-            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-1 block">Documentary · 2024</span>
+            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-1 block" data-i18n="work.card4.cat">Documentary · 2024</span>
             <h3 class="font-heading text-[26px] uppercase tracking-[0.02em]">Beyond The Summit</h3>
-            <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60">Mountaineering documentary</p>
+            <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60" data-i18n="work.card4.desc">Mountaineering documentary</p>
           </div>
           <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex">
             <span class="w-10 h-10 border border-[#EFEFEF] hover:border-[#F64E29] hover:bg-[#F64E29]/15 rounded-full flex items-center justify-center transition-colors duration-400">
@@ -536,9 +541,9 @@
           <div id="vimeo-card-5" class="vimeo-card absolute inset-0 z-0"></div>
           <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#1C1C1C]/90 to-transparent z-10"></div>
           <div class="absolute bottom-0 left-0 p-6 z-20">
-            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-1 block">Commercial · 2024</span>
+            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-1 block" data-i18n="work.card5.cat">Commercial · 2024</span>
             <h3 class="font-heading text-[26px] uppercase tracking-[0.02em]">Luxury Hospitality</h3>
-            <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60">Hotel brand campaign</p>
+            <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60" data-i18n="work.card5.desc">Hotel brand campaign</p>
           </div>
           <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex">
             <span class="w-10 h-10 border border-[#EFEFEF] hover:border-[#F64E29] hover:bg-[#F64E29]/15 rounded-full flex items-center justify-center transition-colors duration-400">
@@ -555,9 +560,9 @@
           <div id="vimeo-card-6" class="vimeo-card absolute inset-0 z-0"></div>
           <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#1C1C1C]/90 to-transparent z-10"></div>
           <div class="absolute bottom-0 left-0 p-6 z-20">
-            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-1 block">Brand Film · 2024</span>
+            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-1 block" data-i18n="work.card6.cat">Brand Film · 2024</span>
             <h3 class="font-heading text-[26px] uppercase tracking-[0.02em]">Startup Campaign</h3>
-            <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60">Product launch film</p>
+            <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60" data-i18n="work.card6.desc">Product launch film</p>
           </div>
           <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex">
             <span class="w-10 h-10 border border-[#EFEFEF] hover:border-[#F64E29] hover:bg-[#F64E29]/15 rounded-full flex items-center justify-center transition-colors duration-400">
@@ -632,43 +637,43 @@
       <!-- Service 1: Brand Films -->
       <div class="service-card bg-[#1C1C1C] p-8 group hover:bg-[#222222] transition-colors duration-500">
         <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">01</span>
-        <h3 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-4 mb-3">Brand Films</h3>
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50">Cinematic brand stories and identity pieces that capture the soul of your brand and move your audience.</p>
+        <h3 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-4 mb-3" data-i18n="services.1.title">Brand Films</h3>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.1.desc">Cinematic brand stories and identity pieces that capture the soul of your brand and move your audience.</p>
       </div>
 
       <!-- Service 2: Commercial Production -->
       <div class="service-card bg-[#1C1C1C] p-8 group hover:bg-[#222222] transition-colors duration-500">
         <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">02</span>
-        <h3 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-4 mb-3">Commercial Production</h3>
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50">Ad spots for digital and broadcast — crafted with cinematic precision for maximum impact.</p>
+        <h3 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-4 mb-3" data-i18n="services.2.title">Commercial Production</h3>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.2.desc">Ad spots for digital and broadcast — crafted with cinematic precision for maximum impact.</p>
       </div>
 
       <!-- Service 3: Documentary / Mini-Series -->
       <div class="service-card bg-[#1C1C1C] p-8 group hover:bg-[#222222] transition-colors duration-500">
         <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">03</span>
-        <h3 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-4 mb-3">Documentary</h3>
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50">Long-form storytelling and mini-series that immerse viewers in compelling real-world narratives.</p>
+        <h3 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-4 mb-3" data-i18n="services.3.title">Documentary</h3>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.3.desc">Long-form storytelling and mini-series that immerse viewers in compelling real-world narratives.</p>
       </div>
 
       <!-- Service 4: Event Coverage -->
       <div class="service-card bg-[#1C1C1C] p-8 group hover:bg-[#222222] transition-colors duration-500">
         <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">04</span>
-        <h3 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-4 mb-3">Event Coverage</h3>
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50">Premium event films and recap edits that capture the energy, emotion, and essence of the moment.</p>
+        <h3 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-4 mb-3" data-i18n="services.4.title">Event Coverage</h3>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.4.desc">Premium event films and recap edits that capture the energy, emotion, and essence of the moment.</p>
       </div>
 
       <!-- Service 5: Creative Direction -->
       <div class="service-card bg-[#1C1C1C] p-8 group hover:bg-[#222222] transition-colors duration-500">
         <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">05</span>
-        <h3 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-4 mb-3">Creative Direction</h3>
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50">Concept development and visual strategy — from mood boards and treatments to full creative oversight.</p>
+        <h3 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-4 mb-3" data-i18n="services.5.title">Creative Direction</h3>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.5.desc">Concept development and visual strategy — from mood boards and treatments to full creative oversight.</p>
       </div>
 
       <!-- Service 6: Post-Production -->
       <div class="service-card bg-[#1C1C1C] p-8 group hover:bg-[#222222] transition-colors duration-500">
         <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">06</span>
-        <h3 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-4 mb-3">Post-Production</h3>
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50">Editing, color grading, sound design, and motion graphics — the final polish that elevates every frame.</p>
+        <h3 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-4 mb-3" data-i18n="services.6.title">Post-Production</h3>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.6.desc">Editing, color grading, sound design, and motion graphics — the final polish that elevates every frame.</p>
       </div>
     </div>
   </section>
@@ -686,7 +691,7 @@
       <div class="flex items-center justify-between p-6">
         <div class="flex items-center gap-3 md:gap-6">
           <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">01</span>
-          <h3 class="font-heading text-[24px] uppercase tracking-[0.02em]">Discovery</h3>
+          <h3 class="font-heading text-[24px] uppercase tracking-[0.02em]" data-i18n="process.1.title">Discovery</h3>
         </div>
         <span class="accordion-icon w-10 h-10 border border-[#EFEFEF]/20 group-hover:border-[#F64E29]/30 rounded-full flex items-center justify-center transition-all duration-500">
           <svg class="icon-plus w-4 h-4 text-[#EFEFEF]/50" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -698,7 +703,7 @@
         </span>
       </div>
       <div class="accordion-content overflow-hidden max-h-0 transition-all duration-700 ease-in-out">
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]">Understanding the vision, goals, and audience. We align on tone, objectives, and creative direction before anything else.</p>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]" data-i18n="process.1.desc">Understanding the vision, goals, and audience. We align on tone, objectives, and creative direction before anything else.</p>
       </div>
     </div>
 
@@ -706,7 +711,7 @@
       <div class="flex items-center justify-between p-6">
         <div class="flex items-center gap-3 md:gap-6">
           <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">02</span>
-          <h3 class="font-heading text-[24px] uppercase tracking-[0.02em]">Concept</h3>
+          <h3 class="font-heading text-[24px] uppercase tracking-[0.02em]" data-i18n="process.2.title">Concept</h3>
         </div>
         <span class="accordion-icon w-10 h-10 border border-[#EFEFEF]/20 group-hover:border-[#F64E29]/30 rounded-full flex items-center justify-center transition-all duration-500">
           <svg class="icon-plus w-4 h-4 text-[#EFEFEF]/50" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -718,7 +723,7 @@
         </span>
       </div>
       <div class="accordion-content overflow-hidden max-h-0 transition-all duration-700 ease-in-out">
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]">Creative direction, mood boards, and treatment. Script, storyboard, location scout, casting — every decision made before a camera rolls.</p>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]" data-i18n="process.2.desc">Creative direction, mood boards, and treatment. Script, storyboard, location scout, casting — every decision made before a camera rolls.</p>
       </div>
     </div>
 
@@ -726,7 +731,7 @@
       <div class="flex items-center justify-between p-6">
         <div class="flex items-center gap-3 md:gap-6">
           <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">03</span>
-          <h3 class="font-heading text-[24px] uppercase tracking-[0.02em]">Production</h3>
+          <h3 class="font-heading text-[24px] uppercase tracking-[0.02em]" data-i18n="process.3.title">Production</h3>
         </div>
         <span class="accordion-icon w-10 h-10 border border-[#EFEFEF]/20 group-hover:border-[#F64E29]/30 rounded-full flex items-center justify-center transition-all duration-500">
           <svg class="icon-plus w-4 h-4 text-[#EFEFEF]/50" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -738,7 +743,7 @@
         </span>
       </div>
       <div class="accordion-content overflow-hidden max-h-0 transition-all duration-700 ease-in-out">
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]">Principal photography with full crew. Cinema-grade cameras, natural and controlled lighting, directorial precision on set.</p>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]" data-i18n="process.3.desc">Principal photography with full crew. Cinema-grade cameras, natural and controlled lighting, directorial precision on set.</p>
       </div>
     </div>
 
@@ -746,7 +751,7 @@
       <div class="flex items-center justify-between p-6">
         <div class="flex items-center gap-3 md:gap-6">
           <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">04</span>
-          <h3 class="font-heading text-[24px] uppercase tracking-[0.02em]">Post</h3>
+          <h3 class="font-heading text-[24px] uppercase tracking-[0.02em]" data-i18n="process.4.title">Post</h3>
         </div>
         <span class="accordion-icon w-10 h-10 border border-[#EFEFEF]/20 group-hover:border-[#F64E29]/30 rounded-full flex items-center justify-center transition-all duration-500">
           <svg class="icon-plus w-4 h-4 text-[#EFEFEF]/50" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -758,7 +763,7 @@
         </span>
       </div>
       <div class="accordion-content overflow-hidden max-h-0 transition-all duration-700 ease-in-out">
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]">Non-linear edit, cinematic color grade, sound design, and motion graphics — the final polish that elevates every frame.</p>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]" data-i18n="process.4.desc">Non-linear edit, cinematic color grade, sound design, and motion graphics — the final polish that elevates every frame.</p>
       </div>
     </div>
 
@@ -766,7 +771,7 @@
       <div class="flex items-center justify-between p-6">
         <div class="flex items-center gap-3 md:gap-6">
           <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">05</span>
-          <h3 class="font-heading text-[24px] uppercase tracking-[0.02em]">Delivery</h3>
+          <h3 class="font-heading text-[24px] uppercase tracking-[0.02em]" data-i18n="process.5.title">Delivery</h3>
         </div>
         <span class="accordion-icon w-10 h-10 border border-[#EFEFEF]/20 group-hover:border-[#F64E29]/30 rounded-full flex items-center justify-center transition-all duration-500">
           <svg class="icon-plus w-4 h-4 text-[#EFEFEF]/50" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -778,7 +783,7 @@
         </span>
       </div>
       <div class="accordion-content overflow-hidden max-h-0 transition-all duration-700 ease-in-out">
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]">Final files, revisions, and multi-format export — from broadcast to social, delivered exactly how you need it.</p>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]" data-i18n="process.5.desc">Final files, revisions, and multi-format export — from broadcast to social, delivered exactly how you need it.</p>
       </div>
     </div>
   </section>
@@ -792,36 +797,36 @@
         <!-- Quote 1 -->
         <div class="testimonial-slide active absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-1000">
           <svg class="w-8 h-8 text-[#F64E29]/30 mb-8" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983z"/></svg>
-          <p class="font-body text-[15px] md:text-[17px] italic tracking-[0.02em] leading-[1.7] text-[#EFEFEF]/80 mb-8">
+          <p class="font-body text-[15px] md:text-[17px] italic tracking-[0.02em] leading-[1.7] text-[#EFEFEF]/80 mb-8" data-i18n="testimonial.1">
             "Sebastian doesn't just film — he understands the story we're trying to tell and elevates it beyond what we imagined."
           </p>
           <div>
             <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]">Marie Laurent</p>
-            <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mt-1">Marketing Director · Decathlon Switzerland</p>
+            <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mt-1" data-i18n="testimonial.1.role">Marketing Director · Decathlon Switzerland</p>
           </div>
         </div>
 
         <!-- Quote 2 -->
         <div class="testimonial-slide absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-1000">
           <svg class="w-8 h-8 text-[#F64E29]/30 mb-8" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983z"/></svg>
-          <p class="font-body text-[15px] md:text-[17px] italic tracking-[0.02em] leading-[1.7] text-[#EFEFEF]/80 mb-8">
+          <p class="font-body text-[15px] md:text-[17px] italic tracking-[0.02em] leading-[1.7] text-[#EFEFEF]/80 mb-8" data-i18n="testimonial.2">
             "The level of cinematic quality he brought to our campaign was on par with the biggest studios. Exceptional work."
           </p>
           <div>
             <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]">Thomas Keller</p>
-            <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mt-1">Brand Manager · Adidas Terrex</p>
+            <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mt-1" data-i18n="testimonial.2.role">Brand Manager · Adidas Terrex</p>
           </div>
         </div>
 
         <!-- Quote 3 -->
         <div class="testimonial-slide absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-1000">
           <svg class="w-8 h-8 text-[#F64E29]/30 mb-8" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983z"/></svg>
-          <p class="font-body text-[15px] md:text-[17px] italic tracking-[0.02em] leading-[1.7] text-[#EFEFEF]/80 mb-8">
+          <p class="font-body text-[15px] md:text-[17px] italic tracking-[0.02em] leading-[1.7] text-[#EFEFEF]/80 mb-8" data-i18n="testimonial.3">
             "Working with Sebastian felt like a true creative partnership. He pushed our vision further than we thought possible."
           </p>
           <div>
             <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]">Anna Richter</p>
-            <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mt-1">Head of Content · Swiss Athletics</p>
+            <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mt-1" data-i18n="testimonial.3.role">Head of Content · Swiss Athletics</p>
           </div>
         </div>
       </div>
@@ -850,12 +855,12 @@
         <!-- Contact details -->
         <div class="space-y-8">
           <div>
-            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block">Email</span>
+            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block" data-i18n="contact.email.label">Email</span>
             <a href="mailto:hello@vaneickelen.com" class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">hello@vaneickelen.com</a>
           </div>
           <div>
-            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block">Based In</span>
-            <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]">Switzerland · Working Globally</p>
+            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block" data-i18n="contact.based.label">Based In</span>
+            <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]" data-i18n="contact.based.value">Switzerland · Working Globally</p>
           </div>
         </div>
 
@@ -865,7 +870,7 @@
             <span class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
           </span>
-          <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]">Currently available for new projects</span>
+          <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]" data-i18n="contact.availability">Currently available for new projects</span>
         </div>
       </div>
 
@@ -876,20 +881,20 @@
           <input type="text" name="_gotcha" style="display:none">
           <input type="hidden" name="_subject" value="New project inquiry from vaneickelen.com">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <input type="text" name="name" placeholder="Name" required aria-label="Your name" class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
-            <input type="email" name="email" placeholder="Email" required aria-label="Your email" class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
+            <input type="text" name="name" placeholder="Name" data-i18n-ph="contact.form.name" required aria-label="Your name" class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
+            <input type="email" name="email" placeholder="Email" data-i18n-ph="contact.form.email" required aria-label="Your email" class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
           </div>
           <select name="project_type" aria-label="Project type" class="bg-[#1C1C1C] border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
-            <option value="" disabled selected>Project Type</option>
-            <option value="Brand Film">Brand Film</option>
-            <option value="Commercial">Commercial</option>
-            <option value="Documentary">Documentary</option>
-            <option value="Event Coverage">Event Coverage</option>
-            <option value="Creative Direction">Creative Direction</option>
-            <option value="Other">Other</option>
+            <option value="" disabled selected data-i18n="contact.form.type">Project Type</option>
+            <option value="Brand Film" data-i18n="contact.form.type.brand">Brand Film</option>
+            <option value="Commercial" data-i18n="contact.form.type.commercial">Commercial</option>
+            <option value="Documentary" data-i18n="contact.form.type.documentary">Documentary</option>
+            <option value="Event Coverage" data-i18n="contact.form.type.event">Event Coverage</option>
+            <option value="Creative Direction" data-i18n="contact.form.type.creative">Creative Direction</option>
+            <option value="Other" data-i18n="contact.form.type.other">Other</option>
           </select>
-          <input type="text" name="budget" placeholder="Budget Range (optional)" aria-label="Budget range" class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
-          <textarea rows="5" name="message" placeholder="Tell me about your project..." required aria-label="Project details" class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors resize-none"></textarea>
+          <input type="text" name="budget" placeholder="Budget Range (optional)" data-i18n-ph="contact.form.budget" aria-label="Budget range" class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
+          <textarea rows="5" name="message" placeholder="Tell me about your project..." data-i18n-ph="contact.form.message" required aria-label="Project details" class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors resize-none"></textarea>
           <button type="submit" id="contact-submit" class="inline-flex items-center justify-center bg-transparent border border-[#EFEFEF]/20 text-[#EFEFEF]/50 font-heading uppercase text-[14px] tracking-[0.02em] px-8 py-3 rounded-sm gap-3 w-full mt-2 hover:border-[#F64E29]/40 hover:text-[#EFEFEF] hover:bg-[#F64E29]/5 transition-all duration-500">
             Send Message
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -945,7 +950,7 @@
     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-0 mb-12">
       <!-- Page Links -->
       <div class="hidden sm:flex items-center gap-8">
-        <a href="#hero" class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">Home</a>
+        <a href="#hero" class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400" data-i18n="footer.home">Home</a>
         <a href="#work" class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">Latest</a>
         <a href="projects.html" class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">Projects</a>
         <a href="#services" class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">Expertise</a>
@@ -968,7 +973,7 @@
 
     <!-- Bottom bar -->
     <div class="flex items-center justify-between pt-8 border-t border-[#EFEFEF]/10">
-      <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/30">© 2026 Sebastian Van Eickelen. All Rights Reserved.</p>
+      <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/30" data-i18n="footer.rights">© 2026 Sebastian Van Eickelen. All Rights Reserved.</p>
       <a href="#hero" class="social-icon w-10 h-10 border border-[#EFEFEF]/10 rounded-full flex items-center justify-center hover:border-[#F64E29] transition-all duration-400">
         <svg class="w-4 h-4 text-[#EFEFEF]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path d="M17 17L7 7M7 7h10M7 7v10"/>
@@ -977,6 +982,8 @@
     </div>
   </footer>
 
+  <script src="assets/js/translations.js"></script>
+  <script src="assets/js/lang-toggle.js"></script>
   <script src="https://player.vimeo.com/api/player.js"></script>
   <script>
     // ─── Mobile Menu ───

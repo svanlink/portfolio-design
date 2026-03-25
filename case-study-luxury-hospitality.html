@@ -131,26 +131,32 @@
     <div class="relative flex items-center justify-between px-6 md:px-12 py-4">
       <a href="index.html" class="font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">
         <span class="md:hidden">VAN EICKELEN</span>
-        <span class="hidden md:inline">Home</span>
+        <span class="hidden md:inline" data-i18n="nav.home">Home</span>
       </a>
       <nav class="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-8">
-        <a href="index.html#work" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Latest</a>
-        <a href="projects.html" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Projects</a>
-        <a href="index.html#services" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Expertise</a>
-        <a href="index.html#contact" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Contact</a>
+        <a href="index.html#work" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.latest">Latest</a>
+        <a href="projects.html" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.projects">Projects</a>
+        <a href="index.html#services" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.expertise">Expertise</a>
+        <a href="index.html#contact" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.contact">Contact</a>
+    <!-- Mobile Language Toggle -->
+    <div class="flex items-center gap-3 mt-4 font-mono-nav text-[14px] uppercase tracking-[0.15em]">
+      <button class="lang-btn text-[#F64E29] transition-colors duration-400" data-lang="en">EN</button>
+      <span class="text-[#EFEFEF]/30">|</span>
+      <button class="lang-btn text-[#EFEFEF]/50 transition-colors duration-400" data-lang="fr">FR</button>
+    </div>
       </nav>
       <div class="flex items-center gap-3">
         <div class="hidden md:flex items-center gap-1 font-mono-nav text-[10px] uppercase tracking-[0.15em]">
-          <button class="text-[#F64E29] transition-colors duration-400">EN</button>
+          <button class="lang-btn text-[#F64E29] transition-colors duration-400" data-lang="en">EN</button>
           <span class="text-[#EFEFEF]/30">|</span>
-          <button class="text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">FR</button>
+          <button class="lang-btn text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400" data-lang="fr">FR</button>
         </div>
         <div class="hidden md:flex items-center gap-1 border border-[#EFEFEF]/15 rounded-full px-2 py-0.5">
           <span class="relative flex h-1 w-1">
             <span class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-1 w-1 bg-green-400"></span>
           </span>
-          <span class="font-mono-nav text-[8px] uppercase tracking-[0.15em] text-[#EFEFEF]/70">Available</span>
+          <span class="font-mono-nav text-[8px] uppercase tracking-[0.15em] text-[#EFEFEF]/70" data-i18n="nav.available">Available</span>
         </div>
         <!-- Mobile menu button -->
         <button class="mobile-menu-btn md:hidden w-10 h-10 flex items-center justify-center" aria-label="Open menu">
@@ -169,11 +175,17 @@
         <path d="M6 18L18 6M6 6l12 12"/>
       </svg>
     </button>
-    <a href="index.html" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Home</a>
-    <a href="index.html#work" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Latest</a>
-    <a href="projects.html" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Projects</a>
-    <a href="index.html#services" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Expertise</a>
-    <a href="index.html#contact" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Contact</a>
+    <a href="index.html" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.home">Home</a>
+    <a href="index.html#work" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.latest">Latest</a>
+    <a href="projects.html" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.projects">Projects</a>
+    <a href="index.html#services" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.expertise">Expertise</a>
+    <a href="index.html#contact" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.contact">Contact</a>
+    <!-- Mobile Language Toggle -->
+    <div class="flex items-center gap-3 mt-4 font-mono-nav text-[14px] uppercase tracking-[0.15em]">
+      <button class="lang-btn text-[#F64E29] transition-colors duration-400" data-lang="en">EN</button>
+      <span class="text-[#EFEFEF]/30">|</span>
+      <button class="lang-btn text-[#EFEFEF]/50 transition-colors duration-400" data-lang="fr">FR</button>
+    </div>
   </div>
 
   <!-- Back Link -->
@@ -192,18 +204,18 @@
     <div class="absolute inset-0 bg-gradient-to-t from-[#1C1C1C] via-[#1C1C1C]/20 to-transparent z-10"></div>
     <div class="absolute inset-0 z-20 flex flex-col justify-end px-6 md:px-12 pb-16">
       <div class="max-w-4xl">
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block">Commercial · 2024</span>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block" data-i18n="luxury.hero.cat">Commercial · 2024</span>
         <h1 class="font-heading text-[36px] sm:text-[48px] md:text-[80px] lg:text-[96px] uppercase tracking-[0.02em] leading-[0.9] mb-4">
           Luxury<br>Hospitality
         </h1>
         <div class="flex items-center gap-6">
           <span class="w-12 h-[1px] bg-[#F64E29]"></span>
-          <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/70">Hotel brand campaign — where architecture meets emotion</p>
+          <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/70" data-i18n="luxury.hero.desc">Hotel brand campaign — where architecture meets emotion</p>
         </div>
       </div>
     </div>
     <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2">
-      <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40">Scroll</span>
+      <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40" data-i18n="hero.scroll">Scroll</span>
       <span class="scroll-indicator w-[1px] h-8 bg-[#EFEFEF]/20 block"></span>
     </div>
   </section>
@@ -213,19 +225,19 @@
     <div class="max-w-[960px] mx-auto px-6">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
       <div>
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block">Client</span>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block" data-i18n="case.client">Client</span>
         <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]">Confidential — 5-Star Hotel Group</p>
       </div>
       <div>
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block">Role</span>
-        <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]">Director · Cinematographer</p>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block" data-i18n="case.role">Role</span>
+        <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]" data-i18n="luxury.location">Director · Cinematographer</p>
       </div>
       <div>
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block">Year</span>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block" data-i18n="case.year">Year</span>
         <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]">2024</p>
       </div>
       <div>
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block">Location</span>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block" data-i18n="case.location">Location</span>
         <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]">Lake Geneva Region</p>
       </div>
     </div>
@@ -246,14 +258,14 @@
     <div class="max-w-[960px] mx-auto px-6">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
       <div class="col-span-2 md:col-span-1">
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block">01</span>
-        <h2 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-2">The Brief</h2>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block" data-i18n="case.brief.num">01</span>
+        <h2 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-2" data-i18n="case.brief.title">The Brief</h2>
       </div>
       <div class="col-span-2 md:col-span-3">
-        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl">
+        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl" data-i18n="luxury.brief.p1">
           A five-star property on the shores of Lake Geneva needed a brand film that would speak to ultra-high-net-worth travelers — not with flashy visuals, but with restraint. The brief emphasized silence, texture, and a sense of timelessness.
         </p>
-        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mt-6">
+        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mt-6" data-i18n="luxury.brief.p2">
           The film would live on the hotel's website, private booking portals, and be shown to guests on arrival via in-room screens. Every frame had to feel like an invitation, not a sales pitch.
         </p>
       </div>
@@ -266,32 +278,32 @@
     <div class="max-w-[960px] mx-auto px-6">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
       <div class="col-span-2 md:col-span-1">
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block">02</span>
-        <h2 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-2">The Approach</h2>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block" data-i18n="case.approach.num">02</span>
+        <h2 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-2" data-i18n="case.approach.title">The Approach</h2>
       </div>
       <div class="col-span-2 md:col-span-3">
-        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl">
+        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl" data-i18n="luxury.approach.p1">
           We shot at dawn and dusk — the hours when the property feels most alive. No talent. No narration. Just the architecture breathing: light moving across marble, steam rising from the spa, linen catching wind on a terrace overlooking the lake.
         </p>
-        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mt-6">
+        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mt-6" data-i18n="luxury.approach.p2">
           The movement was glacially slow — long tracking shots on a slider, subtle dolly moves through corridors. The sound design was built around ambient textures: water, birds, the click of a door latch. The goal was ASMR-level intimacy.
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-12">
           <div class="border border-[#EFEFEF]/10 p-6">
-            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block">Camera</span>
+            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block" data-i18n="case.approach.camera">Camera</span>
             <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]">RED V-Raptor</p>
           </div>
           <div class="border border-[#EFEFEF]/10 p-6">
-            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block">Lenses</span>
+            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block" data-i18n="case.approach.lenses">Lenses</span>
             <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]">Leica Summilux-C</p>
           </div>
           <div class="border border-[#EFEFEF]/10 p-6">
-            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block">Shoot Days</span>
-            <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]">2 days</p>
+            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block" data-i18n="case.approach.days">Shoot Days</span>
+            <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]" data-i18n="luxury.approach.days">2 days</p>
           </div>
           <div class="border border-[#EFEFEF]/10 p-6">
-            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block">Deliverables</span>
+            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block" data-i18n="case.approach.deliverables">Deliverables</span>
             <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]">1 hero film, 3 room loops, website cuts</p>
           </div>
         </div>
@@ -305,11 +317,11 @@
     <div class="max-w-[960px] mx-auto px-6">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-12">
       <div class="col-span-2 md:col-span-1">
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block">03</span>
-        <h2 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-2">Behind<br>The Scenes</h2>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block" data-i18n="case.bts.num">03</span>
+        <h2 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-2" data-i18n="case.bts.title">Behind<br>The Scenes</h2>
       </div>
       <div class="col-span-2 md:col-span-3">
-        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl">
+        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl" data-i18n="luxury.bts.desc">
           Working in an active luxury property means invisible production. No cables on the floor. No gear in hallways. We moved like guests, not crew.
         </p>
       </div>
@@ -336,11 +348,11 @@
     <div class="max-w-[960px] mx-auto px-6">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
       <div class="col-span-2 md:col-span-1">
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block">04</span>
-        <h2 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-2">The Result</h2>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block" data-i18n="case.result.num">04</span>
+        <h2 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-2" data-i18n="case.result.title">The Result</h2>
       </div>
       <div class="col-span-2 md:col-span-3">
-        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mb-12">
+        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mb-12" data-i18n="luxury.result.p">
           The brand film became the centerpiece of the hotel's digital presence. Average time on the booking page increased significantly after the video was embedded. The hotel group commissioned two additional property films based on the results.
         </p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
@@ -354,7 +366,7 @@
           </div>
           <div>
             <span class="font-heading text-[36px] md:text-[48px] tracking-[0.02em] text-[#EFEFEF]">5</span>
-            <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/40 mt-1">Deliverables</p>
+            <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/40 mt-1" data-i18n="case.metrics.deliverables">Deliverables</p>
           </div>
           <div>
             <span class="font-heading text-[36px] md:text-[48px] tracking-[0.02em] text-[#EFEFEF]">8K</span>
@@ -373,12 +385,12 @@
       <svg class="w-8 h-8 text-[#F64E29]/30 mx-auto mb-8" fill="currentColor" viewBox="0 0 24 24">
         <path d="M11 7.05C7.28 7.56 4.56 10.33 4.56 14.17c0 2.22 1.33 3.83 3.33 3.83 1.78 0 3.11-1.33 3.11-3.06 0-1.72-1.22-2.94-2.83-2.94-.39 0-.78.11-1.06.22.39-2.22 2.22-4.22 4.89-4.61V7.05zm10 0c-3.72.5-6.44 3.28-6.44 7.11 0 2.22 1.33 3.83 3.33 3.83 1.78 0 3.11-1.33 3.11-3.06 0-1.72-1.22-2.94-2.83-2.94-.39 0-.78.11-1.06.22.39-2.22 2.22-4.22 4.89-4.61V7.05z"/>
       </svg>
-      <blockquote class="font-body text-[15px] md:text-[17px] italic tracking-[0.02em] leading-[1.7] text-[#EFEFEF]/80 mb-8">
+      <blockquote class="font-body text-[15px] md:text-[17px] italic tracking-[0.02em] leading-[1.7] text-[#EFEFEF]/80 mb-8" data-i18n="luxury.quote">
         "The film feels like the hotel itself — unhurried, considered, and deeply elegant. Our guests notice it immediately."
       </blockquote>
       <div>
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]">Isabelle Morand</p>
-        <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mt-1">General Manager</p>
+        <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mt-1" data-i18n="luxury.quote.role">General Manager</p>
       </div>
     </div>
     </div>
@@ -399,7 +411,7 @@
       </a>
       <a href="case-study-startup-campaign.html" class="group px-6 md:px-12 py-16 hover:bg-[#EFEFEF]/[0.03] transition-colors duration-400 text-right">
         <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block">
-          Next Project
+          <span data-i18n="case.next">Next Project</span>
           <svg class="w-3 h-3 inline ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M5 12h14M19 12l-6-6M19 12l-6 6"/>
           </svg>
@@ -413,7 +425,7 @@
   <!-- Footer -->
   <footer class="reveal py-8 border-t border-[#EFEFEF]/10">
     <div class="max-w-[960px] mx-auto px-6 flex items-center justify-between">
-    <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/30">&copy; 2026 Sebastian Van Eickelen. All Rights Reserved.</p>
+    <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/30" data-i18n="footer.rights">&copy; 2026 Sebastian Van Eickelen. All Rights Reserved.</p>
     <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;" class="w-10 h-10 border border-[#EFEFEF]/15 rounded-full flex items-center justify-center hover:border-[#F64E29] transition-colors duration-400">
       <svg class="w-4 h-4 text-[#EFEFEF]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path d="M17 17L7 7M7 7h10M7 7v10"/>
@@ -471,5 +483,7 @@
     });
   </script>
 
+  <script src="assets/js/translations.js"></script>
+  <script src="assets/js/lang-toggle.js"></script>
 </body>
 </html>

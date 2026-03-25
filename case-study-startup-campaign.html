@@ -131,26 +131,32 @@
     <div class="relative flex items-center justify-between px-6 md:px-12 py-4">
       <a href="index.html" class="font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">
         <span class="md:hidden">VAN EICKELEN</span>
-        <span class="hidden md:inline">Home</span>
+        <span class="hidden md:inline" data-i18n="nav.home">Home</span>
       </a>
       <nav class="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-8">
-        <a href="index.html#work" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Latest</a>
-        <a href="projects.html" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Projects</a>
-        <a href="index.html#services" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Expertise</a>
-        <a href="index.html#contact" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Contact</a>
+        <a href="index.html#work" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.latest">Latest</a>
+        <a href="projects.html" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.projects">Projects</a>
+        <a href="index.html#services" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.expertise">Expertise</a>
+        <a href="index.html#contact" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.contact">Contact</a>
+    <!-- Mobile Language Toggle -->
+    <div class="flex items-center gap-3 mt-4 font-mono-nav text-[14px] uppercase tracking-[0.15em]">
+      <button class="lang-btn text-[#F64E29] transition-colors duration-400" data-lang="en">EN</button>
+      <span class="text-[#EFEFEF]/30">|</span>
+      <button class="lang-btn text-[#EFEFEF]/50 transition-colors duration-400" data-lang="fr">FR</button>
+    </div>
       </nav>
       <div class="flex items-center gap-3">
         <div class="hidden md:flex items-center gap-1 font-mono-nav text-[10px] uppercase tracking-[0.15em]">
-          <button class="text-[#F64E29] transition-colors duration-400">EN</button>
+          <button class="lang-btn text-[#F64E29] transition-colors duration-400" data-lang="en">EN</button>
           <span class="text-[#EFEFEF]/30">|</span>
-          <button class="text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">FR</button>
+          <button class="lang-btn text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400" data-lang="fr">FR</button>
         </div>
         <div class="hidden md:flex items-center gap-1 border border-[#EFEFEF]/15 rounded-full px-2 py-0.5">
           <span class="relative flex h-1 w-1">
             <span class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-1 w-1 bg-green-400"></span>
           </span>
-          <span class="font-mono-nav text-[8px] uppercase tracking-[0.15em] text-[#EFEFEF]/70">Available</span>
+          <span class="font-mono-nav text-[8px] uppercase tracking-[0.15em] text-[#EFEFEF]/70" data-i18n="nav.available">Available</span>
         </div>
         <!-- Mobile menu button -->
         <button class="mobile-menu-btn md:hidden w-10 h-10 flex items-center justify-center" aria-label="Open menu">
@@ -169,11 +175,17 @@
         <path d="M6 18L18 6M6 6l12 12"/>
       </svg>
     </button>
-    <a href="index.html" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Home</a>
-    <a href="index.html#work" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Latest</a>
-    <a href="projects.html" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Projects</a>
-    <a href="index.html#services" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Expertise</a>
-    <a href="index.html#contact" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">Contact</a>
+    <a href="index.html" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.home">Home</a>
+    <a href="index.html#work" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.latest">Latest</a>
+    <a href="projects.html" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.projects">Projects</a>
+    <a href="index.html#services" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.expertise">Expertise</a>
+    <a href="index.html#contact" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.contact">Contact</a>
+    <!-- Mobile Language Toggle -->
+    <div class="flex items-center gap-3 mt-4 font-mono-nav text-[14px] uppercase tracking-[0.15em]">
+      <button class="lang-btn text-[#F64E29] transition-colors duration-400" data-lang="en">EN</button>
+      <span class="text-[#EFEFEF]/30">|</span>
+      <button class="lang-btn text-[#EFEFEF]/50 transition-colors duration-400" data-lang="fr">FR</button>
+    </div>
   </div>
 
   <!-- Back Link -->
@@ -192,18 +204,18 @@
     <div class="absolute inset-0 bg-gradient-to-t from-[#1C1C1C] via-[#1C1C1C]/20 to-transparent z-10"></div>
     <div class="absolute inset-0 z-20 flex flex-col justify-end px-6 md:px-12 pb-16">
       <div class="max-w-4xl">
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block">Brand Film · 2024</span>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block" data-i18n="startup.hero.cat">Brand Film · 2024</span>
         <h1 class="font-heading text-[36px] sm:text-[48px] md:text-[80px] lg:text-[96px] uppercase tracking-[0.02em] leading-[0.9] mb-4">
           Startup<br>Campaign
         </h1>
         <div class="flex items-center gap-6">
           <span class="w-12 h-[1px] bg-[#F64E29]"></span>
-          <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/70">Product launch film — turning a tech product into a human story</p>
+          <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/70" data-i18n="startup.hero.desc">Product launch film — turning a tech product into a human story</p>
         </div>
       </div>
     </div>
     <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2">
-      <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40">Scroll</span>
+      <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40" data-i18n="hero.scroll">Scroll</span>
       <span class="scroll-indicator w-[1px] h-8 bg-[#EFEFEF]/20 block"></span>
     </div>
   </section>
@@ -213,19 +225,19 @@
     <div class="max-w-[960px] mx-auto px-6">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
       <div>
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block">Client</span>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block" data-i18n="case.client">Client</span>
         <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]">Swiss Tech Startup</p>
       </div>
       <div>
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block">Role</span>
-        <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]">Director · Cinematographer · Editor</p>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block" data-i18n="case.role">Role</span>
+        <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]" data-i18n="startup.role">Director · Cinematographer · Editor</p>
       </div>
       <div>
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block">Year</span>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block" data-i18n="case.year">Year</span>
         <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]">2024</p>
       </div>
       <div>
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block">Location</span>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block" data-i18n="case.location">Location</span>
         <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]">Zurich & Remote</p>
       </div>
     </div>
@@ -246,14 +258,14 @@
     <div class="max-w-[960px] mx-auto px-6">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
       <div class="col-span-2 md:col-span-1">
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block">01</span>
-        <h2 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-2">The Brief</h2>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block" data-i18n="case.brief.num">01</span>
+        <h2 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-2" data-i18n="case.brief.title">The Brief</h2>
       </div>
       <div class="col-span-2 md:col-span-3">
-        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl">
+        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl" data-i18n="startup.brief.p1">
           A Swiss-based tech startup was preparing to launch their first consumer product — a wearable designed for outdoor athletes. They needed a launch film that could anchor their crowdfunding campaign and set the tone for the brand going forward.
         </p>
-        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mt-6">
+        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mt-6" data-i18n="startup.brief.p2">
           The challenge: make a product that doesn't exist yet feel essential. The film had to communicate both the technology and the emotion behind it — why someone would care enough to back it.
         </p>
       </div>
@@ -266,32 +278,32 @@
     <div class="max-w-[960px] mx-auto px-6">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
       <div class="col-span-2 md:col-span-1">
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block">02</span>
-        <h2 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-2">The Approach</h2>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block" data-i18n="case.approach.num">02</span>
+        <h2 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-2" data-i18n="case.approach.title">The Approach</h2>
       </div>
       <div class="col-span-2 md:col-span-3">
-        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl">
+        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl" data-i18n="startup.approach.p1">
           We split the film into two acts. Act one: the problem — a runner alone in the mountains, disconnected, navigating by instinct. Act two: the product — the same runner, same mountain, but now with data, confidence, and clarity. The transition happens in a single, unbroken shot.
         </p>
-        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mt-6">
+        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mt-6" data-i18n="startup.approach.p2">
           Product shots were captured in a controlled tabletop studio setup with macro lenses — close enough to see the texture of the band, the glow of the display. These were intercut with the outdoor narrative to create a rhythm between intimacy and scale.
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-12">
           <div class="border border-[#EFEFEF]/10 p-6">
-            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block">Camera</span>
+            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block" data-i18n="case.approach.camera">Camera</span>
             <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]">Sony FX6 + Sony A7R V (product)</p>
           </div>
           <div class="border border-[#EFEFEF]/10 p-6">
-            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block">Lenses</span>
+            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block" data-i18n="case.approach.lenses">Lenses</span>
             <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]">Sony 24-70 GM + Laowa 100mm Macro</p>
           </div>
           <div class="border border-[#EFEFEF]/10 p-6">
-            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block">Shoot Days</span>
+            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block" data-i18n="case.approach.days">Shoot Days</span>
             <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]">2 days outdoor + 1 day studio</p>
           </div>
           <div class="border border-[#EFEFEF]/10 p-6">
-            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block">Deliverables</span>
+            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-3 block" data-i18n="case.approach.deliverables">Deliverables</span>
             <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]">1 launch film, 5 social cuts, product stills</p>
           </div>
         </div>
@@ -305,11 +317,11 @@
     <div class="max-w-[960px] mx-auto px-6">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-12">
       <div class="col-span-2 md:col-span-1">
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block">03</span>
-        <h2 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-2">Behind<br>The Scenes</h2>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block" data-i18n="case.bts.num">03</span>
+        <h2 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-2" data-i18n="case.bts.title">Behind<br>The Scenes</h2>
       </div>
       <div class="col-span-2 md:col-span-3">
-        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl">
+        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl" data-i18n="startup.bts.desc">
           Half the shoot was on a mountain ridge. The other half was in a blacked-out studio with a single spotlight and a prototype that we couldn't scratch. Two very different worlds, one film.
         </p>
       </div>
@@ -336,11 +348,11 @@
     <div class="max-w-[960px] mx-auto px-6">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
       <div class="col-span-2 md:col-span-1">
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block">04</span>
-        <h2 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-2">The Result</h2>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] block" data-i18n="case.result.num">04</span>
+        <h2 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-2" data-i18n="case.result.title">The Result</h2>
       </div>
       <div class="col-span-2 md:col-span-3">
-        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mb-12">
+        <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mb-12" data-i18n="startup.result.p">
           The launch film anchored a crowdfunding campaign that reached its target within the first 72 hours. The video was credited by the founding team as the single most effective piece of their launch strategy, driving both conversions and press coverage.
         </p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
@@ -358,7 +370,7 @@
           </div>
           <div>
             <span class="font-heading text-[36px] md:text-[48px] tracking-[0.02em] text-[#EFEFEF]">7</span>
-            <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/40 mt-1">Deliverables</p>
+            <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/40 mt-1" data-i18n="case.metrics.deliverables">Deliverables</p>
           </div>
         </div>
       </div>
@@ -373,12 +385,12 @@
       <svg class="w-8 h-8 text-[#F64E29]/30 mx-auto mb-8" fill="currentColor" viewBox="0 0 24 24">
         <path d="M11 7.05C7.28 7.56 4.56 10.33 4.56 14.17c0 2.22 1.33 3.83 3.33 3.83 1.78 0 3.11-1.33 3.11-3.06 0-1.72-1.22-2.94-2.83-2.94-.39 0-.78.11-1.06.22.39-2.22 2.22-4.22 4.89-4.61V7.05zm10 0c-3.72.5-6.44 3.28-6.44 7.11 0 2.22 1.33 3.83 3.33 3.83 1.78 0 3.11-1.33 3.11-3.06 0-1.72-1.22-2.94-2.83-2.94-.39 0-.78.11-1.06.22.39-2.22 2.22-4.22 4.89-4.61V7.05z"/>
       </svg>
-      <blockquote class="font-body text-[15px] md:text-[17px] italic tracking-[0.02em] leading-[1.7] text-[#EFEFEF]/80 mb-8">
+      <blockquote class="font-body text-[15px] md:text-[17px] italic tracking-[0.02em] leading-[1.7] text-[#EFEFEF]/80 mb-8" data-i18n="startup.quote">
         "Sebastian turned our prototype into a story people wanted to be part of. The film didn't just launch a product — it launched a brand."
       </blockquote>
       <div>
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]">Marco Weiss</p>
-        <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mt-1">Co-Founder & CEO</p>
+        <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mt-1" data-i18n="startup.quote.role">Co-Founder & CEO</p>
       </div>
     </div>
     </div>
@@ -404,7 +416,7 @@
             <path d="M5 12h14M19 12l-6-6M19 12l-6 6"/>
           </svg>
         </span>
-        <span class="font-heading text-[18px] md:text-[24px] uppercase tracking-[0.02em] group-hover:text-[#F64E29] transition-colors duration-400">Back to Grid</span>
+        <span class="font-heading text-[18px] md:text-[24px] uppercase tracking-[0.02em] group-hover:text-[#F64E29] transition-colors duration-400" data-i18n="case.backgrid">Back to Grid</span>
       </a>
     </div>
     </div>
@@ -413,7 +425,7 @@
   <!-- Footer -->
   <footer class="reveal py-8 border-t border-[#EFEFEF]/10">
     <div class="max-w-[960px] mx-auto px-6 flex items-center justify-between">
-    <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/30">&copy; 2026 Sebastian Van Eickelen. All Rights Reserved.</p>
+    <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/30" data-i18n="footer.rights">&copy; 2026 Sebastian Van Eickelen. All Rights Reserved.</p>
     <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;" class="w-10 h-10 border border-[#EFEFEF]/15 rounded-full flex items-center justify-center hover:border-[#F64E29] transition-colors duration-400">
       <svg class="w-4 h-4 text-[#EFEFEF]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path d="M17 17L7 7M7 7h10M7 7v10"/>
@@ -471,5 +483,7 @@
     });
   </script>
 
+  <script src="assets/js/translations.js"></script>
+  <script src="assets/js/lang-toggle.js"></script>
 </body>
 </html>
