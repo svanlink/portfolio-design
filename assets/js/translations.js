@@ -102,6 +102,14 @@ const TRANSLATIONS = {
     "map.gmaps": "Google Maps",
     "map.apple": "Apple Maps",
 
+    // ═══ About ═══
+    "about.heading": "Le Réalisateur",
+    "about.bio1": "Je suis Sebastian — réalisateur basé à Genève. Ces dernières années, j'ai essayé de m'améliorer dans une seule chose : communiquer quelque chose d'honnête à travers une caméra. Films de marque, publicités, documentaires — le format m'importe moins que de savoir si ce qu'on crée fait vraiment ressentir quelque chose.",
+    "about.bio2": "Ce qui m'intéresse, c'est créer un travail qui dépasse le moment pour lequel il a été fait. Le genre de pièce que quelqu'un regarde des années plus tard et qui donne encore l'impression d'une conversation au présent. C'est ce que je poursuis. Je n'y suis pas encore — mais chaque projet me rapproche un peu.",
+    "about.bio3": "J'ai eu la chance de travailler avec des marques comme Adidas, Cartier, Red Bull et Nike — des Alpes suisses aux plaines volcaniques d'Islande. Chaque projet m'apprend quelque chose. Je retiens une chose qui a bien marché, une chose à améliorer, et j'avance avec. Le reste s'efface.",
+    "about.bio4": "Je crois que le meilleur travail naît des vraies relations qu'on construit avec les gens aux côtés de qui on crée. Pas en courant après la prochaine chose — mais en plantant des graines, en disant oui à ce qui nous anime, et en faisant confiance au fil conducteur qui se révèle avec le temps.",
+    "about.toggle": "Lire la suite",
+
     // ═══ Blog ═══
     "nav.blog": "Blog",
     "blog.label": "Journal",

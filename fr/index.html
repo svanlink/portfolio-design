@@ -399,6 +399,49 @@
   </section>
 
   <!-- ═══════════════════════════════════════════ -->
+  <!-- ABOUT — THE FILMMAKER                   -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <section id="about" class="pt-0 pb-20 md:py-40 bg-[#161616]">
+
+    <!-- Mobile: full-bleed image, then padded text. Desktop: 7/1/4 grid -->
+    <div class="lg:px-12 lg:grid lg:grid-cols-12 lg:gap-0 lg:items-start">
+
+      <!-- Left: Cinematic photo (7 cols desktop, full-bleed mobile) -->
+      <div class="lg:col-span-7 relative overflow-hidden lg:rounded-sm reveal">
+        <img src="../assets/images/about-wide.jpg" alt="Sebastian Van Eickelen — Réalisateur en Islande" class="w-full aspect-[16/7] lg:aspect-[3/1] object-cover object-[65%_center]" loading="lazy">
+        <!-- Fade bottom into background -->
+        <div class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#161616] to-transparent"></div>
+      </div>
+
+      <!-- Spacer (1 col) — empty -->
+      <div class="hidden lg:block lg:col-span-1"></div>
+
+      <!-- Right: Text content (4 cols) — aligned to image top -->
+      <div class="lg:col-span-4 flex flex-col px-6 md:px-12 lg:px-0 mt-10 lg:mt-0">
+        <h2 class="font-heading text-[42px] sm:text-[52px] md:text-[72px] lg:text-[48px] xl:text-[56px] uppercase tracking-[0.02em] leading-[0.85] reveal" data-i18n="about.heading">Le Réalisateur</h2>
+
+        <div class="mt-6 space-y-4 reveal">
+          <p class="font-body text-[12px] md:text-[13px] leading-[1.8] text-[#EFEFEF]/60" data-i18n="about.bio1">Je suis Sebastian — réalisateur basé à Genève. Ces dernières années, j'ai essayé de m'améliorer dans une seule chose : communiquer quelque chose d'honnête à travers une caméra. Films de marque, publicités, documentaires — le format m'importe moins que de savoir si ce qu'on crée fait vraiment ressentir quelque chose.</p>
+          <p class="font-body text-[12px] md:text-[13px] leading-[1.8] text-[#EFEFEF]/60" data-i18n="about.bio2">Ce qui m'intéresse, c'est créer un travail qui dépasse le moment pour lequel il a été fait. Le genre de pièce que quelqu'un regarde des années plus tard et qui donne encore l'impression d'une conversation au présent. C'est ce que je poursuis. Je n'y suis pas encore — mais chaque projet me rapproche un peu.</p>
+          <!-- Extra paragraphs: visible on desktop, toggled on mobile/tablet -->
+          <div class="hidden lg:block space-y-4">
+            <p class="font-body text-[12px] md:text-[13px] leading-[1.8] text-[#EFEFEF]/60" data-i18n="about.bio3">J'ai eu la chance de travailler avec des marques comme Adidas, Cartier, Red Bull et Nike — des Alpes suisses aux plaines volcaniques d'Islande. Chaque projet m'apprend quelque chose. Je retiens une chose qui a bien marché, une chose à améliorer, et j'avance avec. Le reste s'efface.</p>
+            <p class="font-body text-[12px] md:text-[13px] leading-[1.8] text-[#EFEFEF]/60" data-i18n="about.bio4">Je crois que le meilleur travail naît des vraies relations qu'on construit avec les gens aux côtés de qui on crée. Pas en courant après la prochaine chose — mais en plantant des graines, en disant oui à ce qui nous anime, et en faisant confiance au fil conducteur qui se révèle avec le temps.</p>
+          </div>
+          <!-- Expandable on mobile/tablet -->
+          <div id="about-more" class="lg:hidden hidden space-y-4">
+            <p class="font-body text-[12px] md:text-[13px] leading-[1.8] text-[#EFEFEF]/60" data-i18n="about.bio3">J'ai eu la chance de travailler avec des marques comme Adidas, Cartier, Red Bull et Nike — des Alpes suisses aux plaines volcaniques d'Islande. Chaque projet m'apprend quelque chose. Je retiens une chose qui a bien marché, une chose à améliorer, et j'avance avec. Le reste s'efface.</p>
+            <p class="font-body text-[12px] md:text-[13px] leading-[1.8] text-[#EFEFEF]/60" data-i18n="about.bio4">Je crois que le meilleur travail naît des vraies relations qu'on construit avec les gens aux côtés de qui on crée. Pas en courant après la prochaine chose — mais en plantant des graines, en disant oui à ce qui nous anime, et en faisant confiance au fil conducteur qui se révèle avec le temps.</p>
+          </div>
+          <button id="about-toggle" class="lg:hidden font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 hover:text-[#EFEFEF]/70 transition-colors mt-2" onclick="document.getElementById('about-more').classList.toggle('hidden');this.textContent=this.textContent.trim()==='Lire la suite'?'Voir moins':'Lire la suite';" data-i18n="about.toggle">Lire la suite</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
   <!-- WHO YOU ARE — BUILD TRUST                -->
   <!-- ═══════════════════════════════════════════ -->
 
