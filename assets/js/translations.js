@@ -14,7 +14,7 @@ const TRANSLATIONS = {
     "nav.brand": "VAN EICKELEN",
 
     // ═══ INDEX — Hero ═══
-    "hero.subtitle": "Films de marque cinématographiques — des Alpes suisses au monde entier",
+    "hero.subtitle": "Storytelling audacieux et authentique qui inspire l'action.",
     "hero.cta": "Voir la Bande Démo",
     "hero.scroll": "Défiler",
 
