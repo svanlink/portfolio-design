@@ -1,0 +1,27 @@
+{
+  "name": "portfolio-design",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "npx @tailwindcss/cli -i assets/css/input.css -o assets/css/styles.css --minify",
+    "watch:css": "npx @tailwindcss/cli -i assets/css/input.css -o assets/css/styles.css --watch",
+    "build": "npm run build:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svanlink/portfolio-design.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/svanlink/portfolio-design/issues"
+  },
+  "homepage": "https://github.com/svanlink/portfolio-design#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.2",
+    "tailwindcss": "^4.2.2"
+  }
+}
