@@ -102,12 +102,18 @@ const TRANSLATIONS = {
     "map.gmaps": "Google Maps",
     "map.apple": "Apple Maps",
 
+    // ═══ Blog ═══
+    "nav.blog": "Blog",
+    "blog.label": "Journal",
+    "blog.title": "Blog",
+
     // ═══ INDEX — Footer ═══
     "footer.home": "Accueil",
     "footer.latest": "Récents",
     "footer.projects": "Projets",
     "footer.expertise": "Expertise",
     "footer.contact": "Contact",
+    "footer.blog": "Blog",
     "footer.rights": "© 2026 Sebastian Van Eickelen. Tous Droits Réservés.",
 
     // ═══ PROJECTS PAGE ═══
