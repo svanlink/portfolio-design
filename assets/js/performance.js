@@ -6,12 +6,17 @@
 
   // ═══ VIMEO PLAYER HELPERS ═══
 
+  var HERO_START_TIME = 3;
+  var HERO_END_TRIM = 8;
+
   function createVimeoPlayer(card) {
     var vimeoId = card.dataset.vimeoId;
     var quality = card.dataset.vimeoQuality || '720p';
     if (!vimeoId || card.dataset.vimeoLoaded) return;
 
     card.dataset.vimeoLoaded = 'true';
+    var isHero = card.id === 'vimeo-bg';
+
     var player = new Vimeo.Player(card, {
       id: parseInt(vimeoId),
       background: true,
@@ -21,7 +26,27 @@
       quality: quality
     });
     player.ready().then(function() {
-      player.play().catch(function() {});
+      if (isHero) {
+        // Hide iframe until seeked to avoid flash of 0:00
+        var iframe = card.querySelector('iframe');
+        if (iframe) iframe.style.opacity = '0';
+        player.setCurrentTime(HERO_START_TIME).then(function() {
+          if (iframe) {
+            iframe.style.transition = 'opacity 0.8s ease';
+            iframe.style.opacity = '1';
+          }
+        });
+        player.getDuration().then(function(duration) {
+          var loopEnd = duration - HERO_END_TRIM;
+          player.on('timeupdate', function(data) {
+            if (data.seconds >= loopEnd) {
+              player.setCurrentTime(HERO_START_TIME).catch(function() {});
+            }
+          });
+        });
+      } else {
+        player.play().catch(function() {});
+      }
     });
   }
 
@@ -38,15 +63,39 @@
     });
   }
 
-  // ═══ LAZY VIMEO LOADING ═══
-  // Only load Vimeo players when they scroll into view
-  // Saves ~2MB per video on initial page load
+  // ═══ VIMEO THUMBNAIL POSTERS ═══
+  // Show video thumbnails immediately while Vimeo players load
 
-  var VIMEO_OBSERVER_MARGIN = '200px'; // Start loading 200px before visible
+  function initThumbnails() {
+    var cards = document.querySelectorAll('.vimeo-card[data-vimeo-id]');
+    cards.forEach(function(card) {
+      var id = card.dataset.vimeoId;
+      if (!id) return;
+      // Use vumbnail.com for instant Vimeo thumbnails (no API key needed)
+      card.style.backgroundImage = 'url(https://vumbnail.com/' + id + '.jpg)';
+    });
+  }
+
+  // ═══ EAGER GRID VIDEOS ═══
+  // Load all grid card videos immediately after hero for instant playback
+
+  function initGridVideos() {
+    var gridCards = document.querySelectorAll('.vimeo-card[data-vimeo-id]:not(#vimeo-bg):not(#case-hero-video)');
+    if (!gridCards.length) return;
+    // Load all grid videos quickly — loader covers the delay
+    gridCards.forEach(function(card, i) {
+      setTimeout(function() {
+        createVimeoPlayer(card);
+      }, 200 + (i * 100));
+    });
+  }
+
+  // ═══ LAZY VIMEO LOADING (fallback) ═══
+
+  var VIMEO_OBSERVER_MARGIN = '200px';
 
   function initLazyVimeo() {
-    // Select all vimeo cards EXCEPT heroes (already loaded eagerly)
-    var vimeoCards = document.querySelectorAll('.vimeo-card[data-vimeo-id]:not(#vimeo-bg):not(#case-hero-video)');
+    var vimeoCards = document.querySelectorAll('.vimeo-card[data-vimeo-id]:not(#vimeo-bg):not(#case-hero-video):not([data-vimeo-loaded])');
     if (!vimeoCards.length) return;
 
     var observer = new IntersectionObserver(function(entries) {
@@ -134,11 +183,13 @@
 
   // ═══ INIT ═══
   function init() {
+    initThumbnails(); // Show poster frames immediately
     initLenis();
 
     // Wait for Vimeo player.js to be available, then initialize videos
     function onVimeoReady() {
       initHeroVideo();
+      initGridVideos();
       initLazyVimeo();
     }
 

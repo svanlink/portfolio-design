@@ -99,6 +99,12 @@
 </head>
 <body class="bg-[#1C1C1C] text-[#EFEFEF]">
 
+  <!-- Site Loader -->
+  <div id="site-loader" style="position:fixed;inset:0;z-index:9999;background:#1C1C1C;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;" aria-hidden="true">
+    <div id="loader-logo" style="height:80px;width:237px;opacity:0;transform:translateY(10px);transition:opacity 1.2s cubic-bezier(0.22,1,0.36,1),transform 1.2s cubic-bezier(0.22,1,0.36,1);-webkit-mask-image:url(assets/logo-white.svg);mask-image:url(assets/logo-white.svg);-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;background:linear-gradient(to top,#EFEFEF 0%,transparent 0%);"></div>
+    <span id="loader-pct" style="font-family:'Space Mono',monospace;font-size:14px;letter-spacing:0.15em;color:rgba(239,239,239,0.15);opacity:0;transition:opacity 0.8s cubic-bezier(0.22,1,0.36,1);background:linear-gradient(to top,#EFEFEF 0%,#1C1C1C 0%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">0%</span>
+  </div>
+
   <!-- Skip to content -->
   <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-[#F64E29] focus:text-[#EFEFEF] focus:px-4 focus:py-2 focus:font-mono-nav focus:text-[11px] focus:uppercase focus:tracking-[0.15em]">Skip to content</a>
 
@@ -124,14 +130,14 @@
 
       <!-- Right: Lang Switch + Availability + Hamburger (mobile) -->
       <div class="flex items-center gap-3">
-        <div class="hidden md:flex items-center border border-[#EFEFEF]/15 rounded-none overflow-hidden">
+        <div class="flex items-center border border-[#EFEFEF]/15 rounded-none overflow-hidden">
           <button class="lang-btn font-mono-nav text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 bg-[#EFEFEF]/10 text-[#EFEFEF] transition-all duration-400" data-lang="en" aria-label="Switch to English">EN</button>
           <button class="lang-btn font-mono-nav text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 text-[#EFEFEF]/40 hover:text-[#EFEFEF]/70 transition-all duration-400" data-lang="fr" aria-label="Switch to French">FR</button>
         </div>
 
         <!-- Mobile menu button -->
-        <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center" aria-label="Open menu">
-          <svg class="w-5 h-5 text-[#EFEFEF]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+        <button id="mobile-menu-btn" class="md:hidden w-8 h-8 flex items-center justify-center" aria-label="Open menu">
+          <svg class="w-6 h-6 text-[#EFEFEF]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
         </button>
@@ -207,14 +213,14 @@
 
       <!-- Right: Lang Switch + Availability + Hamburger -->
       <div class="flex items-center gap-3">
-        <div class="hidden md:flex items-center border border-[#EFEFEF]/15 rounded-none overflow-hidden">
+        <div class="flex items-center border border-[#EFEFEF]/15 rounded-none overflow-hidden">
           <button class="lang-btn font-mono-nav text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 bg-[#EFEFEF]/10 text-[#EFEFEF] transition-all duration-400" data-lang="en" aria-label="Switch to English">EN</button>
           <button class="lang-btn font-mono-nav text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 text-[#EFEFEF]/40 hover:text-[#EFEFEF]/70 transition-all duration-400" data-lang="fr" aria-label="Switch to French">FR</button>
         </div>
 
         <!-- Mobile menu button -->
-        <button class="glass-mobile-menu-btn md:hidden w-10 h-10 flex items-center justify-center" aria-label="Open menu">
-          <svg class="w-5 h-5 text-[#EFEFEF]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+        <button class="glass-mobile-menu-btn md:hidden w-8 h-8 flex items-center justify-center" aria-label="Open menu">
+          <svg class="w-6 h-6 text-[#EFEFEF]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
         </button>
@@ -1143,15 +1149,13 @@
       if (!scrollTicking) {
         requestAnimationFrame(() => {
           const scrollY = window.scrollY;
-          // Glass nav
+          // Glass nav — crossfade with static nav
           if (scrollY > 300) {
             glassNav.classList.add('visible');
-            staticNav.style.opacity = '0';
-            staticNav.style.pointerEvents = 'none';
+            staticNav.classList.add('nav-hidden');
           } else {
             glassNav.classList.remove('visible');
-            staticNav.style.opacity = '1';
-            staticNav.style.pointerEvents = '';
+            staticNav.classList.remove('nav-hidden');
           }
           // Hero parallax
           if (scrollY < heroHeight) {
@@ -1173,12 +1177,94 @@
       }
     }, { passive: true });
 
-    // ─── Hero Staggered Entrance ───
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('hero').classList.add('hero-loaded');
-      }, 200);
-    });
+    // ─── Site Loader + Hero Entrance ───
+    (() => {
+      const loader = document.getElementById('site-loader');
+      if (!loader) return;
+      const logo = document.getElementById('loader-logo');
+      const pct = document.getElementById('loader-pct');
+      const hero = document.getElementById('hero');
+      let dismissed = false;
+      let progress = 0;
+
+      function dismiss() {
+        if (dismissed) return;
+        dismissed = true;
+        // Smooth 90→100 animation before dismissing
+        let dismissStart = null;
+        const dismissDuration = 1200;
+        function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+        function animateDismiss(ts) {
+          if (!dismissStart) dismissStart = ts;
+          const dt = Math.min((ts - dismissStart) / dismissDuration, 1);
+          const p = Math.round(progress + easeOutQuart(dt) * (100 - progress));
+          pct.textContent = p + '%';
+          updateFill(p);
+          if (dt < 1) { requestAnimationFrame(animateDismiss); return; }
+          // Fade out loader after fill completes
+          setTimeout(() => {
+            loader.style.transition = 'opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1)';
+            loader.style.opacity = '0';
+            loader.style.pointerEvents = 'none';
+          }, 500);
+          setTimeout(() => hero.classList.add('hero-loaded'), 1000);
+          setTimeout(() => loader.remove(), 2000);
+        }
+        requestAnimationFrame(animateDismiss);
+      }
+
+      // Step 1: Logo fades up
+      requestAnimationFrame(() => {
+        logo.style.opacity = '0.9';
+        logo.style.transform = 'translateY(0)';
+      });
+
+      // Step 2: Show percentage after logo settles
+      setTimeout(() => { pct.style.opacity = '1'; }, 1200);
+
+      // Step 3: Smooth rAF counter 0→90
+      let target = 90;
+      let startTime = null;
+      const duration = 5000;
+
+      function easeInOutQuart(t) {
+        return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
+      }
+
+      function updateFill(p) {
+        const fill = (p / 100) * 100;
+        pct.style.background = `linear-gradient(to top, #EFEFEF ${fill}%, #1C1C1C ${fill}%)`;
+        pct.style.webkitBackgroundClip = 'text';
+        pct.style.backgroundClip = 'text';
+        logo.style.background = `linear-gradient(to top, #EFEFEF ${fill}%, transparent ${fill}%)`;
+      }
+
+      function animateCount(timestamp) {
+        if (dismissed) return;
+        if (!startTime) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        const t = Math.min(elapsed / duration, 1);
+        progress = easeInOutQuart(t) * target;
+        const p = Math.round(progress);
+        pct.textContent = p + '%';
+        updateFill(p);
+        if (t < 1) requestAnimationFrame(animateCount);
+      }
+      setTimeout(() => requestAnimationFrame(animateCount), 1200);
+
+      // Wait for: min time + page load + hero video iframe
+      const minTime = new Promise(r => setTimeout(r, 5500));
+      const pageLoad = new Promise(r => window.addEventListener('load', r));
+      const videoReady = new Promise(r => {
+        const check = setInterval(() => {
+          const iframe = document.querySelector('#vimeo-bg iframe');
+          if (iframe) { clearInterval(check); r(); }
+        }, 200);
+      });
+
+      Promise.all([minTime, pageLoad, videoReady]).then(dismiss);
+      setTimeout(dismiss, 8000);
+    })();
 
 
     // ─── Heading Clip-Reveal (IntersectionObserver) ───

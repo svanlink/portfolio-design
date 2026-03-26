@@ -43,6 +43,15 @@
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.2s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.2s;
 }
 
+/* Static nav hide (crossfade with glass nav) */
+.nav-entrance {
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-hidden {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
 /* Scroll indicator entrance */
 .scroll-ind-entrance { opacity: 0; }
 .hero-loaded .scroll-ind-entrance {
@@ -201,11 +210,16 @@
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid rgba(239, 239, 239, 0.08);
-  transform: translateY(-100%);
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(-20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
 }
 .glass-nav.visible {
   transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* Pulse dot */
@@ -261,7 +275,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 /* Video loading skeleton */
-.vimeo-card { background: #111111; }
+.vimeo-card { background: #111111; background-size: cover; background-position: center; }
 .vimeo-card::before {
   content: '';
   position: absolute;
