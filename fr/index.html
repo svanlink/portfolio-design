@@ -121,7 +121,7 @@
 
     /* Glass nav */
     .glass-nav {
-      background: rgba(28, 28, 28, 0.75);
+      background: rgba(28, 28, 28, 0.55);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
       border-bottom: 1px solid rgba(239, 239, 239, 0.08);
@@ -371,34 +371,22 @@
   <header id="static-nav" class="fixed top-0 left-0 w-full z-40 transition-opacity duration-500">
     <div class="relative flex items-center justify-between px-6 md:px-12 py-5">
 
-      <!-- Left: Brand on mobile, Home on desktop -->
-      <a href="#hero" class="font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">
-        <span class="md:hidden">VAN EICKELEN</span>
-        <span class="hidden md:inline">Home</span>
-      </a>
+      <!-- Left: Logo -->
+      <a href="#hero" class="flex items-center hover:opacity-70 transition-opacity duration-400"><img src="../assets/logo-white.svg" alt="Van Eickelen" class="h-5 md:h-[22px] w-auto opacity-80"></a>
 
       <!-- Center: Nav Links (hidden on mobile) -->
-      <nav class="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-8">
+      <nav class="absolute left-1/2 -translate-x-1/2 translate-y-px hidden md:flex items-center gap-8">
         <a href="#work" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.latest">Latest</a>
         <a href="#services" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.expertise">Expertise</a>
         <a href="#contact" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.contact">Contact</a>
         <a href="projects.html" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.projects">Projects</a>
       </nav>
 
-      <!-- Right: Hamburger (mobile) + Lang Switch + Availability -->
+      <!-- Right: Hamburger (mobile) + Lang Switch -->
       <div class="flex items-center gap-3">
-        <div class="flex items-center gap-1 font-mono-nav text-[10px] uppercase tracking-[0.15em]">
-          <button class="lang-btn text-[#F64E29] transition-colors duration-400" data-lang="en">EN</button>
-          <span class="text-[#EFEFEF]/50">|</span>
-          <button class="lang-btn text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400" data-lang="fr">FR</button>
-        </div>
-
-        <div class="hidden md:flex items-center gap-1 border border-[#EFEFEF]/15 rounded-full px-2 py-0.5">
-          <span class="relative flex h-1 w-1">
-            <span class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-1 w-1 bg-green-400"></span>
-          </span>
-          <span class="font-mono-nav text-[8px] uppercase tracking-[0.15em] text-[#EFEFEF]/70" data-i18n="nav.available">Available</span>
+        <div class="flex items-center border border-[#EFEFEF]/15 rounded-none overflow-hidden">
+          <a href="../" class="font-mono-nav text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 text-[#EFEFEF]/40 hover:text-[#EFEFEF]/70 transition-all duration-400">EN</a>
+          <a href="./" class="font-mono-nav text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 bg-[#EFEFEF]/10 text-[#EFEFEF] transition-all duration-400">FR</a>
         </div>
 
         <!-- Mobile menu button -->
@@ -441,10 +429,9 @@
         <span class="font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] group-hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.projects">Projets</span>
       </a>
     </nav>
-    <div class="flex items-center gap-2 font-mono-nav text-[14px] uppercase tracking-[0.15em] mt-4">
-      <button class="lang-btn text-[#F64E29] transition-colors duration-400" data-lang="en">EN</button>
-      <span class="text-[#EFEFEF]/50">|</span>
-      <button class="lang-btn text-[#EFEFEF]/50 transition-colors duration-400" data-lang="fr">FR</button>
+    <div class="flex items-center border border-[#EFEFEF]/15 rounded-none overflow-hidden mt-4">
+      <a href="../" class="font-mono-nav text-[12px] font-bold uppercase tracking-[0.15em] px-4 py-2 text-[#EFEFEF]/40 hover:text-[#EFEFEF]/70 transition-all duration-400">EN</a>
+      <a href="./" class="font-mono-nav text-[12px] font-bold uppercase tracking-[0.15em] px-4 py-2 bg-[#EFEFEF]/10 text-[#EFEFEF] transition-all duration-400">FR</a>
     </div>
     <div class="flex items-center gap-3 mt-8">
       <div class="flex items-center gap-1 border border-[#EFEFEF]/15 rounded-full px-3 py-1">
@@ -461,34 +448,22 @@
   <header id="glass-nav" class="glass-nav fixed top-0 left-0 w-full z-50">
     <div class="relative flex items-center justify-between px-6 md:px-12 py-4">
 
-      <!-- Left: Brand on mobile, Home on desktop -->
-      <a href="#hero" class="font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">
-        <span class="md:hidden">VAN EICKELEN</span>
-        <span class="hidden md:inline">Home</span>
-      </a>
+      <!-- Left: Logo -->
+      <a href="#hero" class="flex items-center hover:opacity-70 transition-opacity duration-400"><img src="../assets/logo-white.svg" alt="Van Eickelen" class="h-5 md:h-[22px] w-auto opacity-80"></a>
 
       <!-- Center: Nav Links (hidden on mobile) -->
-      <nav class="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-8">
+      <nav class="absolute left-1/2 -translate-x-1/2 translate-y-px hidden md:flex items-center gap-8">
         <a href="#work" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.latest">Latest</a>
         <a href="#services" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.expertise">Expertise</a>
         <a href="#contact" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.contact">Contact</a>
         <a href="projects.html" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.projects">Projects</a>
       </nav>
 
-      <!-- Right: Lang Switch + Availability + Hamburger -->
+      <!-- Right: Lang Switch + Hamburger -->
       <div class="flex items-center gap-3">
-        <div class="flex items-center gap-1 font-mono-nav text-[10px] uppercase tracking-[0.15em]">
-          <button class="lang-btn text-[#F64E29] transition-colors duration-400" data-lang="en">EN</button>
-          <span class="text-[#EFEFEF]/50">|</span>
-          <button class="lang-btn text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400" data-lang="fr">FR</button>
-        </div>
-
-        <div class="hidden md:flex items-center gap-1 border border-[#EFEFEF]/15 rounded-full px-2 py-0.5">
-          <span class="relative flex h-1 w-1">
-            <span class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-1 w-1 bg-green-400"></span>
-          </span>
-          <span class="font-mono-nav text-[8px] uppercase tracking-[0.15em] text-[#EFEFEF]/70" data-i18n="nav.available">Available</span>
+        <div class="flex items-center border border-[#EFEFEF]/15 rounded-none overflow-hidden">
+          <a href="../" class="font-mono-nav text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 text-[#EFEFEF]/40 hover:text-[#EFEFEF]/70 transition-all duration-400">EN</a>
+          <a href="./" class="font-mono-nav text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 bg-[#EFEFEF]/10 text-[#EFEFEF] transition-all duration-400">FR</a>
         </div>
 
         <!-- Mobile menu button -->

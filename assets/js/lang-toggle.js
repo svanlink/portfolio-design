@@ -84,11 +84,11 @@
     document.querySelectorAll('.lang-btn').forEach(btn => {
       const btnLang = btn.dataset.lang;
       if (btnLang === lang) {
-        btn.classList.remove('text-[#EFEFEF]/50');
-        btn.classList.add('text-[#F64E29]');
+        btn.classList.remove('text-[#EFEFEF]/40');
+        btn.classList.add('bg-[#EFEFEF]/10', 'text-[#EFEFEF]');
       } else {
-        btn.classList.remove('text-[#F64E29]');
-        btn.classList.add('text-[#EFEFEF]/50');
+        btn.classList.remove('bg-[#EFEFEF]/10', 'text-[#EFEFEF]');
+        btn.classList.add('text-[#EFEFEF]/40');
       }
     });
 
