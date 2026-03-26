@@ -106,6 +106,7 @@ const TRANSLATIONS = {
     "nav.blog": "Blog",
     "blog.label": "Journal",
     "blog.title": "Blog",
+    "blog.subtitle": "Réflexions sur le cinéma, la créativité et les histoires derrière l'objectif.",
 
     // ═══ INDEX — Footer ═══
     "footer.home": "Accueil",
