@@ -14,7 +14,8 @@ const TRANSLATIONS = {
     "nav.brand": "VAN EICKELEN",
 
     // ═══ INDEX — Hero ═══
-    "hero.subtitle": "Cinéaste · Photographe · Conteur Visuel",
+    "hero.subtitle": "Films de marque cinématographiques — des Alpes suisses au monde entier",
+    "hero.cta": "Voir la Bande Démo",
     "hero.scroll": "Défiler",
 
     // ═══ INDEX — Work Grid ═══
@@ -137,9 +138,7 @@ const TRANSLATIONS = {
     "case.approach.lenses": "Objectifs",
     "case.approach.days": "Jours de Tournage",
     "case.approach.deliverables": "Livrables",
-    "case.bts.num": "03",
-    "case.bts.title": "Coulisses",
-    "case.result.num": "04",
+    "case.result.num": "03",
     "case.result.title": "Le Résultat",
     "case.metrics.views": "Vues",
     "case.metrics.benchmark": "Au-dessus du benchmark",
@@ -161,7 +160,7 @@ const TRANSLATIONS = {
     "adidas.approach.p2": "Le travail caméra combinait des plans de suivi stabilisés avec des gros plans portés à l'épaule pour créer une sensation intime mais expansive. Nous avons tourné avec la RED Komodo et des anamorphiques Cooke pour donner au paysage une texture épique en cinémascope.",
     "adidas.approach.days": "4 jours",
     "adidas.approach.deliverables.value": "1 film hero, 6 déclinaisons sociales",
-    "adidas.bts.desc": "Des appels à 4h du matin à l'escalade d'éboulis avec un gimbal — voici à quoi ressemblait la production sur le terrain.",
+
     "adidas.result.p": "Le film hero a été lancé sur les canaux globaux d'Adidas Terrex et a été présenté dans leurs points de vente phares. La campagne a dépassé les benchmarks d'engagement et a renforcé la position de la marque dans le trail running.",
     "adidas.quote": "\"Sebastian a compris notre vision dès le premier jour. Le film ne montre pas seulement le produit — il vous fait ressentir la montagne.\"",
     "adidas.quote.name": "Maria Keller",
@@ -180,7 +179,7 @@ const TRANSLATIONS = {
     "decathlon.approach.lenses": "Sony GM 24-70, 85 1.4",
     "decathlon.approach.days": "3 jours",
     "decathlon.approach.deliverables.value": "1 film hero, 4 déclinaisons sociales",
-    "decathlon.bts.desc": "Capturer des moments authentiques à travers la Suisse romande — la spontanéité était la clé de cette production.",
+
     "decathlon.result.p": "Le film a été lancé sur les canaux digitaux de Decathlon Suisse et diffusé en magasin. Il a dépassé les objectifs d'engagement et est devenu le contenu le plus partagé de la marque en Suisse.",
     "decathlon.quote": "\"Sebastian a capturé exactement ce que nous voulions — un film authentique et chaleureux qui représente nos valeurs.\"",
     "decathlon.quote.role": "Responsable Marketing, Decathlon Suisse",
@@ -196,7 +195,7 @@ const TRANSLATIONS = {
     "swiss-athletics.approach.p2": "L'éclairage jouait un rôle clé — des clairs-obscurs dramatiques pour les portraits en intérieur, une lumière naturelle douce pour les séquences extérieures. Tourné avec une ARRI Mini pour cette texture cinéma caractéristique.",
     "swiss-athletics.approach.days": "5 jours",
     "swiss-athletics.approach.deliverables.value": "4 portraits, 8 teasers sociaux",
-    "swiss-athletics.bts.desc": "Suivre des athlètes dans leur routine — capturer la discipline et l'intensité de l'entraînement de haut niveau.",
+
     "swiss-athletics.result.p": "La série a été diffusée sur les canaux de Swiss Athletics et reprise par les médias sportifs suisses. Les portraits sont devenus un outil de communication clé pour la fédération.",
     "swiss-athletics.quote": "\"Sebastian a su capturer l'âme de nos athlètes. Ces portraits vont au-delà du sport — ils racontent des histoires humaines.\"",
     "swiss-athletics.quote.role": "Responsable Communication, Swiss Athletics",
@@ -214,7 +213,7 @@ const TRANSLATIONS = {
     "beyond.approach.production": "Production",
     "beyond.approach.runtime": "Durée",
     "beyond.approach.deliverables.value": "1 documentaire long-métrage, 3 teasers",
-    "beyond.bts.desc": "Tourner en haute altitude — quand la montagne dicte les conditions et chaque plan compte.",
+
     "beyond.result.p": "Le documentaire a été sélectionné dans plusieurs festivals de films de montagne et diffusé en ligne. Il a touché une audience internationale et mis en lumière la communauté alpine suisse.",
     "beyond.quote": "\"Sebastian a capturé l'essence de ce que signifie être en montagne. Ce film est une lettre d'amour aux Alpes.\"",
     "beyond.quote.role": "Alpiniste et Co-producteur",
@@ -230,7 +229,7 @@ const TRANSLATIONS = {
     "luxury.approach.p2": "L'éclairage était essentiellement naturel, complété par des réflecteurs subtils. Le mouvement caméra était lent et fluide — des sliders et des gimbals pour une sensation de calme et de luxe.",
     "luxury.approach.days": "2 jours",
     "luxury.approach.deliverables.value": "1 film hero, 3 déclinaisons sociales",
-    "luxury.bts.desc": "Capturer l'élégance — chaque détail compte quand on filme le luxe.",
+
     "luxury.result.p": "Le film est devenu la pièce maîtresse de la présence digitale de l'hôtel. Les taux d'engagement ont dépassé les benchmarks du secteur hôtelier de luxe.",
     "luxury.quote": "\"Sebastian a une sensibilité rare pour capturer l'atmosphère d'un lieu. Le film transmet exactement ce que nos clients ressentent en franchissant nos portes.\"",
     "luxury.quote.role": "Directeur Général, Hôtel",
@@ -246,7 +245,7 @@ const TRANSLATIONS = {
     "startup.approach.p2": "L'esthétique était moderne et épurée — des intérieurs lumineux, des couleurs désaturées avec des accents vifs. Tourné avec un Sony FX3 pour sa compacité et sa qualité d'image exceptionnelle.",
     "startup.approach.days": "2 jours",
     "startup.approach.deliverables.value": "1 film hero, 4 déclinaisons sociales",
-    "startup.bts.desc": "Transformer la technologie en émotion — le storytelling au service de l'innovation.",
+
     "startup.result.p": "Le film de lancement a dépassé les objectifs de la campagne. Le taux de conversion sur la page d'accueil a augmenté significativement et les investisseurs ont salué la qualité de la présentation.",
     "startup.quote": "\"Sebastian a su transformer notre technologie en une histoire captivante. Le film a changé la façon dont nos clients perçoivent notre produit.\"",
     "startup.quote.role": "CEO & Co-fondateur",

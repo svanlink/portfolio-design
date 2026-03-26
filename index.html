@@ -404,6 +404,7 @@
         <path d="M6 18L18 6M6 6l12 12"/>
       </svg>
     </button>
+    <a href="#hero" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.home">Home</a>
     <a href="#work" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.latest">Latest</a>
     <a href="#services" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.expertise">Expertise</a>
     <a href="#contact" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.contact">Contact</a>
@@ -482,8 +483,9 @@
       </h1>
       <div class="flex items-center gap-6 mb-4">
         <span class="w-12 h-[1px] bg-[#F64E29]"></span>
-        <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/70 cursor-default" data-i18n="hero.subtitle">Filmmaker · Photographer · Visual Storyteller</p>
+        <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/70 cursor-default" data-i18n="hero.subtitle">Cinematic brand films for global brands — from the Swiss Alps to the world</p>
       </div>
+      <a href="#work" class="inline-flex items-center gap-2 mt-4 px-6 py-3 border border-[#EFEFEF]/30 hover:border-[#F64E29] hover:bg-[#F64E29]/10 text-[#EFEFEF] font-mono-nav text-[11px] uppercase tracking-[0.15em] transition-all duration-400 rounded-none" data-i18n="hero.cta">Watch Reel</a>
     </div>
     <!-- Scroll indicator (hidden on mobile) -->
     <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 hidden md:flex flex-col items-center gap-2">
@@ -508,7 +510,7 @@
     <!-- Symmetric Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 stagger-children grid-hover">
       <!-- Card 1: Adidas Terrex -->
-      <a href="case-study-adidas-terrex.html" class="group relative overflow-hidden rounded-none cursor-pointer block reveal" data-category="commercial">
+      <a href="case-study-adidas-terrex.html" class="group relative overflow-hidden rounded-none cursor-pointer block reveal md:col-span-2" data-category="commercial">
         <div class="aspect-video bg-[#1C1C1C] relative">
           <div id="vimeo-card-1" class="vimeo-card absolute inset-0 z-0" data-vimeo-defer data-vimeo-id="460645906" data-vimeo-quality="720p"></div>
           <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#1C1C1C]/90 to-transparent z-10"></div>
@@ -527,7 +529,7 @@
         </div>
       </a>
       <!-- Card 2: Decathlon Switzerland -->
-      <a href="case-study-decathlon.html" class="group relative overflow-hidden rounded-none cursor-pointer block reveal" data-category="brand-film">
+      <a href="case-study-decathlon.html" class="group relative overflow-hidden rounded-none cursor-pointer block reveal md:col-span-2" data-category="brand-film">
         <div class="aspect-video bg-[#1C1C1C] relative">
           <div id="vimeo-card-2" class="vimeo-card absolute inset-0 z-0" data-vimeo-defer data-vimeo-id="816041394" data-vimeo-quality="720p"></div>
           <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#1C1C1C]/90 to-transparent z-10"></div>
@@ -744,7 +746,7 @@
     </div>
 
     <!-- Accordion Steps -->
-    <div class="accordion-step group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" onclick="toggleStep(this)">
+    <div class="accordion-step open group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" onclick="toggleStep(this)">
       <div class="flex items-center justify-between p-6">
         <div class="flex items-center gap-3 md:gap-6">
           <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">01</span>
