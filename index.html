@@ -6,11 +6,12 @@
   <script>if('scrollRestoration' in history) history.scrollRestoration='manual'; window.scrollTo(0,0);</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Van Eickelen — Filmmaker, Videographer & Photographer | Geneva, Switzerland</title>
-  <meta name="description" content="Sebastian Van Eickelen — filmmaker, videographer and photographer based in Geneva, Switzerland. Serving Lausanne, Vaud and all of Suisse. Cinematic brand films, commercials, documentary and photography for global brands.">
+  <meta name="description" content="Sebastian Van Eickelen — filmmaker and videographer in Geneva, Switzerland. Cinematic brand films, commercials, and documentary for global brands.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://vaneickelen.com/">
   <link rel="alternate" hreflang="en" href="https://vaneickelen.com/">
   <link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/">
+  <link rel="alternate" hreflang="x-default" href="https://vaneickelen.com/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -86,6 +87,17 @@
   </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          transitionDuration: {
+            '400': '400ms',
+          },
+        },
+      },
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://player.vimeo.com">
@@ -345,9 +357,20 @@
     .lenis.lenis-smooth { scroll-behavior: auto !important; }
     .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
     .lenis.lenis-stopped { overflow: hidden; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .logo-track { animation: none; }
+      .scroll-indicator { animation: none; }
+    }
   </style>
 </head>
 <body class="bg-[#1C1C1C] text-[#EFEFEF]">
+
+  <!-- Skip to content -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-[#F64E29] focus:text-[#EFEFEF] focus:px-4 focus:py-2 focus:font-mono-nav focus:text-[11px] focus:uppercase focus:tracking-[0.15em]">Skip to content</a>
 
   <!-- Page Transition Overlay -->
   <div class="page-transition" id="page-transition"></div>
@@ -370,11 +393,11 @@
         <a href="projects.html" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.projects">Projects</a>
       </nav>
 
-      <!-- Right: Hamburger (mobile) + Lang Switch + Availability -->
+      <!-- Right: Lang Switch + Availability + Hamburger (mobile) -->
       <div class="flex items-center gap-3">
-        <div class="hidden md:flex items-center gap-1 font-mono-nav text-[10px] uppercase tracking-[0.15em]">
+        <div class="flex items-center gap-1 font-mono-nav text-[10px] uppercase tracking-[0.15em]">
           <button class="lang-btn text-[#F64E29] transition-colors duration-400" data-lang="en">EN</button>
-          <span class="text-[#EFEFEF]/30">|</span>
+          <span class="text-[#EFEFEF]/50">|</span>
           <button class="lang-btn text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400" data-lang="fr">FR</button>
         </div>
 
@@ -411,7 +434,7 @@
     <a href="projects.html" class="mobile-menu-link font-heading text-[32px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.projects">Projects</a>
     <div class="flex items-center gap-2 font-mono-nav text-[14px] uppercase tracking-[0.15em] mt-4">
       <button class="lang-btn text-[#F64E29] transition-colors duration-400" data-lang="en">EN</button>
-      <span class="text-[#EFEFEF]/30">|</span>
+      <span class="text-[#EFEFEF]/50">|</span>
       <button class="lang-btn text-[#EFEFEF]/50 transition-colors duration-400" data-lang="fr">FR</button>
     </div>
     <div class="flex items-center gap-3 mt-8">
@@ -443,11 +466,11 @@
         <a href="projects.html" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.projects">Projects</a>
       </nav>
 
-      <!-- Right: Lang Switch + Availability (hidden on mobile) + Hamburger -->
+      <!-- Right: Lang Switch + Availability + Hamburger -->
       <div class="flex items-center gap-3">
-        <div class="hidden md:flex items-center gap-1 font-mono-nav text-[10px] uppercase tracking-[0.15em]">
+        <div class="flex items-center gap-1 font-mono-nav text-[10px] uppercase tracking-[0.15em]">
           <button class="lang-btn text-[#F64E29] transition-colors duration-400" data-lang="en">EN</button>
-          <span class="text-[#EFEFEF]/30">|</span>
+          <span class="text-[#EFEFEF]/50">|</span>
           <button class="lang-btn text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400" data-lang="fr">FR</button>
         </div>
 
@@ -470,6 +493,7 @@
     </div>
   </header>
 
+  <main id="main-content">
   <!-- Hero: Full-screen Video Background -->
   <section id="hero" class="relative w-full h-screen overflow-hidden bg-[#1C1C1C]">
     <!-- Vimeo Background Video Container -->
@@ -491,7 +515,7 @@
     </div>
     <!-- Scroll indicator (hidden on mobile) -->
     <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 hidden md:flex flex-col items-center gap-2">
-      <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40">Scroll</span>
+      <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50">Scroll</span>
       <span class="scroll-indicator w-[1px] h-8 bg-[#EFEFEF]/20 block"></span>
     </div>
   </section>
@@ -520,6 +544,7 @@
             <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-1 block" data-i18n="work.card1.cat">Commercial · 2025</span>
             <h3 class="font-heading text-[26px] uppercase tracking-[0.02em]">Adidas Terrex</h3>
             <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60" data-i18n="work.card1.desc">Mountain running campaign</p>
+            <span class="inline-flex items-center gap-1.5 mt-2 font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500"><span data-i18n="work.viewproject">View Project</span> <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
           </div>
           <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex">
             <span class="w-10 h-10 border border-[#EFEFEF] hover:border-[#F64E29] hover:bg-[#F64E29]/15 rounded-full flex items-center justify-center transition-colors duration-400">
@@ -539,6 +564,7 @@
             <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-1 block" data-i18n="work.card2.cat">Brand Film · 2025</span>
             <h3 class="font-heading text-[26px] uppercase tracking-[0.02em]">Decathlon Switzerland</h3>
             <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60" data-i18n="work.card2.desc">Brand identity film</p>
+            <span class="inline-flex items-center gap-1.5 mt-2 font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500"><span data-i18n="work.viewproject">View Project</span> <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
           </div>
           <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex">
             <span class="w-10 h-10 border border-[#EFEFEF] hover:border-[#F64E29] hover:bg-[#F64E29]/15 rounded-full flex items-center justify-center transition-colors duration-400">
@@ -558,6 +584,7 @@
             <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-1 block" data-i18n="work.card3.cat">Sports · 2024</span>
             <h3 class="font-heading text-[26px] uppercase tracking-[0.02em]">Swiss Athletics</h3>
             <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60" data-i18n="work.card3.desc">Athlete portrait series</p>
+            <span class="inline-flex items-center gap-1.5 mt-2 font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500"><span data-i18n="work.viewproject">View Project</span> <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
           </div>
           <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex">
             <span class="w-10 h-10 border border-[#EFEFEF] hover:border-[#F64E29] hover:bg-[#F64E29]/15 rounded-full flex items-center justify-center transition-colors duration-400">
@@ -577,6 +604,7 @@
             <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-1 block" data-i18n="work.card4.cat">Documentary · 2024</span>
             <h3 class="font-heading text-[26px] uppercase tracking-[0.02em]">Beyond The Summit</h3>
             <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60" data-i18n="work.card4.desc">Mountaineering documentary</p>
+            <span class="inline-flex items-center gap-1.5 mt-2 font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500"><span data-i18n="work.viewproject">View Project</span> <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
           </div>
           <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex">
             <span class="w-10 h-10 border border-[#EFEFEF] hover:border-[#F64E29] hover:bg-[#F64E29]/15 rounded-full flex items-center justify-center transition-colors duration-400">
@@ -596,6 +624,7 @@
             <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-1 block" data-i18n="work.card5.cat">Commercial · 2024</span>
             <h3 class="font-heading text-[26px] uppercase tracking-[0.02em]">Luxury Hospitality</h3>
             <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60" data-i18n="work.card5.desc">Hotel brand campaign</p>
+            <span class="inline-flex items-center gap-1.5 mt-2 font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500"><span data-i18n="work.viewproject">View Project</span> <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
           </div>
           <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex">
             <span class="w-10 h-10 border border-[#EFEFEF] hover:border-[#F64E29] hover:bg-[#F64E29]/15 rounded-full flex items-center justify-center transition-colors duration-400">
@@ -615,6 +644,7 @@
             <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-1 block" data-i18n="work.card6.cat">Brand Film · 2024</span>
             <h3 class="font-heading text-[26px] uppercase tracking-[0.02em]">Startup Campaign</h3>
             <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/60" data-i18n="work.card6.desc">Product launch film</p>
+            <span class="inline-flex items-center gap-1.5 mt-2 font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500"><span data-i18n="work.viewproject">View Project</span> <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
           </div>
           <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex">
             <span class="w-10 h-10 border border-[#EFEFEF] hover:border-[#F64E29] hover:bg-[#F64E29]/15 rounded-full flex items-center justify-center transition-colors duration-400">
@@ -627,9 +657,9 @@
       </a>
     </div>
     <div class="flex justify-center mt-16 reveal">
-      <a href="projects.html" class="inline-flex items-center bg-transparent border border-[#EFEFEF]/20 text-[#EFEFEF]/50 font-heading uppercase text-[14px] tracking-[0.02em] px-8 py-3 rounded-sm gap-3 hover:border-[#F64E29]/40 hover:text-[#EFEFEF] hover:bg-[#F64E29]/5 transition-all duration-500">
-        View All Projects
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+      <a href="projects.html" class="group inline-flex items-center justify-between bg-transparent border border-[#EFEFEF]/40 text-[#EFEFEF] font-mono-nav uppercase text-[11px] tracking-[0.15em] px-5 py-2.5 gap-8 hover:border-[#F64E29] hover:bg-[#F64E29]/10 transition-all duration-500">
+        <span data-i18n="work.viewall">View All Projects</span>
+        <svg class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </a>
     </div>
   </section>
@@ -644,31 +674,31 @@
     <div class="logo-scroll relative">
       <div class="logo-track flex items-center gap-16">
         <!-- First set -->
-        <img src="assets/logos/adidas-terrex.svg" alt="Adidas Terrex" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/decathlon.svg" alt="Decathlon" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/richemont.svg" alt="Richemont" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/swiss-athletics.svg" alt="Swiss Athletics" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/nike.svg" alt="Nike" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/van-cleef-arpels.svg" alt="Van Cleef & Arpels" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/salomon.svg" alt="Salomon" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/cartier.svg" alt="Cartier" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/redbull.svg" alt="Red Bull" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/building-bridges.svg" alt="Building Bridges" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/the_north_face_logo.svg" alt="The North Face" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/mammut.svg" alt="Mammut" class="h-8 opacity-100 transition-opacity duration-300">
+        <img src="assets/logos/adidas-terrex.svg" alt="Adidas Terrex" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/decathlon.svg" alt="Decathlon" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/richemont.svg" alt="Richemont" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/swiss-athletics.svg" alt="Swiss Athletics" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/nike.svg" alt="Nike" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/van-cleef-arpels.svg" alt="Van Cleef & Arpels" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/salomon.svg" alt="Salomon" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/cartier.svg" alt="Cartier" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/redbull.svg" alt="Red Bull" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/building-bridges.svg" alt="Building Bridges" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/the_north_face_logo.svg" alt="The North Face" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/mammut.svg" alt="Mammut" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
         <!-- Duplicate set for seamless loop -->
-        <img src="assets/logos/adidas-terrex.svg" alt="Adidas Terrex" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/decathlon.svg" alt="Decathlon" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/richemont.svg" alt="Richemont" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/swiss-athletics.svg" alt="Swiss Athletics" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/nike.svg" alt="Nike" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/van-cleef-arpels.svg" alt="Van Cleef & Arpels" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/salomon.svg" alt="Salomon" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/cartier.svg" alt="Cartier" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/redbull.svg" alt="Red Bull" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/building-bridges.svg" alt="Building Bridges" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/the_north_face_logo.svg" alt="The North Face" class="h-8 opacity-100 transition-opacity duration-300">
-        <img src="assets/logos/mammut.svg" alt="Mammut" class="h-8 opacity-100 transition-opacity duration-300">
+        <img src="assets/logos/adidas-terrex.svg" alt="Adidas Terrex" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/decathlon.svg" alt="Decathlon" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/richemont.svg" alt="Richemont" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/swiss-athletics.svg" alt="Swiss Athletics" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/nike.svg" alt="Nike" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/van-cleef-arpels.svg" alt="Van Cleef & Arpels" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/salomon.svg" alt="Salomon" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/cartier.svg" alt="Cartier" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/redbull.svg" alt="Red Bull" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/building-bridges.svg" alt="Building Bridges" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/the_north_face_logo.svg" alt="The North Face" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
+        <img src="assets/logos/mammut.svg" alt="Mammut" class="h-8 opacity-100 transition-opacity duration-300" width="120" height="32">
       </div>
     </div>
   </section>
@@ -732,8 +762,8 @@
 
     <!-- Mobile swipe hint -->
     <div class="swipe-hint flex md:hidden items-center gap-2 mt-4 transition-opacity duration-500">
-      <span class="font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/30">Swipe</span>
-      <svg class="w-4 h-4 text-[#EFEFEF]/30 swipe-arrow" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+      <span class="font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/50">Swipe</span>
+      <svg class="w-4 h-4 text-[#EFEFEF]/50 swipe-arrow" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
         <path d="M5 12h14M13 6l6 6-6 6"/>
       </svg>
     </div>
@@ -748,7 +778,7 @@
     </div>
 
     <!-- Accordion Steps -->
-    <div class="accordion-step open group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" onclick="toggleStep(this)">
+    <div class="accordion-step open group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" role="button" tabindex="0" aria-expanded="true">
       <div class="flex items-center justify-between p-6">
         <div class="flex items-center gap-3 md:gap-6">
           <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">01</span>
@@ -768,7 +798,7 @@
       </div>
     </div>
 
-    <div class="accordion-step group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" onclick="toggleStep(this)">
+    <div class="accordion-step group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" role="button" tabindex="0" aria-expanded="false">
       <div class="flex items-center justify-between p-6">
         <div class="flex items-center gap-3 md:gap-6">
           <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">02</span>
@@ -788,7 +818,7 @@
       </div>
     </div>
 
-    <div class="accordion-step group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" onclick="toggleStep(this)">
+    <div class="accordion-step group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" role="button" tabindex="0" aria-expanded="false">
       <div class="flex items-center justify-between p-6">
         <div class="flex items-center gap-3 md:gap-6">
           <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">03</span>
@@ -808,7 +838,7 @@
       </div>
     </div>
 
-    <div class="accordion-step group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" onclick="toggleStep(this)">
+    <div class="accordion-step group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" role="button" tabindex="0" aria-expanded="false">
       <div class="flex items-center justify-between p-6">
         <div class="flex items-center gap-3 md:gap-6">
           <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">04</span>
@@ -828,7 +858,7 @@
       </div>
     </div>
 
-    <div class="accordion-step group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" onclick="toggleStep(this)">
+    <div class="accordion-step group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" role="button" tabindex="0" aria-expanded="false">
       <div class="flex items-center justify-between p-6">
         <div class="flex items-center gap-3 md:gap-6">
           <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">05</span>
@@ -847,6 +877,11 @@
         <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]" data-i18n="process.5.desc">Final files, revisions, and multi-format export — from broadcast to social, delivered exactly how you need it.</p>
       </div>
     </div>
+
+    <!-- CTA after process -->
+    <div class="flex justify-center mt-16 pt-12 border-t border-[#EFEFEF]/10 reveal">
+      <a href="#contact" class="inline-flex items-center gap-3 font-mono-nav text-[11px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#F64E29] transition-colors duration-400"><span data-i18n="process.cta">Ready to start? Let's talk</span> <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+    </div>
   </section>
 
   <!-- Testimonials -->
@@ -863,7 +898,7 @@
           </p>
           <div>
             <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]">Marie Laurent</p>
-            <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mt-1" data-i18n="testimonial.1.role">Marketing Director · Decathlon Switzerland</p>
+            <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mt-1" data-i18n="testimonial.1.role">Marketing Director · Decathlon Switzerland</p>
           </div>
         </div>
 
@@ -875,7 +910,7 @@
           </p>
           <div>
             <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]">Thomas Keller</p>
-            <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mt-1" data-i18n="testimonial.2.role">Brand Manager · Adidas Terrex</p>
+            <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mt-1" data-i18n="testimonial.2.role">Brand Manager · Adidas Terrex</p>
           </div>
         </div>
 
@@ -887,16 +922,20 @@
           </p>
           <div>
             <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]">Anna Richter</p>
-            <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mt-1" data-i18n="testimonial.3.role">Head of Content · Swiss Athletics</p>
+            <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mt-1" data-i18n="testimonial.3.role">Head of Content · Swiss Athletics</p>
           </div>
         </div>
       </div>
 
-      <!-- Dots navigation -->
+      <!-- Dots navigation + Pause control -->
       <div class="flex items-center justify-center gap-3 mt-8">
-        <button class="testimonial-dot relative w-10 h-10 flex items-center justify-center transition-all duration-300" data-index="0"><span class="w-2.5 h-2.5 rounded-full bg-[#F64E29] block pointer-events-none"></span></button>
-        <button class="testimonial-dot relative w-10 h-10 flex items-center justify-center transition-all duration-300" data-index="1"><span class="w-2.5 h-2.5 rounded-full bg-[#EFEFEF]/20 block pointer-events-none"></span></button>
-        <button class="testimonial-dot relative w-10 h-10 flex items-center justify-center transition-all duration-300" data-index="2"><span class="w-2.5 h-2.5 rounded-full bg-[#EFEFEF]/20 block pointer-events-none"></span></button>
+        <button class="testimonial-dot relative w-10 h-10 flex items-center justify-center transition-all duration-300" data-index="0" aria-label="Show testimonial 1"><span class="w-2.5 h-2.5 rounded-full bg-[#F64E29] block pointer-events-none"></span></button>
+        <button class="testimonial-dot relative w-10 h-10 flex items-center justify-center transition-all duration-300" data-index="1" aria-label="Show testimonial 2"><span class="w-2.5 h-2.5 rounded-full bg-[#EFEFEF]/20 block pointer-events-none"></span></button>
+        <button class="testimonial-dot relative w-10 h-10 flex items-center justify-center transition-all duration-300" data-index="2" aria-label="Show testimonial 3"><span class="w-2.5 h-2.5 rounded-full bg-[#EFEFEF]/20 block pointer-events-none"></span></button>
+        <button id="testimonial-pause" class="relative w-10 h-10 flex items-center justify-center text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-300" aria-label="Pause testimonials">
+          <svg class="pause-icon w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          <svg class="play-icon w-3.5 h-3.5 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </button>
       </div>
     </div>
   </section>
@@ -907,26 +946,26 @@
 
   <!-- Contact / Let's Work Together -->
   <section id="contact" class="px-6 md:px-12 py-20 md:py-40 bg-[#191919]">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-stretch">
       <!-- Left: Headline + Info -->
-      <div class="reveal">
+      <div class="reveal flex flex-col">
         <h2 class="font-heading text-[48px] md:text-[64px] uppercase tracking-[0.02em] leading-[0.9] mb-6">
           Let's Create Something Extraordinary
         </h2>
         <!-- Contact details -->
         <div class="space-y-8">
           <div>
-            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block" data-i18n="contact.email.label">Email</span>
+            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-2 block" data-i18n="contact.email.label">Email</span>
             <a href="mailto:hello@vaneickelen.com" class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400">hello@vaneickelen.com</a>
           </div>
           <div>
-            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block" data-i18n="contact.based.label">Based In</span>
+            <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-2 block" data-i18n="contact.based.label">Based In</span>
             <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]" data-i18n="contact.based.value">Switzerland · Working Globally</p>
           </div>
         </div>
 
         <!-- Availability -->
-        <div class="flex items-center gap-3 mt-12 border border-[#EFEFEF]/10 px-4 py-3 w-fit">
+        <div class="flex items-center gap-3 mt-auto border border-[#EFEFEF]/10 px-4 py-3 w-fit">
           <span class="relative flex h-2 w-2">
             <span class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
@@ -954,10 +993,17 @@
             <option value="Creative Direction" data-i18n="contact.form.type.creative">Creative Direction</option>
             <option value="Other" data-i18n="contact.form.type.other">Other</option>
           </select>
-          <input type="text" name="budget" placeholder="Budget Range (optional)" data-i18n-ph="contact.form.budget" aria-label="Budget range" class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
+          <select name="budget" aria-label="Budget range" class="bg-[#1C1C1C] border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
+            <option value="" disabled selected data-i18n="contact.form.budget">Budget Range (optional)</option>
+            <option value="Under CHF 5K">Under CHF 5K</option>
+            <option value="CHF 5-10K">CHF 5–10K</option>
+            <option value="CHF 10-25K">CHF 10–25K</option>
+            <option value="CHF 25K+">CHF 25K+</option>
+            <option value="Let's discuss" data-i18n="contact.form.budget.discuss">Let's discuss</option>
+          </select>
           <textarea rows="5" name="message" placeholder="Tell me about your project..." data-i18n-ph="contact.form.message" required aria-label="Project details" class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors resize-none"></textarea>
-          <button type="submit" id="contact-submit" class="inline-flex items-center justify-center bg-transparent border border-[#EFEFEF]/20 text-[#EFEFEF]/50 font-heading uppercase text-[14px] tracking-[0.02em] px-8 py-3 rounded-sm gap-3 w-full mt-2 hover:border-[#F64E29]/40 hover:text-[#EFEFEF] hover:bg-[#F64E29]/5 transition-all duration-500">
-            Send Message
+          <button type="submit" id="contact-submit" class="inline-flex items-center justify-center bg-[#F64E29] border border-[#F64E29] text-[#EFEFEF] font-heading uppercase text-[14px] tracking-[0.02em] px-8 py-3 rounded-sm gap-3 w-full mt-2 hover:bg-[#F64E29]/90 hover:shadow-[0_0_30px_rgba(246,78,41,0.2)] transition-all duration-500">
+            <span data-i18n="contact.form.submit">Send Message</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path d="M7 17L17 7M17 7H7M17 7v10"/>
             </svg>
@@ -975,7 +1021,7 @@
   </section>
 
   <!-- Map -->
-  <section class="relative w-full h-[500px] overflow-hidden">
+  <section class="relative w-full h-[300px] md:h-[500px] overflow-hidden">
     <!-- Grayscale filter -->
     <div class="absolute inset-0 z-0" style="filter: grayscale(100%) brightness(0.3) contrast(1.2);">
       <iframe
@@ -990,7 +1036,7 @@
     <!-- Address overlay -->
     <div class="absolute bottom-8 left-6 md:left-12 z-10">
       <div class="bg-[#1C1C1C]/90 backdrop-blur-sm border border-[#EFEFEF]/10 px-6 py-4">
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block">Location</span>
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 mb-2 block">Location</span>
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]">Rue de Montbrillant 28</p>
         <p class="font-body text-[13px] tracking-[0.02em] text-[#EFEFEF]/50">1201 Geneva, Switzerland</p>
       </div>
@@ -1006,11 +1052,13 @@
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
   <footer class="px-6 md:px-12 py-8 md:py-12">
     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-0 mb-12">
       <!-- Page Links -->
-      <div class="hidden sm:flex items-center gap-8">
+      <div class="flex items-center gap-6 sm:gap-8 flex-wrap">
         <a href="#hero" class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400" data-i18n="footer.home">Home</a>
         <a href="#work" class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">Latest</a>
         <a href="#services" class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">Expertise</a>
@@ -1034,7 +1082,7 @@
 
     <!-- Bottom bar -->
     <div class="flex items-center justify-between pt-8 border-t border-[#EFEFEF]/10">
-      <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/30" data-i18n="footer.rights">© 2026 Sebastian Van Eickelen. All Rights Reserved.</p>
+      <p class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50" data-i18n="footer.rights">© 2026 Sebastian Van Eickelen. All Rights Reserved.</p>
       <a href="#hero" class="social-icon w-10 h-10 border border-[#EFEFEF]/10 rounded-full flex items-center justify-center hover:border-[#F64E29] transition-all duration-400">
         <svg class="w-4 h-4 text-[#EFEFEF]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path d="M17 17L7 7M7 7h10M7 7v10"/>
@@ -1042,6 +1090,11 @@
       </a>
     </div>
   </footer>
+
+  <!-- Back to top (mobile) -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 z-50 w-10 h-10 bg-[#1C1C1C]/90 backdrop-blur-sm border border-[#EFEFEF]/20 rounded-full flex items-center justify-center opacity-0 pointer-events-none transition-all duration-500 hover:border-[#F64E29] md:hidden" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg class="w-4 h-4 text-[#EFEFEF]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 17L7 7M7 7h10M7 7v10"/></svg>
+  </button>
 
   <script src="assets/js/translations.js"></script>
   <script src="assets/js/lang-toggle.js"></script>
@@ -1133,20 +1186,38 @@
       currentSlide = index;
     }
 
+    let testimonialPaused = false;
+    const pauseBtn = document.getElementById('testimonial-pause');
     dots.forEach(dot => {
-      dot.addEventListener('click', () => showSlide(parseInt(dot.dataset.index)));
+      dot.addEventListener('click', () => { testimonialPaused = true; updatePauseBtn(); showSlide(parseInt(dot.dataset.index)); });
     });
+    if (pauseBtn) {
+      pauseBtn.addEventListener('click', () => {
+        testimonialPaused = !testimonialPaused;
+        updatePauseBtn();
+      });
+    }
+    function updatePauseBtn() {
+      if (!pauseBtn) return;
+      pauseBtn.querySelector('.pause-icon').classList.toggle('hidden', testimonialPaused);
+      pauseBtn.querySelector('.play-icon').classList.toggle('hidden', !testimonialPaused);
+      pauseBtn.setAttribute('aria-label', testimonialPaused ? 'Play testimonials' : 'Pause testimonials');
+    }
 
-    setInterval(() => {
-      showSlide((currentSlide + 1) % slides.length);
-    }, 6000);
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setInterval(() => { if (!testimonialPaused) showSlide((currentSlide + 1) % slides.length); }, 6000);
+    }
 
     // ─── Accordion ───
     function toggleStep(el) {
       const wasOpen = el.classList.contains('open');
-      document.querySelectorAll('.accordion-step.open').forEach(s => s.classList.remove('open'));
-      if (!wasOpen) el.classList.add('open');
+      document.querySelectorAll('.accordion-step.open').forEach(s => { s.classList.remove('open'); s.setAttribute('aria-expanded', 'false'); });
+      if (!wasOpen) { el.classList.add('open'); el.setAttribute('aria-expanded', 'true'); }
     }
+    document.querySelectorAll('.accordion-step').forEach(step => {
+      step.addEventListener('click', () => toggleStep(step));
+      step.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleStep(step); } });
+    });
 
     // ─── Scroll Reveal (IntersectionObserver) ───
     const revealEls = document.querySelectorAll('.reveal');
@@ -1159,6 +1230,20 @@
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => revealObserver.observe(el));
+
+    // Back to top button visibility
+    const backToTop = document.getElementById('back-to-top');
+    if (backToTop) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 800) {
+          backToTop.classList.remove('opacity-0', 'pointer-events-none');
+          backToTop.classList.add('opacity-100');
+        } else {
+          backToTop.classList.add('opacity-0', 'pointer-events-none');
+          backToTop.classList.remove('opacity-100');
+        }
+      }, { passive: true });
+    }
 
     // Safety net: force-reveal all elements after 3s in case observer fails
     setTimeout(() => {
