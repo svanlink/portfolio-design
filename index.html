@@ -130,6 +130,31 @@
     /* Active filter */
     .filter-btn.active { color: #F64E29 !important; }
 
+    /* Hide scrollbar on filter strip & services */
+    .filter-scroll, .services-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+    .filter-scroll::-webkit-scrollbar, .services-scroll::-webkit-scrollbar { display: none; }
+
+    /* Swipe hint nudge animation */
+    @keyframes swipe-nudge {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(6px); }
+    }
+    .swipe-arrow { animation: swipe-nudge 1.5s ease-in-out infinite; }
+
+    /* Services: horizontal scroll on mobile, 3-col grid on desktop */
+    @media (min-width: 768px) {
+      .services-scroll {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr);
+        overflow: visible;
+        margin: 0; padding: 0;
+      }
+      .services-scroll > div {
+        width: auto !important;
+        flex-shrink: 1;
+      }
+    }
+
     /* Infinite scroll logos */
     @keyframes scroll-logos {
       0% { transform: translateX(0); }
@@ -471,12 +496,12 @@
   <section id="work" class="px-6 md:px-12 py-20 md:py-40">
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 md:mb-12 reveal">
       <h2 class="font-heading text-[32px] md:text-[36px] uppercase tracking-[0.02em]" data-i18n="work.title">Selected Work</h2>
-      <div class="flex items-center gap-3 md:gap-4 flex-wrap">
-        <button class="filter-btn active font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#F64E29] transition-colors duration-400 min-h-[44px] px-3" data-filter="all" data-i18n="work.filter.all">All</button>
-        <button class="filter-btn font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400 min-h-[44px] px-3" data-filter="commercial" data-i18n="work.filter.commercials">Commercials</button>
-        <button class="filter-btn font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400 min-h-[44px] px-3" data-filter="brand-film" data-i18n="work.filter.brand">Brand Films</button>
-        <button class="filter-btn font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400 min-h-[44px] px-3" data-filter="sports" data-i18n="work.filter.sports">Sports</button>
-        <button class="filter-btn font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400 min-h-[44px] px-3" data-filter="documentary" data-i18n="work.filter.documentary">Documentary</button>
+      <div class="filter-scroll flex items-center gap-0 md:gap-2 overflow-x-auto md:overflow-visible -mx-6 px-6 md:mx-0 md:px-0">
+        <button class="filter-btn active font-mono-nav text-[9px] md:text-[10px] uppercase tracking-[0.12em] md:tracking-[0.15em] text-[#F64E29] transition-colors duration-400 min-h-[36px] md:min-h-[44px] px-2 md:px-3 shrink-0 whitespace-nowrap" data-filter="all" data-i18n="work.filter.all">All</button>
+        <button class="filter-btn font-mono-nav text-[9px] md:text-[10px] uppercase tracking-[0.12em] md:tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400 min-h-[36px] md:min-h-[44px] px-2 md:px-3 shrink-0 whitespace-nowrap" data-filter="commercial" data-i18n="work.filter.commercials">Commercials</button>
+        <button class="filter-btn font-mono-nav text-[9px] md:text-[10px] uppercase tracking-[0.12em] md:tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400 min-h-[36px] md:min-h-[44px] px-2 md:px-3 shrink-0 whitespace-nowrap" data-filter="brand-film" data-i18n="work.filter.brand">Brand Films</button>
+        <button class="filter-btn font-mono-nav text-[9px] md:text-[10px] uppercase tracking-[0.12em] md:tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400 min-h-[36px] md:min-h-[44px] px-2 md:px-3 shrink-0 whitespace-nowrap" data-filter="sports" data-i18n="work.filter.sports">Sports</button>
+        <button class="filter-btn font-mono-nav text-[9px] md:text-[10px] uppercase tracking-[0.12em] md:tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400 min-h-[36px] md:min-h-[44px] px-2 md:px-3 shrink-0 whitespace-nowrap" data-filter="documentary" data-i18n="work.filter.documentary">Documentary</button>
       </div>
     </div>
 
@@ -656,48 +681,57 @@
       </h2>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[1px] bg-[#EFEFEF]/10 reveal">
+    <!-- Mobile: horizontal scroll / Desktop: 3-col grid -->
+    <div class="services-scroll flex md:!grid md:grid-cols-3 gap-[1px] bg-[#EFEFEF]/10 overflow-x-auto md:overflow-visible -mx-6 px-6 md:mx-0 md:px-0 snap-x snap-mandatory reveal">
       <!-- Service 1: Brand Films -->
-      <div class="service-card bg-[#1C1C1C] p-8 group hover:bg-[#222222] transition-colors duration-500">
-        <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">01</span>
-        <h3 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-4 mb-3" data-i18n="services.1.title">Brand Films</h3>
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.1.desc">Cinematic brand stories and identity pieces that capture the soul of your brand and move your audience.</p>
+      <div class="service-card bg-[#1C1C1C] p-6 md:p-8 group hover:bg-[#222222] transition-colors duration-500 shrink-0 w-[75vw] md:w-auto md:shrink snap-start">
+        <span class="font-heading text-[36px] md:text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">01</span>
+        <h3 class="font-heading text-[20px] md:text-[24px] uppercase tracking-[0.02em] mt-3 md:mt-4 mb-2 md:mb-3" data-i18n="services.1.title">Brand Films</h3>
+        <p class="font-body text-[12px] md:text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.1.desc">Cinematic brand stories and identity pieces that capture the soul of your brand and move your audience.</p>
       </div>
 
       <!-- Service 2: Commercial Production -->
-      <div class="service-card bg-[#1C1C1C] p-8 group hover:bg-[#222222] transition-colors duration-500">
-        <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">02</span>
-        <h3 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-4 mb-3" data-i18n="services.2.title">Commercial Production</h3>
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.2.desc">Ad spots for digital and broadcast — crafted with cinematic precision for maximum impact.</p>
+      <div class="service-card bg-[#1C1C1C] p-6 md:p-8 group hover:bg-[#222222] transition-colors duration-500 shrink-0 w-[75vw] md:w-auto md:shrink snap-start">
+        <span class="font-heading text-[36px] md:text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">02</span>
+        <h3 class="font-heading text-[20px] md:text-[24px] uppercase tracking-[0.02em] mt-3 md:mt-4 mb-2 md:mb-3" data-i18n="services.2.title">Commercial Production</h3>
+        <p class="font-body text-[12px] md:text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.2.desc">Ad spots for digital and broadcast — crafted with cinematic precision for maximum impact.</p>
       </div>
 
       <!-- Service 3: Documentary / Mini-Series -->
-      <div class="service-card bg-[#1C1C1C] p-8 group hover:bg-[#222222] transition-colors duration-500">
-        <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">03</span>
-        <h3 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-4 mb-3" data-i18n="services.3.title">Documentary</h3>
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.3.desc">Long-form storytelling and mini-series that immerse viewers in compelling real-world narratives.</p>
+      <div class="service-card bg-[#1C1C1C] p-6 md:p-8 group hover:bg-[#222222] transition-colors duration-500 shrink-0 w-[75vw] md:w-auto md:shrink snap-start">
+        <span class="font-heading text-[36px] md:text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">03</span>
+        <h3 class="font-heading text-[20px] md:text-[24px] uppercase tracking-[0.02em] mt-3 md:mt-4 mb-2 md:mb-3" data-i18n="services.3.title">Documentary</h3>
+        <p class="font-body text-[12px] md:text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.3.desc">Long-form storytelling and mini-series that immerse viewers in compelling real-world narratives.</p>
       </div>
 
       <!-- Service 4: Event Coverage -->
-      <div class="service-card bg-[#1C1C1C] p-8 group hover:bg-[#222222] transition-colors duration-500">
-        <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">04</span>
-        <h3 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-4 mb-3" data-i18n="services.4.title">Event Coverage</h3>
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.4.desc">Premium event films and recap edits that capture the energy, emotion, and essence of the moment.</p>
+      <div class="service-card bg-[#1C1C1C] p-6 md:p-8 group hover:bg-[#222222] transition-colors duration-500 shrink-0 w-[75vw] md:w-auto md:shrink snap-start">
+        <span class="font-heading text-[36px] md:text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">04</span>
+        <h3 class="font-heading text-[20px] md:text-[24px] uppercase tracking-[0.02em] mt-3 md:mt-4 mb-2 md:mb-3" data-i18n="services.4.title">Event Coverage</h3>
+        <p class="font-body text-[12px] md:text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.4.desc">Premium event films and recap edits that capture the energy, emotion, and essence of the moment.</p>
       </div>
 
       <!-- Service 5: Creative Direction -->
-      <div class="service-card bg-[#1C1C1C] p-8 group hover:bg-[#222222] transition-colors duration-500">
-        <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">05</span>
-        <h3 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-4 mb-3" data-i18n="services.5.title">Creative Direction</h3>
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.5.desc">Concept development and visual strategy — from mood boards and treatments to full creative oversight.</p>
+      <div class="service-card bg-[#1C1C1C] p-6 md:p-8 group hover:bg-[#222222] transition-colors duration-500 shrink-0 w-[75vw] md:w-auto md:shrink snap-start">
+        <span class="font-heading text-[36px] md:text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">05</span>
+        <h3 class="font-heading text-[20px] md:text-[24px] uppercase tracking-[0.02em] mt-3 md:mt-4 mb-2 md:mb-3" data-i18n="services.5.title">Creative Direction</h3>
+        <p class="font-body text-[12px] md:text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.5.desc">Concept development and visual strategy — from mood boards and treatments to full creative oversight.</p>
       </div>
 
       <!-- Service 6: Post-Production -->
-      <div class="service-card bg-[#1C1C1C] p-8 group hover:bg-[#222222] transition-colors duration-500">
-        <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">06</span>
-        <h3 class="font-heading text-[24px] uppercase tracking-[0.02em] mt-4 mb-3" data-i18n="services.6.title">Post-Production</h3>
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.6.desc">Editing, color grading, sound design, and motion graphics — the final polish that elevates every frame.</p>
+      <div class="service-card bg-[#1C1C1C] p-6 md:p-8 group hover:bg-[#222222] transition-colors duration-500 shrink-0 w-[75vw] md:w-auto md:shrink snap-start">
+        <span class="font-heading text-[36px] md:text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">06</span>
+        <h3 class="font-heading text-[20px] md:text-[24px] uppercase tracking-[0.02em] mt-3 md:mt-4 mb-2 md:mb-3" data-i18n="services.6.title">Post-Production</h3>
+        <p class="font-body text-[12px] md:text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.6.desc">Editing, color grading, sound design, and motion graphics — the final polish that elevates every frame.</p>
       </div>
+    </div>
+
+    <!-- Mobile swipe hint -->
+    <div class="swipe-hint flex md:hidden items-center gap-2 mt-4 transition-opacity duration-500">
+      <span class="font-mono-nav text-[9px] uppercase tracking-[0.15em] text-[#EFEFEF]/30">Swipe</span>
+      <svg class="w-4 h-4 text-[#EFEFEF]/30 swipe-arrow" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <path d="M5 12h14M13 6l6 6-6 6"/>
+      </svg>
     </div>
   </section>
 
@@ -1021,6 +1055,21 @@
     });
 
     // Vimeo videos now handled by performance.js (lazy loading via IntersectionObserver)
+
+    // Hide swipe hint on scroll
+    (function() {
+      const ss = document.querySelector('.services-scroll');
+      const sh = document.querySelector('.swipe-hint');
+      if (ss && sh) {
+        const initScroll = ss.scrollLeft;
+        ss.addEventListener('scroll', function handler() {
+          if (Math.abs(ss.scrollLeft - initScroll) > 20) {
+            sh.style.opacity = '0';
+            ss.removeEventListener('scroll', handler);
+          }
+        });
+      }
+    })();
 
     // Filter buttons
     const gridCards = document.querySelectorAll('.grid-hover > a[data-category]');
