@@ -35,18 +35,19 @@
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="icon" type="image/png" href="../assets/favicon.png">
 
-  <!-- Structured Data -->
+  <!-- Structured Data: ProfessionalService -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "@id": "https://vaneickelen.com/#organization",
     "name": "Van Eickelen",
-    "description": "Cinéaste, vidéaste et photographe basé à Genève, Suisse. Films de marque cinématographiques, publicités, documentaires et photographie pour des marques internationales telles qu'Adidas, Nike, Cartier, Red Bull et Richemont. Basé à Genève, disponible à Lausanne, Vaud et toute la Suisse.",
-    "url": "https://vaneickelen.com",
-    "logo": "https://vaneickelen.com/assets/favicon.svg",
+    "description": "Cinéaste, vidéaste et photographe basé à Genève, Suisse. Films de marque cinématographiques, publicités, documentaires et photographie pour des marques internationales dont Adidas, Nike, Cartier, Red Bull et Richemont.",
+    "url": "https://vaneickelen.com/",
+    "logo": "https://vaneickelen.com/assets/og-image.jpg",
     "image": "https://vaneickelen.com/assets/og-image.jpg",
     "email": "hello@vaneickelen.com",
+    "founder": { "@id": "https://vaneickelen.com/#person-sebastian" },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Rue de Montbrillant 28",
@@ -54,37 +55,134 @@
       "postalCode": "1201",
       "addressCountry": "CH"
     },
-    "founder": {
-      "@type": "Person",
-      "@id": "https://vaneickelen.com/#person-sebastian",
-      "name": "Sebastian Van Eickelen",
-      "jobTitle": "Cinéaste, Vidéaste & Photographe",
-      "url": "https://vaneickelen.com",
-      "knowsAbout": ["Cinéma", "Vidéographie", "Photographie", "Cinématographie", "Films de marque", "Production publicitaire", "Documentaire", "Direction créative", "Post-production", "Filmmaking", "Videography", "Photography"],
-      "sameAs": [
-        "https://www.instagram.com/vaneickelen",
-        "https://vimeo.com/vaneickelen",
-        "https://www.linkedin.com/in/vaneickelen"
-      ]
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 46.2107,
+      "longitude": 6.1448
     },
-    "areaServed": ["Genève", "Geneva", "Lausanne", "Vaud", "Suisse", "Switzerland", "Europe", "Worldwide"],
-    "knowsLanguage": ["French", "English"],
+    "areaServed": [
+      { "@type": "City", "name": "Genève" },
+      { "@type": "City", "name": "Lausanne" },
+      { "@type": "AdministrativeArea", "name": "Vaud" },
+      { "@type": "Country", "name": "Suisse" }
+    ],
+    "knowsLanguage": ["fr", "en"],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Services de production cinématographique",
       "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Films de marque" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Publicités" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Documentaire" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Films événementiels" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Direction créative" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Post-production" } }
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Films de marque", "description": "Films d'identité et de notoriété de marque" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Publicités", "description": "Spots publicitaires pour le digital et la diffusion" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Documentaire", "description": "Documentaire long et court métrage" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Films événementiels", "description": "Couverture vidéo d'événements corporate et live" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Direction créative", "description": "Concept et direction créative de bout en bout" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Post-production", "description": "Montage, étalonnage, design sonore et finition" } }
       ]
     },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Marie Laurent", "jobTitle": "Directrice Marketing", "worksFor": { "@type": "Organization", "name": "Decathlon Suisse" } },
+        "reviewBody": "Sebastian ne filme pas simplement — il comprend l'histoire que nous voulons raconter et l'élève au-delà de ce que nous imaginions."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Thomas Keller", "jobTitle": "Brand Manager", "worksFor": { "@type": "Organization", "name": "Adidas Terrex" } },
+        "reviewBody": "Le niveau de qualité cinématographique qu'il a apporté à notre campagne était au niveau des plus grands studios. Un travail exceptionnel."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Anna Richter", "jobTitle": "Responsable Contenu", "worksFor": { "@type": "Organization", "name": "Swiss Athletics" } },
+        "reviewBody": "Travailler avec Sebastian a été un vrai partenariat créatif. Il a poussé notre vision plus loin que ce qu'on pensait possible."
+      }
+    ],
     "sameAs": [
       "https://www.instagram.com/vaneickelen",
       "https://vimeo.com/vaneickelen",
       "https://www.linkedin.com/in/vaneickelen"
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://vaneickelen.com/#person-sebastian",
+    "name": "Sebastian Van Eickelen",
+    "givenName": "Sebastian",
+    "familyName": "Van Eickelen",
+    "jobTitle": "Cinéaste, Vidéaste & Photographe",
+    "description": "Cinéaste basé à Genève spécialisé dans les films de marque, publicités et documentaires pour des marques internationales dont Adidas, Nike, Cartier, Red Bull et Richemont.",
+    "url": "https://vaneickelen.com/",
+    "image": "https://vaneickelen.com/assets/og-image.jpg",
+    "email": "hello@vaneickelen.com",
+    "worksFor": { "@id": "https://vaneickelen.com/#organization" },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Genève",
+      "addressCountry": "CH"
+    },
+    "knowsAbout": ["Cinéma", "Vidéographie", "Photographie", "Cinématographie", "Films de marque", "Production publicitaire", "Documentaire", "Direction créative", "Post-production", "Étalonnage", "Design sonore"],
+    "knowsLanguage": ["fr", "en"],
+    "sameAs": [
+      "https://www.instagram.com/vaneickelen",
+      "https://vimeo.com/vaneickelen",
+      "https://www.linkedin.com/in/vaneickelen"
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://vaneickelen.com/#website",
+    "name": "Van Eickelen",
+    "alternateName": "Sebastian Van Eickelen",
+    "url": "https://vaneickelen.com/",
+    "description": "Portfolio du cinéaste et vidéaste Sebastian Van Eickelen, basé à Genève, Suisse.",
+    "inLanguage": ["fr", "en"],
+    "publisher": { "@id": "https://vaneickelen.com/#person-sebastian" }
+  }
+  </script>
+
+  <!-- Structured Data: VideoObject -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org", "@type": "VideoObject",
+      "name": "Van Eickelen — Bande Démo",
+      "description": "Bande démo du cinéaste Sebastian Van Eickelen — films de marque, publicités et documentaires pour Adidas, Decathlon, Cartier et plus.",
+      "uploadDate": "2025-01-15",
+      "thumbnailUrl": "https://vumbnail.com/777174258.jpg",
+      "contentUrl": "https://vimeo.com/777174258",
+      "embedUrl": "https://player.vimeo.com/video/777174258",
+      "author": { "@id": "https://vaneickelen.com/#person-sebastian" }
+    },
+    { "@context": "https://schema.org", "@type": "VideoObject", "name": "Adidas Terrex — Campagne Trail Running", "description": "Film de campagne pour Adidas Terrex tourné dans les Alpes suisses sur RED Komodo 6K avec optiques Cooke Anamorphic.", "uploadDate": "2025-01-15", "thumbnailUrl": "https://vumbnail.com/460645906.jpg", "contentUrl": "https://vimeo.com/460645906", "embedUrl": "https://player.vimeo.com/video/460645906", "author": { "@id": "https://vaneickelen.com/#person-sebastian" } },
+    { "@context": "https://schema.org", "@type": "VideoObject", "name": "Decathlon Suisse — Film de Marque", "description": "Film d'identité de marque pour Decathlon Suisse avec de vrais clients et employés.", "uploadDate": "2024-06-01", "thumbnailUrl": "https://vumbnail.com/816041394.jpg", "contentUrl": "https://vimeo.com/816041394", "embedUrl": "https://player.vimeo.com/video/816041394", "author": { "@id": "https://vaneickelen.com/#person-sebastian" } },
+    { "@context": "https://schema.org", "@type": "VideoObject", "name": "Swiss Athletics — Portraits d'Athlètes", "description": "Série de portraits intimes pour Swiss Athletics.", "uploadDate": "2024-09-01", "thumbnailUrl": "https://vumbnail.com/338000108.jpg", "contentUrl": "https://vimeo.com/338000108", "embedUrl": "https://player.vimeo.com/video/338000108", "author": { "@id": "https://vaneickelen.com/#person-sebastian" } },
+    { "@context": "https://schema.org", "@type": "VideoObject", "name": "Beyond The Summit — Documentaire Alpinisme", "description": "Documentaire suivant trois alpinistes dans les Alpes suisses. Première au Banff Mountain Film Festival.", "uploadDate": "2024-03-01", "thumbnailUrl": "https://vumbnail.com/188244968.jpg", "contentUrl": "https://vimeo.com/188244968", "embedUrl": "https://player.vimeo.com/video/188244968", "author": { "@id": "https://vaneickelen.com/#person-sebastian" } },
+    { "@context": "https://schema.org", "@type": "VideoObject", "name": "Hôtellerie de Luxe — Film de Marque", "description": "Film de marque pour un hôtel de luxe à Genève, tourné exclusivement à l'aube et au crépuscule.", "uploadDate": "2024-11-01", "thumbnailUrl": "https://vumbnail.com/392226201.jpg", "contentUrl": "https://vimeo.com/392226201", "embedUrl": "https://player.vimeo.com/video/392226201", "author": { "@id": "https://vaneickelen.com/#person-sebastian" } },
+    { "@context": "https://schema.org", "@type": "VideoObject", "name": "Startup — Film de Lancement", "description": "Film de lancement crowdfunding pour une startup tech suisse. Campagne financée à 340% en 72 heures.", "uploadDate": "2025-02-01", "thumbnailUrl": "https://vumbnail.com/928454658.jpg", "contentUrl": "https://vimeo.com/928454658", "embedUrl": "https://player.vimeo.com/video/928454658", "author": { "@id": "https://vaneickelen.com/#person-sebastian" } }
+  ]
+  </script>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Combien coûte un film de marque en Suisse ?", "acceptedAnswer": { "@type": "Answer", "text": "Ça dépend de l'envergure. Un tournage d'un jour commence autour de CHF 8 000–15 000. Les campagnes plus importantes vont de CHF 20 000 à 60 000+." } },
+      { "@type": "Question", "name": "Combien de temps dure une production typique ?", "acceptedAnswer": { "@type": "Answer", "text": "De la première conversation à la livraison finale, la plupart des projets prennent 4 à 8 semaines." } },
+      { "@type": "Question", "name": "Quelle est la différence entre un film de marque et une publicité ?", "acceptedAnswer": { "@type": "Answer", "text": "Une publicité est faite pour vendre — 15 à 60 secondes, centrée sur le produit. Un film de marque est fait pour connecter — 1 à 3 minutes, porté par une histoire." } },
+      { "@type": "Question", "name": "Avec quel équipement tournez-vous ?", "acceptedAnswer": { "@type": "Answer", "text": "Caméra principale RED Komodo 6K avec optiques Cooke Anamorphic /i. Pour le documentaire, Sony FX6 et FX3 avec optiques Sony G Master." } },
+      { "@type": "Question", "name": "Travaillez-vous en dehors de la Suisse ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Basé à Genève mais travaillant dans toute l'Europe et à l'international." } },
+      { "@type": "Question", "name": "Quels livrables est-ce que je reçois ?", "acceptedAnswer": { "@type": "Answer", "text": "Film principal plus déclinaisons sociales (16:9, 9:16, 1:1), fichier master étalonné, mixage audio, et tous les exports finaux." } }
     ]
   }
   </script>
@@ -95,15 +193,18 @@
   <link rel="preconnect" href="https://i.vimeocdn.com">
   <link rel="preconnect" href="https://f.vimeocdn.com">
   <link rel="preload" href="https://player.vimeo.com/api/player.js" as="script">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" as="style">
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Urbanist:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/styles.css?v=2">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Urbanist:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Urbanist:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="../assets/css/styles.css?v=5">
+  <link rel="preconnect" href="https://maps.googleapis.com">
+  <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://vumbnail.com">
 </head>
 <body class="bg-[#1C1C1C] text-[#EFEFEF]">
   <!-- Site Loader -->
-  <div id="site-loader" style="position:fixed;inset:0;z-index:9999;background:#1C1C1C;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;" aria-hidden="true">
-    <div id="loader-logo" style="height:80px;width:237px;opacity:0;transform:translateY(10px);transition:opacity 1.2s cubic-bezier(0.22,1,0.36,1),transform 1.2s cubic-bezier(0.22,1,0.36,1);-webkit-mask-image:url(../assets/logo-white.svg);mask-image:url(../assets/logo-white.svg);-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;background:linear-gradient(to top,#EFEFEF 0%,transparent 0%);"></div>
-    <span id="loader-pct" style="font-family:'Space Mono',monospace;font-size:14px;letter-spacing:0.15em;color:rgba(239,239,239,0.15);opacity:0;transition:opacity 0.8s cubic-bezier(0.22,1,0.36,1);background:linear-gradient(to top,#EFEFEF 0%,#1C1C1C 0%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">0%</span>
+  <div id="site-loader" aria-hidden="true">
+    <div id="loader-logo"></div>
+    <span id="loader-pct">0%</span>
   </div>
 
   <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-[#F64E29] focus:text-[#EFEFEF] focus:px-4 focus:py-2 focus:font-mono-nav focus:text-[11px] focus:uppercase focus:tracking-[0.15em]">Aller au contenu</a>
@@ -116,10 +217,10 @@
     <div class="relative flex items-center justify-between px-6 md:px-12 py-5">
 
       <!-- Left: Logo -->
-      <a href="#hero" class="flex items-center hover:opacity-70 transition-opacity duration-400"><img src="../assets/logo-white.svg" alt="Van Eickelen" class="h-5 md:h-[22px] w-auto opacity-80"></a>
+      <a href="#hero" class="flex items-center hover:opacity-70 transition-opacity duration-400"><img src="../assets/logo-white.svg" alt="Van Eickelen" class="h-5 md:h-[22px] w-auto opacity-80" width="60" height="20"></a>
 
       <!-- Center: Nav Links (hidden on mobile) -->
-      <nav class="absolute left-1/2 -translate-x-1/2 translate-y-px hidden md:flex items-center gap-8">
+      <nav aria-label="Main navigation" class="absolute left-1/2 -translate-x-1/2 translate-y-px hidden md:flex items-center gap-8">
         <a href="#work" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.latest">Latest</a>
         <a href="#services" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.expertise">Expertise</a>
         <a href="#contact" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.contact">Contact</a>
@@ -198,10 +299,10 @@
     <div class="relative flex items-center justify-between px-6 md:px-12 py-4">
 
       <!-- Left: Logo -->
-      <a href="#hero" class="flex items-center hover:opacity-70 transition-opacity duration-400"><img src="../assets/logo-white.svg" alt="Van Eickelen" class="h-5 md:h-[22px] w-auto opacity-80"></a>
+      <a href="#hero" class="flex items-center hover:opacity-70 transition-opacity duration-400"><img src="../assets/logo-white.svg" alt="Van Eickelen" class="h-5 md:h-[22px] w-auto opacity-80" width="60" height="20"></a>
 
       <!-- Center: Nav Links (hidden on mobile) -->
-      <nav class="absolute left-1/2 -translate-x-1/2 translate-y-px hidden md:flex items-center gap-8">
+      <nav aria-label="Main navigation" class="absolute left-1/2 -translate-x-1/2 translate-y-px hidden md:flex items-center gap-8">
         <a href="#work" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.latest">Latest</a>
         <a href="#services" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.expertise">Expertise</a>
         <a href="#contact" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.contact">Contact</a>
@@ -231,7 +332,7 @@
   <!-- Hero: Full-screen Video Background -->
   <section id="hero" class="relative w-full h-screen overflow-hidden bg-[#1C1C1C]">
     <!-- Vimeo Background Video Container -->
-    <div id="vimeo-bg" class="vimeo-card absolute inset-0 z-0" data-vimeo-defer data-vimeo-id="777174258" data-vimeo-quality="1080p"></div>
+    <div id="vimeo-bg" aria-hidden="true" class="vimeo-card absolute inset-0 z-0" data-vimeo-defer data-vimeo-id="777174258" data-vimeo-quality="1080p"></div>
     <!-- Dark overlay — seamless gradient into body -->
     <div class="absolute inset-0 bg-gradient-to-t from-[#1C1C1C] via-[#1C1C1C]/20 to-transparent z-10"></div>
     <!-- Hero Content -->
@@ -242,7 +343,7 @@
         </h1>
         <div class="flex items-center gap-3 md:gap-4 mb-4 ml-[3.5vw] md:ml-[22px] lg:ml-[28px]">
           <span class="w-6 md:w-12 shrink-0 h-[1px] bg-[#F64E29]"></span>
-          <p class="font-quote text-[11px] md:text-[12px] tracking-[0.02em] text-[#EFEFEF]/70 cursor-default whitespace-nowrap" data-i18n="hero.subtitle">Storytelling <span class="font-mono-nav font-bold text-[#EFEFEF]">audacieux</span> et authentique qui inspire l'action.</p>
+          <p class="font-quote text-[11px] md:text-[12px] tracking-[0.02em] text-[#EFEFEF]/70 cursor-default whitespace-nowrap" data-i18n="hero.subtitle">Des films <span class="font-mono-nav font-bold text-[#EFEFEF]">honnêtes</span> pour les marques qui se soucient de ce que le travail fait ressentir.</p>
         </div>
         <a href="#work" class="flex items-center justify-between mt-1 w-full px-5 py-2.5 border border-[#EFEFEF]/40 hover:border-[#F64E29] hover:bg-[#F64E29]/10 text-[#EFEFEF] font-mono-nav text-[11px] uppercase tracking-[0.15em] transition-all duration-400 rounded-none group"><span data-i18n="hero.cta">Voir la Bande Démo</span> <svg class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
       </div>
@@ -409,7 +510,10 @@
 
       <!-- Left: Cinematic photo (7 cols desktop, full-bleed mobile) -->
       <div class="lg:col-span-7 relative overflow-hidden lg:rounded-sm reveal">
-        <img src="../assets/images/about-wide.jpg" alt="Sebastian Van Eickelen — Réalisateur en Islande" class="w-full aspect-[16/7] lg:aspect-[3/1] object-cover object-[65%_center]" loading="lazy">
+        <picture>
+  <source type="image/webp" srcset="../assets/images/about-wide-800.webp 800w, ../assets/images/about-wide-1600.webp 1600w, ../assets/images/about-wide-2400.webp 2400w" sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 800px">
+  <img src="../assets/images/about-wide.jpg" srcset="../assets/images/about-wide-800.jpg 800w, ../assets/images/about-wide-1600.jpg 1600w, ../assets/images/about-wide.jpg 2400w" sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 800px" alt="Sebastian Van Eickelen — Réalisateur en Islande" class="w-full h-full object-cover" width="2400" height="1020" loading="eager">
+</picture>
         <!-- Fade bottom into background -->
         <div class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#161616] to-transparent"></div>
       </div>
@@ -424,17 +528,12 @@
         <div class="mt-6 space-y-4 reveal">
           <p class="font-body text-[12px] md:text-[13px] leading-[1.8] text-[#EFEFEF]/60" data-i18n="about.bio1">Je suis Sebastian — réalisateur basé à Genève. Ces dernières années, j'ai essayé de m'améliorer dans une seule chose : communiquer quelque chose d'honnête à travers une caméra. Films de marque, publicités, documentaires — le format m'importe moins que de savoir si ce qu'on crée fait vraiment ressentir quelque chose.</p>
           <p class="font-body text-[12px] md:text-[13px] leading-[1.8] text-[#EFEFEF]/60" data-i18n="about.bio2">Ce qui m'intéresse, c'est créer un travail qui dépasse le moment pour lequel il a été fait. Le genre de pièce que quelqu'un regarde des années plus tard et qui donne encore l'impression d'une conversation au présent. C'est ce que je poursuis. Je n'y suis pas encore — mais chaque projet me rapproche un peu.</p>
-          <!-- Extra paragraphs: visible on desktop, toggled on mobile/tablet -->
-          <div class="hidden lg:block space-y-4">
+          <!-- Extra paragraphs: always visible on lg+, toggled on mobile/tablet -->
+          <div id="about-more" class="hidden lg:!block space-y-4">
             <p class="font-body text-[12px] md:text-[13px] leading-[1.8] text-[#EFEFEF]/60" data-i18n="about.bio3">J'ai eu la chance de travailler avec des marques comme Adidas, Cartier, Red Bull et Nike — des Alpes suisses aux plaines volcaniques d'Islande. Chaque projet m'apprend quelque chose. Je retiens une chose qui a bien marché, une chose à améliorer, et j'avance avec. Le reste s'efface.</p>
             <p class="font-body text-[12px] md:text-[13px] leading-[1.8] text-[#EFEFEF]/60" data-i18n="about.bio4">Je crois que le meilleur travail naît des vraies relations qu'on construit avec les gens aux côtés de qui on crée. Pas en courant après la prochaine chose — mais en plantant des graines, en disant oui à ce qui nous anime, et en faisant confiance au fil conducteur qui se révèle avec le temps.</p>
           </div>
-          <!-- Expandable on mobile/tablet -->
-          <div id="about-more" class="lg:hidden hidden space-y-4">
-            <p class="font-body text-[12px] md:text-[13px] leading-[1.8] text-[#EFEFEF]/60" data-i18n="about.bio3">J'ai eu la chance de travailler avec des marques comme Adidas, Cartier, Red Bull et Nike — des Alpes suisses aux plaines volcaniques d'Islande. Chaque projet m'apprend quelque chose. Je retiens une chose qui a bien marché, une chose à améliorer, et j'avance avec. Le reste s'efface.</p>
-            <p class="font-body text-[12px] md:text-[13px] leading-[1.8] text-[#EFEFEF]/60" data-i18n="about.bio4">Je crois que le meilleur travail naît des vraies relations qu'on construit avec les gens aux côtés de qui on crée. Pas en courant après la prochaine chose — mais en plantant des graines, en disant oui à ce qui nous anime, et en faisant confiance au fil conducteur qui se révèle avec le temps.</p>
-          </div>
-          <button id="about-toggle" class="lg:hidden font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 hover:text-[#EFEFEF]/70 transition-colors mt-2" onclick="document.getElementById('about-more').classList.toggle('hidden');this.textContent=this.textContent.trim()==='Lire la suite'?'Voir moins':'Lire la suite';" data-i18n="about.toggle">Lire la suite</button>
+          <button id="about-toggle" class="lg:hidden font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 hover:text-[#EFEFEF]/70 transition-colors mt-2" aria-expanded="false" aria-controls="about-more" data-i18n="about.toggle">Lire la suite</button>
         </div>
       </div>
 
@@ -500,42 +599,42 @@
       <div class="service-card bg-[#1C1C1C] p-6 md:p-8 group hover:bg-[#222222] transition-colors duration-500 shrink-0 w-[75vw] md:w-auto md:shrink snap-start">
         <span class="font-heading text-[36px] md:text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">01</span>
         <h3 class="font-heading text-[20px] md:text-[24px] uppercase tracking-[0.02em] mt-3 md:mt-4 mb-2 md:mb-3" data-i18n="services.1.title">Brand Films</h3>
-        <p class="font-body text-[12px] md:text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.1.desc">Cinematic brand stories and identity pieces that capture the soul of your brand and move your audience.</p>
+        <p class="font-body text-[12px] md:text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.1.desc">The kind of film that makes someone stop and feel something. We find the honest story inside your brand and build the film around that.</p>
       </div>
 
       <!-- Service 2: Commercial Production -->
       <div class="service-card bg-[#1C1C1C] p-6 md:p-8 group hover:bg-[#222222] transition-colors duration-500 shrink-0 w-[75vw] md:w-auto md:shrink snap-start">
         <span class="font-heading text-[36px] md:text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">02</span>
         <h3 class="font-heading text-[20px] md:text-[24px] uppercase tracking-[0.02em] mt-3 md:mt-4 mb-2 md:mb-3" data-i18n="services.2.title">Commercial Production</h3>
-        <p class="font-body text-[12px] md:text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.2.desc">Ad spots for digital and broadcast — crafted with cinematic precision for maximum impact.</p>
+        <p class="font-body text-[12px] md:text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.2.desc">Spots that work hard but don't feel like they're trying to. Digital, broadcast, social — whatever the format, the craft stays the same.</p>
       </div>
 
       <!-- Service 3: Documentary / Mini-Series -->
       <div class="service-card bg-[#1C1C1C] p-6 md:p-8 group hover:bg-[#222222] transition-colors duration-500 shrink-0 w-[75vw] md:w-auto md:shrink snap-start">
         <span class="font-heading text-[36px] md:text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">03</span>
         <h3 class="font-heading text-[20px] md:text-[24px] uppercase tracking-[0.02em] mt-3 md:mt-4 mb-2 md:mb-3" data-i18n="services.3.title">Documentary</h3>
-        <p class="font-body text-[12px] md:text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.3.desc">Long-form storytelling and mini-series that immerse viewers in compelling real-world narratives.</p>
+        <p class="font-body text-[12px] md:text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.3.desc">Real stories, told with patience. The kind of work where you sit with people long enough to find the thing that actually matters.</p>
       </div>
 
       <!-- Service 4: Event Coverage -->
       <div class="service-card bg-[#1C1C1C] p-6 md:p-8 group hover:bg-[#222222] transition-colors duration-500 shrink-0 w-[75vw] md:w-auto md:shrink snap-start">
         <span class="font-heading text-[36px] md:text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">04</span>
         <h3 class="font-heading text-[20px] md:text-[24px] uppercase tracking-[0.02em] mt-3 md:mt-4 mb-2 md:mb-3" data-i18n="services.4.title">Event Coverage</h3>
-        <p class="font-body text-[12px] md:text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.4.desc">Premium event films and recap edits that capture the energy, emotion, and essence of the moment.</p>
+        <p class="font-body text-[12px] md:text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.4.desc">Events disappear the moment they end. I make films that keep the feeling alive — the energy, the quiet moments in between.</p>
       </div>
 
       <!-- Service 5: Creative Direction -->
       <div class="service-card bg-[#1C1C1C] p-6 md:p-8 group hover:bg-[#222222] transition-colors duration-500 shrink-0 w-[75vw] md:w-auto md:shrink snap-start">
         <span class="font-heading text-[36px] md:text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">05</span>
         <h3 class="font-heading text-[20px] md:text-[24px] uppercase tracking-[0.02em] mt-3 md:mt-4 mb-2 md:mb-3" data-i18n="services.5.title">Creative Direction</h3>
-        <p class="font-body text-[12px] md:text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.5.desc">Concept development and visual strategy — from mood boards and treatments to full creative oversight.</p>
+        <p class="font-body text-[12px] md:text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.5.desc">Sometimes a project needs someone to hold the vision from start to finish. Concept, tone, visual language — I help shape the whole thing.</p>
       </div>
 
       <!-- Service 6: Post-Production -->
       <div class="service-card bg-[#1C1C1C] p-6 md:p-8 group hover:bg-[#222222] transition-colors duration-500 shrink-0 w-[75vw] md:w-auto md:shrink snap-start">
         <span class="font-heading text-[36px] md:text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">06</span>
         <h3 class="font-heading text-[20px] md:text-[24px] uppercase tracking-[0.02em] mt-3 md:mt-4 mb-2 md:mb-3" data-i18n="services.6.title">Post-Production</h3>
-        <p class="font-body text-[12px] md:text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.6.desc">Editing, color grading, sound design, and motion graphics — the final polish that elevates every frame.</p>
+        <p class="font-body text-[12px] md:text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50" data-i18n="services.6.desc">This is where the film finds itself. Editing, color, sound — the decisions that turn footage into something that breathes.</p>
       </div>
     </div>
 
@@ -573,7 +672,7 @@
         </span>
       </div>
       <div id="accordion-panel-1" role="region" aria-labelledby="accordion-heading-1" class="accordion-content overflow-hidden max-h-0 transition-all duration-700 ease-in-out">
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]" data-i18n="process.1.desc">Understanding the vision, goals, and audience. We align on tone, objectives, and creative direction before anything else.</p>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]" data-i18n="process.1.desc">We talk. I listen more than I pitch. The goal is to understand what you actually need — not just what you think you want.</p>
       </div>
     </div>
 
@@ -593,7 +692,7 @@
         </span>
       </div>
       <div id="accordion-panel-2" role="region" aria-labelledby="accordion-heading-2" class="accordion-content overflow-hidden max-h-0 transition-all duration-700 ease-in-out">
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]" data-i18n="process.2.desc">Creative direction, mood boards, and treatment. Script, storyboard, location scout, casting — every decision made before a camera rolls.</p>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]" data-i18n="process.2.desc">This is where the film starts to take shape. Treatment, references, locations, casting — every decision earns its place before we roll.</p>
       </div>
     </div>
 
@@ -613,7 +712,7 @@
         </span>
       </div>
       <div id="accordion-panel-3" role="region" aria-labelledby="accordion-heading-3" class="accordion-content overflow-hidden max-h-0 transition-all duration-700 ease-in-out">
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]" data-i18n="process.3.desc">Principal photography with full crew. Cinema-grade cameras, natural and controlled lighting, directorial precision on set.</p>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]" data-i18n="process.3.desc">Shoot days. Full crew, cinema cameras, real intention behind every setup. I direct with presence — no ego, just focus on the work.</p>
       </div>
     </div>
 
@@ -633,7 +732,7 @@
         </span>
       </div>
       <div id="accordion-panel-4" role="region" aria-labelledby="accordion-heading-4" class="accordion-content overflow-hidden max-h-0 transition-all duration-700 ease-in-out">
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]" data-i18n="process.4.desc">Non-linear edit, cinematic color grade, sound design, and motion graphics — the final polish that elevates every frame.</p>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]" data-i18n="process.4.desc">The edit is where the story reveals itself. Color, sound, pacing — every cut is a choice about what to keep and what to let go.</p>
       </div>
     </div>
 
@@ -653,13 +752,50 @@
         </span>
       </div>
       <div id="accordion-panel-5" role="region" aria-labelledby="accordion-heading-5" class="accordion-content overflow-hidden max-h-0 transition-all duration-700 ease-in-out">
-        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]" data-i18n="process.5.desc">Final files, revisions, and multi-format export — from broadcast to social, delivered exactly how you need it.</p>
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]" data-i18n="process.5.desc">Final files, revisions, every format you need. The work isn't done until it's right — and you'll know when it's right.</p>
       </div>
     </div>
 
     <!-- CTA after process -->
     <div class="flex justify-center mt-16 pt-12 border-t border-[#EFEFEF]/10 reveal">
-      <a href="#contact" class="inline-flex items-center gap-3 font-mono-nav text-[11px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#F64E29] transition-colors duration-400"><span data-i18n="process.cta">Prêt à commencer ? Parlons-en</span> <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+      <a href="#contact" class="inline-flex items-center gap-3 font-mono-nav text-[11px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#F64E29] transition-colors duration-400"><span data-i18n="process.cta">Have a project in mind? Let's talk</span> <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="px-6 md:px-12 py-20 md:py-40 bg-[#161616]">
+    <div class="max-w-3xl">
+      <div class="mb-12 reveal">
+        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-4 block" data-i18n="faq.label">Questions Fréquentes</span>
+        <h2 class="font-heading text-[36px] md:text-[48px] uppercase tracking-[0.02em] leading-[0.9] heading-reveal" data-i18n="faq.title">Questions Fréquentes</h2>
+      </div>
+
+      <div class="space-y-0 divide-y divide-[#EFEFEF]/10 reveal">
+        <details class="group py-6">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-heading text-[16px] md:text-[18px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="faq.q1">Combien coûte un film de marque en Suisse ?</summary>
+          <p class="font-body text-[13px] leading-[1.8] tracking-[0.02em] text-[#EFEFEF]/50 mt-4 max-w-2xl" data-i18n="faq.a1">Ça dépend de l'envergure. Un tournage d'un jour avec une petite équipe et une post-production basique commence généralement autour de CHF 8 000–15 000. Les campagnes plus importantes avec des tournages sur plusieurs jours, des équipes plus grandes et une post-production complète (étalonnage, design sonore, motion graphics) vont de CHF 20 000 à 60 000+. Je cadre chaque projet individuellement — chaque film est différent.</p>
+        </details>
+        <details class="group py-6">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-heading text-[16px] md:text-[18px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="faq.q2">Combien de temps dure une production typique ?</summary>
+          <p class="font-body text-[13px] leading-[1.8] tracking-[0.02em] text-[#EFEFEF]/50 mt-4 max-w-2xl" data-i18n="faq.a2">De la première conversation à la livraison finale, la plupart des projets prennent 4 à 8 semaines. La pré-production (concept, script, logistique) prend généralement 1 à 2 semaines, le tournage 1 à 4 jours, et la post-production 2 à 4 semaines selon la complexité. Des délais plus courts sont possibles quand le projet le demande.</p>
+        </details>
+        <details class="group py-6">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-heading text-[16px] md:text-[18px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="faq.q3">Quelle est la différence entre un film de marque et une publicité ?</summary>
+          <p class="font-body text-[13px] leading-[1.8] tracking-[0.02em] text-[#EFEFEF]/50 mt-4 max-w-2xl" data-i18n="faq.a3">Une publicité est faite pour vendre — elle dure généralement 15 à 60 secondes, centrée sur le produit, conçue pour les médias payants. Un film de marque est fait pour connecter — il dure typiquement 1 à 3 minutes, porté par une histoire, et vit sur votre site web, vos réseaux sociaux ou lors d'événements. Les deux exigent la même qualité de production, mais l'intention et la structure sont différentes.</p>
+        </details>
+        <details class="group py-6">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-heading text-[16px] md:text-[18px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="faq.q4">Avec quel équipement tournez-vous ?</summary>
+          <p class="font-body text-[13px] leading-[1.8] tracking-[0.02em] text-[#EFEFEF]/50 mt-4 max-w-2xl" data-i18n="faq.a4">Ma caméra principale est la RED Komodo 6K, associée aux optiques Cooke Anamorphic /i pour la plupart des films de marque et publicités. Pour le documentaire et les tournages en mobilité, j'utilise des boîtiers Sony FX6 et FX3 avec des optiques Sony G Master. J'ai aussi des systèmes DJI pour les prises de vue aériennes. Le matériel est toujours choisi pour correspondre au projet — pas l'inverse.</p>
+        </details>
+        <details class="group py-6">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-heading text-[16px] md:text-[18px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="faq.q5">Travaillez-vous en dehors de la Suisse ?</summary>
+          <p class="font-body text-[13px] leading-[1.8] tracking-[0.02em] text-[#EFEFEF]/50 mt-4 max-w-2xl" data-i18n="faq.a5">Oui. Je suis basé à Genève mais je travaille dans toute l'Europe et à l'international. Des projets récents m'ont emmené dans les Alpes suisses, en Islande et à travers la France. Le voyage et la logistique font partie du plan de production — je m'en occupe pour que vous n'ayez pas à le faire.</p>
+        </details>
+        <details class="group py-6">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-heading text-[16px] md:text-[18px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="faq.q6">Quels livrables est-ce que je reçois ?</summary>
+          <p class="font-body text-[13px] leading-[1.8] tracking-[0.02em] text-[#EFEFEF]/50 mt-4 max-w-2xl" data-i18n="faq.a6">Chaque projet inclut le film principal plus des déclinaisons sociales optimisées pour chaque plateforme (16:9, 9:16, 1:1). Vous recevez aussi un fichier master étalonné, un mixage audio propre, et tous les exports finaux dans les formats dont vous avez besoin — broadcast, web, ou les deux. Les révisions font partie du processus.</p>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -729,7 +865,7 @@
       <!-- Left: Headline + Info -->
       <div class="reveal flex flex-col">
         <h2 class="font-heading text-[48px] md:text-[64px] uppercase tracking-[0.02em] leading-[0.9] mb-6">
-          Let's Create Something Extraordinary
+          Let's Make Something Honest
         </h2>
         <!-- Contact details -->
         <div class="space-y-8">
@@ -757,7 +893,7 @@
       <div class="reveal">
         <form id="contact-form" action="https://formspree.io/f/mojpqebp" method="POST" class="flex flex-col gap-4">
           <!-- Honeypot spam protection -->
-          <input type="text" name="_gotcha" style="display:none">
+          <input type="text" name="_gotcha" class="formspree-honeypot" tabindex="-1" autocomplete="off">
           <input type="hidden" name="_subject" value="New project inquiry from vaneickelen.com">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input type="text" name="name" placeholder="Name" data-i18n-ph="contact.form.name" required aria-label="Your name" class="bg-transparent border border-[#EFEFEF]/10 px-4 py-3 font-body text-[13px] tracking-[0.02em] text-[#EFEFEF] placeholder-[#EFEFEF]/30 focus:border-[#F64E29] focus:outline-none transition-colors">
@@ -802,7 +938,7 @@
   <!-- Map -->
   <section class="relative w-full h-[300px] md:h-[500px] overflow-hidden">
     <!-- Grayscale filter -->
-    <div class="absolute inset-0 z-0" style="filter: grayscale(100%) brightness(0.3) contrast(1.2);">
+    <div class="absolute inset-0 z-0 map-grayscale">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2760.8!2d6.1409!3d46.2107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c652e0e615d3b%3A0x29be6e1bc92d7a2e!2sRue%20de%20Montbrillant%2028%2C%201201%20Gen%C3%A8ve%2C%20Switzerland!5e0!3m2!1sen!2sch!4v1711000000000!5m2!1sen!2sch"
         class="w-full h-full border-0"
@@ -823,10 +959,10 @@
     </div>
     <!-- Open in maps links -->
     <div class="absolute bottom-8 right-6 md:right-12 z-10 flex items-center gap-3">
-      <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+Montbrillant+28,+1201+Geneva,+Switzerland" target="_blank" class="bg-[#1C1C1C]/90 backdrop-blur-sm border border-[#EFEFEF]/10 px-4 py-2 font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">
+      <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+Montbrillant+28,+1201+Geneva,+Switzerland" target="_blank" rel="noopener noreferrer" class="bg-[#1C1C1C]/90 backdrop-blur-sm border border-[#EFEFEF]/10 px-4 py-2 font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">
         Google Maps
       </a>
-      <a href="https://maps.apple.com/?address=Rue+de+Montbrillant+28,+1201+Geneva,+Switzerland" target="_blank" class="bg-[#1C1C1C]/90 backdrop-blur-sm border border-[#EFEFEF]/10 px-4 py-2 font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">
+      <a href="https://maps.apple.com/?address=Rue+de+Montbrillant+28,+1201+Geneva,+Switzerland" target="_blank" rel="noopener noreferrer" class="bg-[#1C1C1C]/90 backdrop-blur-sm border border-[#EFEFEF]/10 px-4 py-2 font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">
         Apple Maps
       </a>
     </div>
@@ -880,407 +1016,10 @@
   <script src="../assets/js/translations.js" defer></script>
   <script src="../assets/js/lang-toggle.js" defer></script>
   <script src="https://player.vimeo.com/api/player.js" defer></script>
-  <script>
-    // ─── Mobile Menu ───
-    const mobileMenu = document.getElementById('mobile-menu');
-    const openMenu = () => { mobileMenu.classList.remove('opacity-0', 'pointer-events-none'); mobileMenu.classList.add('opacity-100'); document.body.style.overflow = 'hidden'; if (window.lenis) window.lenis.stop(); };
-    const closeMenu = () => { mobileMenu.classList.add('opacity-0', 'pointer-events-none'); mobileMenu.classList.remove('opacity-100'); document.body.style.overflow = ''; if (window.lenis) window.lenis.start(); };
-    document.getElementById('mobile-menu-btn').addEventListener('click', openMenu);
-    document.getElementById('mobile-menu-close').addEventListener('click', closeMenu);
-    document.querySelectorAll('.glass-mobile-menu-btn').forEach(btn => btn.addEventListener('click', openMenu));
-    document.querySelectorAll('.mobile-menu-link').forEach(link => {
-      link.addEventListener('click', () => { closeMenu(); });
-    });
+  <script src="../assets/js/site.js" defer></script>
+  <script src="../assets/js/app.js" defer></script>
 
-    // Vimeo videos now handled by performance.js (lazy loading via IntersectionObserver)
-
-    // Hide swipe hint on scroll
-    (function() {
-      const ss = document.querySelector('.services-scroll');
-      const sh = document.querySelector('.swipe-hint');
-      if (ss && sh) {
-        const initScroll = ss.scrollLeft;
-        ss.addEventListener('scroll', function handler() {
-          if (Math.abs(ss.scrollLeft - initScroll) > 20) {
-            sh.style.opacity = '0';
-            ss.removeEventListener('scroll', handler);
-          }
-        });
-      }
-    })();
-
-    // Filter buttons
-    const gridCards = document.querySelectorAll('.grid-hover > a[data-category]');
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Update active state
-        document.querySelectorAll('.filter-btn').forEach(b => {
-          b.classList.remove('active');
-          b.style.color = '';
-        });
-        btn.classList.add('active');
-
-        // Filter cards
-        const filter = btn.dataset.filter;
-        gridCards.forEach(card => {
-          if (filter === 'all' || card.dataset.category === filter) {
-            card.classList.remove('filtered-out');
-          } else {
-            card.classList.add('filtered-out');
-          }
-        });
-      });
-    });
-
-    // Glass nav scroll behavior
-    const glassNav = document.getElementById('glass-nav');
-    const staticNav = document.getElementById('static-nav');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        glassNav.classList.add('visible');
-        staticNav.style.opacity = '0';
-        staticNav.style.pointerEvents = 'none';
-      } else {
-        glassNav.classList.remove('visible');
-        staticNav.style.opacity = '1';
-        staticNav.style.pointerEvents = '';
-      }
-    });
-
-    // Testimonial carousel
-    const slides = document.querySelectorAll('.testimonial-slide');
-    const dots = document.querySelectorAll('.testimonial-dot');
-    let currentSlide = 0;
-    let testimonialPaused = false;
-    const pauseBtn = document.getElementById('testimonial-pause');
-
-    function showSlide(index) {
-      slides.forEach((s, i) => {
-        s.style.opacity = i === index ? '1' : '0';
-        s.style.pointerEvents = i === index ? 'auto' : 'none';
-      });
-      dots.forEach((d, i) => {
-        const span = d.querySelector('span');
-        if (span) {
-          span.classList.toggle('bg-[#F64E29]', i === index);
-          span.classList.toggle('bg-[#EFEFEF]/20', i !== index);
-        }
-      });
-      currentSlide = index;
-    }
-
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => { testimonialPaused = true; updatePauseBtn(); showSlide(parseInt(dot.dataset.index)); });
-    });
-    if (pauseBtn) {
-      pauseBtn.addEventListener('click', () => {
-        testimonialPaused = !testimonialPaused;
-        updatePauseBtn();
-      });
-    }
-    function updatePauseBtn() {
-      if (!pauseBtn) return;
-      pauseBtn.querySelector('.pause-icon').classList.toggle('hidden', testimonialPaused);
-      pauseBtn.querySelector('.play-icon').classList.toggle('hidden', !testimonialPaused);
-      pauseBtn.setAttribute('aria-label', testimonialPaused ? 'Lire les témoignages' : 'Mettre en pause les témoignages');
-    }
-
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setInterval(() => {
-        if (!testimonialPaused) showSlide((currentSlide + 1) % slides.length);
-      }, 6000);
-    }
-
-    // ─── Logo Marquee: JS-driven auto-scroll + drag ───
-    (() => {
-      const scroll = document.querySelector('.logo-scroll');
-      const track = document.querySelector('.logo-track');
-      if (!track || !scroll) return;
-
-      let offset = 0;
-      let velocity = 0;
-      let dragging = false;
-      let lastX = 0;
-      let lastTime = 0;
-      const autoSpeed = -0.2;
-      const friction = 0.95;
-
-      function wrap(x) {
-        const half = track.scrollWidth / 2;
-        while (x < -half) x += half;
-        while (x > 0) x -= half;
-        return x;
-      }
-
-      function tick() {
-        if (!dragging) {
-          if (Math.abs(velocity) > 0.3) {
-            velocity *= friction;
-            offset += velocity;
-          } else {
-            velocity = 0;
-            offset += autoSpeed;
-          }
-        }
-        offset = wrap(offset);
-        track.style.transform = `translateX(${offset}px)`;
-        requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-
-      scroll.style.cursor = 'grab';
-
-      scroll.addEventListener('mousedown', (e) => {
-        e.preventDefault();
-        dragging = true;
-        velocity = 0;
-        lastX = e.clientX;
-        lastTime = Date.now();
-        scroll.style.cursor = 'grabbing';
-      });
-
-      window.addEventListener('mousemove', (e) => {
-        if (!dragging) return;
-        const now = Date.now();
-        const dt = Math.max(now - lastTime, 1);
-        const dx = e.clientX - lastX;
-        velocity = dx * (16 / dt);
-        offset += dx;
-        lastX = e.clientX;
-        lastTime = now;
-      });
-
-      window.addEventListener('mouseup', () => {
-        if (!dragging) return;
-        dragging = false;
-        scroll.style.cursor = 'grab';
-      });
-
-      scroll.addEventListener('touchstart', (e) => {
-        dragging = true;
-        velocity = 0;
-        lastX = e.touches[0].clientX;
-        lastTime = Date.now();
-      }, { passive: true });
-
-      window.addEventListener('touchmove', (e) => {
-        if (!dragging) return;
-        const now = Date.now();
-        const dt = Math.max(now - lastTime, 1);
-        const x = e.touches[0].clientX;
-        const dx = x - lastX;
-        velocity = dx * (16 / dt);
-        offset += dx;
-        lastX = x;
-        lastTime = now;
-      }, { passive: true });
-
-      window.addEventListener('touchend', () => {
-        if (!dragging) return;
-        dragging = false;
-      });
-
-      scroll.addEventListener('dragstart', e => e.preventDefault());
-    })();
-
-    // ─── Accordion ───
-    function toggleStep(el) {
-      const wasOpen = el.classList.contains('open');
-      document.querySelectorAll('.accordion-step.open').forEach(s => { s.classList.remove('open'); s.setAttribute('aria-expanded', 'false'); });
-      if (!wasOpen) { el.classList.add('open'); el.setAttribute('aria-expanded', 'true'); }
-    }
-    document.querySelectorAll('.accordion-step').forEach(step => {
-      step.addEventListener('click', () => toggleStep(step));
-      step.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleStep(step); } });
-    });
-
-    // ─── Scroll Reveal (IntersectionObserver) ───
-    const revealEls = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    revealEls.forEach(el => revealObserver.observe(el));
-
-    // Back to top button visibility
-    const backToTop = document.getElementById('back-to-top');
-    if (backToTop) {
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 800) {
-          backToTop.classList.remove('opacity-0', 'pointer-events-none');
-          backToTop.classList.add('opacity-100');
-        } else {
-          backToTop.classList.add('opacity-0', 'pointer-events-none');
-          backToTop.classList.remove('opacity-100');
-        }
-      }, { passive: true });
-    }
-
-    // Safety net: force-reveal all elements after 3s in case observer fails
-    setTimeout(() => {
-      document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
-    }, 3000);
-
-    // ─── Contact Form (AJAX via Formspree) ───
-    const contactForm = document.getElementById('contact-form');
-    const submitBtn = document.getElementById('contact-submit');
-    const formSuccess = document.getElementById('form-success');
-    const formError = document.getElementById('form-error');
-
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = 'Sending...';
-      formSuccess.classList.add('hidden');
-      formError.classList.add('hidden');
-
-      try {
-        const response = await fetch(contactForm.action, {
-          method: 'POST',
-          body: new FormData(contactForm),
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-          formSuccess.classList.remove('hidden');
-          contactForm.reset();
-          submitBtn.innerHTML = `Sent ✓ <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>`;
-          setTimeout(() => {
-            submitBtn.innerHTML = `Send Message <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>`;
-            submitBtn.disabled = false;
-            formSuccess.classList.add('hidden');
-          }, 5000);
-        } else {
-          throw new Error('Form submission failed');
-        }
-      } catch (error) {
-        formError.classList.remove('hidden');
-        submitBtn.innerHTML = `Send Message <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>`;
-        submitBtn.disabled = false;
-      }
-    });
-
-    // ─── Page Transitions ───
-    const transition = document.getElementById('page-transition');
-    document.querySelectorAll('a[href$=".html"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const href = link.getAttribute('href');
-        transition.classList.add('active');
-        setTimeout(() => { window.location.href = href; }, 600);
-      });
-    });
-
-    // ─── Hero Parallax ───
-    const heroContent = document.querySelector('#hero .flex.flex-col');
-    const heroVideo = document.getElementById('vimeo-bg');
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const heroHeight = window.innerHeight;
-      if (scrollY < heroHeight) {
-        const progress = scrollY / heroHeight;
-        if (heroContent) {
-          heroContent.style.transform = `translateY(${scrollY * 0.12}px)`;
-          heroContent.style.opacity = Math.max(0, 1 - progress * 2.5);
-          heroContent.style.filter = `blur(${progress * 12}px)`;
-        }
-        if (heroVideo) heroVideo.style.transform = `translateY(${scrollY * 0.06}px)`;
-      }
-    }, { passive: true });
-
-    // ─── Scroll indicator fade out ───
-    const scrollIndicator = document.querySelector('#hero .absolute.bottom-6');
-    if (scrollIndicator) {
-      window.addEventListener('scroll', () => {
-        scrollIndicator.style.opacity = Math.max(0, 1 - window.scrollY / 200);
-      }, { passive: true });
-    }
-
-    // ─── Site Loader ───
-    (() => {
-      const loader = document.getElementById('site-loader');
-      if (!loader) return;
-      const logo = document.getElementById('loader-logo');
-      const pct = document.getElementById('loader-pct');
-      let dismissed = false;
-      let progress = 0;
-
-      function easeInOutQuart(t) {
-        return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
-      }
-
-      function updateFill(p) {
-        const fill = (p / 100) * 100;
-        pct.style.background = `linear-gradient(to top, #EFEFEF ${fill}%, #1C1C1C ${fill}%)`;
-        pct.style.webkitBackgroundClip = 'text';
-        pct.style.backgroundClip = 'text';
-        logo.style.background = `linear-gradient(to top, #EFEFEF ${fill}%, transparent ${fill}%)`;
-      }
-
-      function dismiss() {
-        if (dismissed) return;
-        dismissed = true;
-        let dismissStart = null;
-        const dismissDuration = 1200;
-        function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
-        function animateDismiss(ts) {
-          if (!dismissStart) dismissStart = ts;
-          const dt = Math.min((ts - dismissStart) / dismissDuration, 1);
-          const p = Math.round(progress + easeOutQuart(dt) * (100 - progress));
-          pct.textContent = p + '%';
-          updateFill(p);
-          if (dt < 1) { requestAnimationFrame(animateDismiss); return; }
-          setTimeout(() => {
-            loader.style.transition = 'opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1)';
-            loader.style.opacity = '0';
-            loader.style.pointerEvents = 'none';
-          }, 500);
-          setTimeout(() => loader.remove(), 2000);
-        }
-        requestAnimationFrame(animateDismiss);
-      }
-
-      requestAnimationFrame(() => {
-        logo.style.opacity = '0.9';
-        logo.style.transform = 'translateY(0)';
-      });
-      setTimeout(() => { pct.style.opacity = '1'; }, 1200);
-
-      let target = 90;
-      let startTime = null;
-      const duration = 5000;
-      function animateCount(timestamp) {
-        if (dismissed) return;
-        if (!startTime) startTime = timestamp;
-        const elapsed = timestamp - startTime;
-        const t = Math.min(elapsed / duration, 1);
-        progress = easeInOutQuart(t) * target;
-        const p = Math.round(progress);
-        pct.textContent = p + '%';
-        updateFill(p);
-        if (t < 1) requestAnimationFrame(animateCount);
-      }
-      setTimeout(() => requestAnimationFrame(animateCount), 1200);
-
-      const minTime = new Promise(r => setTimeout(r, 5500));
-      const pageLoad = new Promise(r => window.addEventListener('load', r));
-      const videoReady = new Promise(r => {
-        const check = setInterval(() => {
-          const iframe = document.querySelector('#vimeo-bg iframe');
-          if (iframe) { clearInterval(check); r(); }
-        }, 200);
-      });
-
-      Promise.all([minTime, pageLoad, videoReady]).then(dismiss);
-      setTimeout(dismiss, 8000);
-    })();
-  </script>
-
-  <script src="https://unpkg.com/lenis@1/dist/lenis.min.js" defer></script>
+  <script src="../assets/js/lenis.min.js" defer></script>
   <script src="../assets/js/performance.js" defer></script>
 </body>
 </html>

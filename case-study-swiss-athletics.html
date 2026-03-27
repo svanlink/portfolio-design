@@ -11,6 +11,7 @@
   <link rel="canonical" href="https://vaneickelen.com/case-study-swiss-athletics">
   <link rel="alternate" hreflang="en" href="https://vaneickelen.com/case-study-swiss-athletics">
   <link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/case-study-swiss-athletics">
+  <link rel="alternate" hreflang="x-default" href="https://vaneickelen.com/case-study-swiss-athletics">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
@@ -47,6 +48,7 @@
       "@type": "VideoObject",
       "name": "Swiss Athletics Athlete Portrait Series",
       "description": "Documentary portrait series for Swiss Athletics Federation",
+      "uploadDate": "2024-09-01",
       "thumbnailUrl": "https://vaneickelen.com/assets/og-image.jpg",
       "embedUrl": "https://player.vimeo.com/video/338000108"
     },
@@ -69,7 +71,7 @@
     "itemListElement": [
       {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://vaneickelen.com/"},
       {"@type": "ListItem", "position": 2, "name": "Projects", "item": "https://vaneickelen.com/projects"},
-      {"@type": "ListItem", "position": 3, "name": "Swiss Athletics"}
+      {"@type": "ListItem", "position": 3, "name": "Swiss Athletics", "item": "https://vaneickelen.com/case-study-swiss-athletics"}
     ]
   }
   </script>
@@ -80,9 +82,9 @@
   <link rel="preconnect" href="https://i.vimeocdn.com">
   <link rel="preconnect" href="https://f.vimeocdn.com">
   <link rel="preload" href="https://player.vimeo.com/api/player.js" as="script">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" as="style">
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Urbanist:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=2">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Urbanist:ital,wght@0,300;0,400;1,300;1,400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Urbanist:ital,wght@0,300;0,400;1,300;1,400&display=swap"></noscript>
+  <link rel="stylesheet" href="assets/css/styles.css?v=5">
 </head>
 <body class="bg-[#1C1C1C] text-[#EFEFEF]">
 
@@ -95,8 +97,8 @@
   <!-- Glass Nav -->
   <header id="glass-nav" class="glass-nav visible fixed top-0 left-0 w-full z-50">
     <div class="relative flex items-center justify-between px-6 md:px-12 py-4">
-      <a href="index.html" class="flex items-center hover:opacity-70 transition-opacity duration-400"><img src="assets/logo-white.svg" alt="Van Eickelen" class="h-5 md:h-[22px] w-auto opacity-80"></a>
-      <nav class="absolute left-1/2 -translate-x-1/2 translate-y-px hidden md:flex items-center gap-8">
+      <a href="index.html" class="flex items-center hover:opacity-70 transition-opacity duration-400"><img src="assets/logo-white.svg" alt="Van Eickelen" class="h-5 md:h-[22px] w-auto opacity-80" width="60" height="20"></a>
+      <nav aria-label="Main navigation" class="absolute left-1/2 -translate-x-1/2 translate-y-px hidden md:flex items-center gap-8">
         <a href="index.html#work" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.latest">Latest</a>
         <a href="index.html#services" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.expertise">Expertise</a>
         <a href="index.html#contact" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.contact">Contact</a>
@@ -152,7 +154,7 @@
 
     <!-- Case Study Hero -->
   <section class="relative w-full h-screen overflow-hidden bg-[#1C1C1C]">
-    <div id="case-hero-video" class="vimeo-card absolute inset-0 z-0" data-vimeo-defer data-vimeo-id="338000108" data-vimeo-quality="1080p"></div>
+    <div id="case-hero-video" aria-hidden="true" class="vimeo-card absolute inset-0 z-0" data-vimeo-defer data-vimeo-id="338000108" data-vimeo-quality="1080p"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-[#1C1C1C] via-[#1C1C1C]/20 to-transparent z-10"></div>
     <div class="absolute inset-0 z-20 flex flex-col justify-end px-6 md:px-12 pb-16">
       <div class="max-w-4xl">
@@ -162,7 +164,7 @@
         </h1>
         <div class="flex items-center gap-6">
           <span class="w-12 h-[1px] bg-[#F64E29]"></span>
-          <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/70" data-i18n="swiss-athletics.hero.desc">Athlete portrait series — the human side of high performance</p>
+          <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/70" data-i18n="swiss-athletics.hero.desc">Who are these people when they stop running?</p>
         </div>
       </div>
     </div>
@@ -200,7 +202,13 @@
   <section class="reveal bg-[#191919] py-16">
     <div class="max-w-[960px] mx-auto px-6">
     <div class="aspect-video bg-[#111111] overflow-hidden">
-      <iframe src="https://player.vimeo.com/video/338000108?title=0&byline=0&portrait=0&color=F64E29" class="w-full h-full" style="border:none" title="Swiss Athletics Campaign Video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      <div class="vimeo-facade w-full h-full"
+           data-vimeo-id="338000108"
+           style="background-image:url(https://vumbnail.com/338000108.jpg)"
+           role="button"
+           aria-label="Play Swiss Athletics Campaign Video"
+           tabindex="0">
+      </div>
     </div>
     </div>
   </section>
@@ -215,10 +223,10 @@
       </div>
       <div class="col-span-2 md:col-span-3">
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl" data-i18n="swiss-athletics.brief.p1">
-          Swiss Athletics wanted to humanize their national team ahead of a major European championship. The federation needed content that went beyond race results — portraits that showed who these athletes are when the cameras aren't rolling.
+          Swiss Athletics had a problem they couldn't quite name. Their athletes were fast, but nobody knew them. Ahead of a big European championship, they wanted something that went deeper than highlight reels. They wanted people to care about these runners as people.
         </p>
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mt-6" data-i18n="swiss-athletics.brief.p2">
-          The series had to work as standalone short films for social, but also cut together into a longer anthology piece for broadcast and event screenings.
+          Each portrait had to stand alone for social, but also stitch together into an anthology for broadcast. That dual constraint shaped everything about how we shot and structured the stories.
         </p>
       </div>
     </div>
@@ -235,10 +243,10 @@
       </div>
       <div class="col-span-2 md:col-span-3">
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl" data-i18n="swiss-athletics.approach.p1">
-          We spent a full day with each athlete — not at the stadium, but in their world. Training grounds, kitchens, commutes. The interviews were unscripted, guided only by a few open questions about sacrifice, fear, and what keeps them running.
+          We spent a full day with each athlete, but not at the stadium. We went to their kitchens, their commutes, the quiet places where they think about quitting. The interviews were unscripted. We just asked about sacrifice, fear, and what keeps them going when nobody's clapping.
         </p>
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mt-6" data-i18n="swiss-athletics.approach.p2">
-          The visual language was deliberate: slow, intimate close-ups intercut with wide training shots. We used natural sound as a score — footsteps on track, breath in cold air, the snap of starting blocks. Music only enters in the final act.
+          Visually, we kept it slow. Intimate close-ups on hands, eyes, the small fidgets before a race. Then wide training shots to let the air in. We used natural sound instead of a score — footsteps on track, breath in cold air, the snap of starting blocks. Music only enters at the end, and by then you've already felt the whole thing.
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-12">
@@ -275,7 +283,7 @@
       </div>
       <div class="col-span-2 md:col-span-3">
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mb-12" data-i18n="swiss-athletics.result.p">
-          The portrait series ran across Swiss Athletics' social channels in the lead-up to the European Championships. It became their most-shared content of the year and was picked up by SRF for a broadcast feature segment.
+          The series ran in the lead-up to the European Championships and became Swiss Athletics' most-shared content that year. SRF picked it up for a broadcast segment, which we didn't expect. But the part that mattered was hearing athletes say they finally felt seen — not as competitors, but as themselves.
         </p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           <div>
@@ -351,7 +359,7 @@
     <div class="max-w-[960px] mx-auto">
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-0 mb-12">
         <div class="hidden sm:flex items-center gap-8">
-      <a href="index.html" class="flex items-center hover:opacity-70 transition-opacity duration-400"><img src="assets/logo-white.svg" alt="Van Eickelen" class="h-5 md:h-[22px] w-auto opacity-80"></a>
+      <a href="index.html" class="flex items-center hover:opacity-70 transition-opacity duration-400"><img src="assets/logo-white.svg" alt="Van Eickelen" class="h-5 md:h-[22px] w-auto opacity-80" width="60" height="20"></a>
           <a href="index.html#services" class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">Expertise</a>
           <a href="index.html#contact" class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">Contact</a>
           <a href="projects.html" class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">Projects</a>
@@ -381,53 +389,11 @@
   </footer>
 
   <script src="https://player.vimeo.com/api/player.js" defer></script>
-  <script>
-    // ─── Mobile Menu ───
-    const mobileMenu = document.getElementById('mobile-menu');
-    const openMenu = () => { mobileMenu.classList.remove('opacity-0', 'pointer-events-none'); mobileMenu.classList.add('opacity-100'); document.body.style.overflow = 'hidden'; if (window.lenis) window.lenis.stop(); };
-    const closeMenu = () => { mobileMenu.classList.add('opacity-0', 'pointer-events-none'); mobileMenu.classList.remove('opacity-100'); document.body.style.overflow = ''; if (window.lenis) window.lenis.start(); };
-    document.querySelectorAll('.mobile-menu-btn').forEach(btn => btn.addEventListener('click', openMenu));
-    document.getElementById('mobile-menu-close').addEventListener('click', closeMenu);
-    document.querySelectorAll('.mobile-menu-link').forEach(link => { link.addEventListener('click', closeMenu); });
-    // Vimeo hero handled by performance.js (lazy loading)
-
-    const glassNav = document.getElementById('glass-nav');
-    window.addEventListener('scroll', () => {
-      glassNav.classList.toggle('visible', window.scrollY > 300);
-    });
-
-    // ─── Scroll Reveal ───
-    const revealEls = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    revealEls.forEach(el => revealObserver.observe(el));
-
-    // Safety net: force-reveal after 3s
-    setTimeout(() => {
-      document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
-    }, 3000);
-
-    // ─── Page Transitions ───
-    const transition = document.getElementById('page-transition');
-    document.querySelectorAll('a[href$=".html"], a[href="index.html"], a[href="/"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const href = link.getAttribute('href');
-        transition.classList.add('active');
-        setTimeout(() => { window.location.href = href; }, 400);
-      });
-    });
-  </script>
+  <script src="assets/js/site.js" defer></script>
 
   <script src="assets/js/translations.js" defer></script>
   <script src="assets/js/lang-toggle.js" defer></script>
-  <script src="https://unpkg.com/lenis@1/dist/lenis.min.js" defer></script>
+  <script src="assets/js/lenis.min.js" defer></script>
   <script src="assets/js/performance.js" defer></script>
 </body>
 </html>

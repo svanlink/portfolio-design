@@ -11,6 +11,7 @@
   <link rel="canonical" href="https://vaneickelen.com/case-study-beyond-the-summit">
   <link rel="alternate" hreflang="en" href="https://vaneickelen.com/case-study-beyond-the-summit">
   <link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/case-study-beyond-the-summit">
+  <link rel="alternate" hreflang="x-default" href="https://vaneickelen.com/case-study-beyond-the-summit">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
@@ -46,6 +47,7 @@
       "@type": "VideoObject",
       "name": "Beyond The Summit",
       "description": "Mountaineering documentary following alpine climbers",
+      "uploadDate": "2024-03-01",
       "thumbnailUrl": "https://vaneickelen.com/assets/og-image.jpg",
       "embedUrl": "https://player.vimeo.com/video/188244968"
     },
@@ -66,7 +68,7 @@
     "itemListElement": [
       {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://vaneickelen.com/"},
       {"@type": "ListItem", "position": 2, "name": "Projects", "item": "https://vaneickelen.com/projects"},
-      {"@type": "ListItem", "position": 3, "name": "Beyond The Summit"}
+      {"@type": "ListItem", "position": 3, "name": "Beyond The Summit", "item": "https://vaneickelen.com/case-study-beyond-the-summit"}
     ]
   }
   </script>
@@ -77,9 +79,9 @@
   <link rel="preconnect" href="https://i.vimeocdn.com">
   <link rel="preconnect" href="https://f.vimeocdn.com">
   <link rel="preload" href="https://player.vimeo.com/api/player.js" as="script">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" as="style">
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Urbanist:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=2">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Urbanist:ital,wght@0,300;0,400;1,300;1,400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Urbanist:ital,wght@0,300;0,400;1,300;1,400&display=swap"></noscript>
+  <link rel="stylesheet" href="assets/css/styles.css?v=5">
 </head>
 <body class="bg-[#1C1C1C] text-[#EFEFEF]">
 
@@ -92,8 +94,8 @@
   <!-- Glass Nav -->
   <header id="glass-nav" class="glass-nav visible fixed top-0 left-0 w-full z-50">
     <div class="relative flex items-center justify-between px-6 md:px-12 py-4">
-      <a href="index.html" class="flex items-center hover:opacity-70 transition-opacity duration-400"><img src="assets/logo-white.svg" alt="Van Eickelen" class="h-5 md:h-[22px] w-auto opacity-80"></a>
-      <nav class="absolute left-1/2 -translate-x-1/2 translate-y-px hidden md:flex items-center gap-8">
+      <a href="index.html" class="flex items-center hover:opacity-70 transition-opacity duration-400"><img src="assets/logo-white.svg" alt="Van Eickelen" class="h-5 md:h-[22px] w-auto opacity-80" width="60" height="20"></a>
+      <nav aria-label="Main navigation" class="absolute left-1/2 -translate-x-1/2 translate-y-px hidden md:flex items-center gap-8">
         <a href="index.html#work" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.latest">Latest</a>
         <a href="index.html#services" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.expertise">Expertise</a>
         <a href="index.html#contact" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.contact">Contact</a>
@@ -149,7 +151,7 @@
 
     <!-- Case Study Hero -->
   <section class="relative w-full h-screen overflow-hidden bg-[#1C1C1C]">
-    <div id="case-hero-video" class="vimeo-card absolute inset-0 z-0" data-vimeo-defer data-vimeo-id="188244968" data-vimeo-quality="1080p"></div>
+    <div id="case-hero-video" aria-hidden="true" class="vimeo-card absolute inset-0 z-0" data-vimeo-defer data-vimeo-id="188244968" data-vimeo-quality="1080p"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-[#1C1C1C] via-[#1C1C1C]/20 to-transparent z-10"></div>
     <div class="absolute inset-0 z-20 flex flex-col justify-end px-6 md:px-12 pb-16">
       <div class="max-w-4xl">
@@ -159,7 +161,7 @@
         </h1>
         <div class="flex items-center gap-6">
           <span class="w-12 h-[1px] bg-[#F64E29]"></span>
-          <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/70" data-i18n="beyond.hero.desc">Mountaineering documentary — what drives someone to climb beyond the edge</p>
+          <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/70" data-i18n="beyond.hero.desc">I still don't fully understand why they climb. That's the point.</p>
         </div>
       </div>
     </div>
@@ -179,7 +181,7 @@
       </div>
       <div>
         <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block" data-i18n="case.role">Role</span>
-        <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]" data-i18n="beyond.location">Director · Cinematographer · Producer</p>
+        <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]" data-i18n="beyond.role">Director · Cinematographer · Producer</p>
       </div>
       <div>
         <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-2 block" data-i18n="case.year">Year</span>
@@ -197,7 +199,13 @@
   <section class="reveal bg-[#191919] py-16">
     <div class="max-w-[960px] mx-auto px-6">
     <div class="aspect-video bg-[#111111] overflow-hidden">
-      <iframe src="https://player.vimeo.com/video/188244968?title=0&byline=0&portrait=0&color=F64E29" class="w-full h-full" style="border:none" title="Beyond the Summit Documentary Video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      <div class="vimeo-facade w-full h-full"
+           data-vimeo-id="188244968"
+           style="background-image:url(https://vumbnail.com/188244968.jpg)"
+           role="button"
+           aria-label="Play Beyond the Summit Documentary Video"
+           tabindex="0">
+      </div>
     </div>
     </div>
   </section>
@@ -212,10 +220,10 @@
       </div>
       <div class="col-span-2 md:col-span-3">
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl" data-i18n="beyond.brief.p1">
-          This was a personal project that grew into something bigger. It started as a question: what compels someone to risk everything for a summit that nobody else will ever see them reach? The film follows three alpine climbers across a single season — from preparation to summit attempt.
+          This started as a question I couldn't shake: why does someone risk everything for a summit nobody else will ever see them reach? There was no client. No brief. Just the question. We followed three alpine climbers across a single season, from preparation to summit attempt, and tried to find the answer.
         </p>
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mt-6" data-i18n="beyond.brief.p2">
-          The Swiss Alpine Club came on board as a distribution partner after seeing the first rough cut, which opened doors to festival submissions and broadcast placement.
+          The Swiss Alpine Club saw a rough cut and offered to come on board as a distribution partner. That opened doors we hadn't planned on — festival submissions, broadcast placement. Sometimes the work finds its own path.
         </p>
       </div>
     </div>
@@ -232,10 +240,10 @@
       </div>
       <div class="col-span-2 md:col-span-3">
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl" data-i18n="beyond.approach.p1">
-          We embedded with the climbers over eight weeks, shooting in conditions ranging from comfortable base camp mornings to -20&deg;C ridgelines at 4,000 meters. The crew was minimal — two people, sometimes just me with a camera and a mic strapped to my chest.
+          Eight weeks embedded with the climbers. Some mornings were calm at base camp. Others were -20&deg;C ridgelines at 4,000 meters where the camera battery lasted twenty minutes if you were lucky. The crew was two people. Sometimes just me, camera in one hand, mic strapped to my chest.
         </p>
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mt-6" data-i18n="beyond.approach.p2">
-          The documentary approach was observational. No voiceover. No narrator. The story unfolds through the climbers' conversations, their silences, and the mountain itself. The sound design carries as much narrative weight as the visuals.
+          We chose a purely observational approach. No voiceover. No narrator explaining what you should feel. The story unfolds through conversation, long silences, and the mountain doing what mountains do. The sound design carries as much weight as the image — wind, rope, ice axe, breathing. We wanted you to hear the cold.
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-12">
@@ -272,7 +280,7 @@
       </div>
       <div class="col-span-2 md:col-span-3">
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mb-12" data-i18n="beyond.result.p">
-          "Beyond The Summit" premiered at the Banff Mountain Film Festival and was selected for three additional mountain film festivals across Europe. The Swiss Alpine Club used it as a recruitment and awareness piece, and it opened conversations with two outdoor brands for future documentary collaborations.
+          The film premiered at Banff and got into three other mountain film festivals. That was surreal. The Swiss Alpine Club used it for recruitment, and it started conversations with outdoor brands about future documentaries. But the thing I keep coming back to is a message from a climber I've never met who said the film made him call his wife before his next expedition. I don't know what to do with that, but it matters.
         </p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           <div>
@@ -348,7 +356,7 @@
     <div class="max-w-[960px] mx-auto">
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-0 mb-12">
         <div class="hidden sm:flex items-center gap-8">
-      <a href="index.html" class="flex items-center hover:opacity-70 transition-opacity duration-400"><img src="assets/logo-white.svg" alt="Van Eickelen" class="h-5 md:h-[22px] w-auto opacity-80"></a>
+      <a href="index.html" class="flex items-center hover:opacity-70 transition-opacity duration-400"><img src="assets/logo-white.svg" alt="Van Eickelen" class="h-5 md:h-[22px] w-auto opacity-80" width="60" height="20"></a>
           <a href="index.html#services" class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">Expertise</a>
           <a href="index.html#contact" class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">Contact</a>
           <a href="projects.html" class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#EFEFEF] transition-colors duration-400">Projects</a>
@@ -378,53 +386,11 @@
   </footer>
 
   <script src="https://player.vimeo.com/api/player.js" defer></script>
-  <script>
-    // ─── Mobile Menu ───
-    const mobileMenu = document.getElementById('mobile-menu');
-    const openMenu = () => { mobileMenu.classList.remove('opacity-0', 'pointer-events-none'); mobileMenu.classList.add('opacity-100'); document.body.style.overflow = 'hidden'; if (window.lenis) window.lenis.stop(); };
-    const closeMenu = () => { mobileMenu.classList.add('opacity-0', 'pointer-events-none'); mobileMenu.classList.remove('opacity-100'); document.body.style.overflow = ''; if (window.lenis) window.lenis.start(); };
-    document.querySelectorAll('.mobile-menu-btn').forEach(btn => btn.addEventListener('click', openMenu));
-    document.getElementById('mobile-menu-close').addEventListener('click', closeMenu);
-    document.querySelectorAll('.mobile-menu-link').forEach(link => { link.addEventListener('click', closeMenu); });
-    // Vimeo hero handled by performance.js (lazy loading)
-
-    const glassNav = document.getElementById('glass-nav');
-    window.addEventListener('scroll', () => {
-      glassNav.classList.toggle('visible', window.scrollY > 300);
-    });
-
-    // ─── Scroll Reveal ───
-    const revealEls = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    revealEls.forEach(el => revealObserver.observe(el));
-
-    // Safety net: force-reveal after 3s
-    setTimeout(() => {
-      document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
-    }, 3000);
-
-    // ─── Page Transitions ───
-    const transition = document.getElementById('page-transition');
-    document.querySelectorAll('a[href$=".html"], a[href="index.html"], a[href="/"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const href = link.getAttribute('href');
-        transition.classList.add('active');
-        setTimeout(() => { window.location.href = href; }, 400);
-      });
-    });
-  </script>
+  <script src="assets/js/site.js" defer></script>
 
   <script src="assets/js/translations.js" defer></script>
   <script src="assets/js/lang-toggle.js" defer></script>
-  <script src="https://unpkg.com/lenis@1/dist/lenis.min.js" defer></script>
+  <script src="assets/js/lenis.min.js" defer></script>
   <script src="assets/js/performance.js" defer></script>
 </body>
 </html>

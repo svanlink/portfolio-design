@@ -11,6 +11,7 @@
   <link rel="canonical" href="https://vaneickelen.com/fr/case-study-adidas-terrex">
   <link rel="alternate" hreflang="en" href="https://vaneickelen.com/case-study-adidas-terrex">
   <link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/case-study-adidas-terrex">
+  <link rel="alternate" hreflang="x-default" href="https://vaneickelen.com/case-study-adidas-terrex">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
@@ -50,6 +51,7 @@
       "@type": "VideoObject",
       "name": "Campagne Adidas Terrex Trail Running en Montagne",
       "description": "Campagne cinématographique de trail running en montagne pour Adidas Terrex",
+      "uploadDate": "2025-01-15",
       "thumbnailUrl": "https://vaneickelen.com/assets/og-image.jpg",
       "embedUrl": "https://player.vimeo.com/video/460645906"
     },
@@ -72,7 +74,7 @@
     "itemListElement": [
       {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://vaneickelen.com/fr/"},
       {"@type": "ListItem", "position": 2, "name": "Projets", "item": "https://vaneickelen.com/fr/projects"},
-      {"@type": "ListItem", "position": 3, "name": "Adidas Terrex"}
+      {"@type": "ListItem", "position": 3, "name": "Adidas Terrex", "item": "https://vaneickelen.com/fr/case-study-adidas-terrex"}
     ]
   }
   </script>
@@ -83,9 +85,9 @@
   <link rel="preconnect" href="https://i.vimeocdn.com">
   <link rel="preconnect" href="https://f.vimeocdn.com">
   <link rel="preload" href="https://player.vimeo.com/api/player.js" as="script">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" as="style">
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Urbanist:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/styles.css?v=2">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Urbanist:ital,wght@0,300;0,400;1,300;1,400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Urbanist:ital,wght@0,300;0,400;1,300;1,400&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/css/styles.css?v=5">
 </head>
 <body class="bg-[#1C1C1C] text-[#EFEFEF]">
   <!-- Skip to content -->
@@ -97,8 +99,8 @@
   <!-- Glass Nav -->
   <header id="glass-nav" class="glass-nav visible fixed top-0 left-0 w-full z-50">
     <div class="relative flex items-center justify-between px-6 md:px-12 py-4">
-      <a href="index.html" class="flex items-center hover:opacity-70 transition-opacity duration-400"><img src="../assets/logo-white.svg" alt="Van Eickelen" class="h-5 md:h-[22px] w-auto opacity-80"></a>
-      <nav class="absolute left-1/2 -translate-x-1/2 translate-y-px hidden md:flex items-center gap-8">
+      <a href="index.html" class="flex items-center hover:opacity-70 transition-opacity duration-400"><img src="../assets/logo-white.svg" alt="Van Eickelen" class="h-5 md:h-[22px] w-auto opacity-80" width="60" height="20"></a>
+      <nav aria-label="Main navigation" class="absolute left-1/2 -translate-x-1/2 translate-y-px hidden md:flex items-center gap-8">
         <a href="index.html#work" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.latest">Latest</a>
         <a href="index.html#services" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.expertise">Expertise</a>
         <a href="index.html#contact" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.contact">Contact</a>
@@ -153,7 +155,7 @@
 
   <!-- Case Study Hero: Full-width Video -->
   <section class="relative w-full h-screen overflow-hidden bg-[#1C1C1C]">
-    <div id="case-hero-video" class="vimeo-card absolute inset-0 z-0" data-vimeo-defer data-vimeo-id="460645906" data-vimeo-quality="1080p"></div>
+    <div id="case-hero-video" aria-hidden="true" class="vimeo-card absolute inset-0 z-0" data-vimeo-defer data-vimeo-id="460645906" data-vimeo-quality="1080p"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-[#1C1C1C] via-[#1C1C1C]/20 to-transparent z-10"></div>
 
     <!-- Hero Content — pinned to bottom -->
@@ -165,7 +167,7 @@
         </h1>
         <div class="flex items-center gap-6">
           <span class="w-12 h-[1px] bg-[#F64E29]"></span>
-          <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/70" data-i18n="adidas.hero.desc">Mountain running campaign — trail running meets cinematic storytelling</p>
+          <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/70" data-i18n="adidas.hero.desc">Somewhere between the trail and the silence, we found the film.</p>
         </div>
       </div>
     </div>
@@ -205,7 +207,13 @@
   <section class="reveal bg-[#191919] py-16">
     <div class="max-w-[960px] mx-auto px-6">
     <div class="aspect-video bg-[#111111] overflow-hidden">
-      <iframe title="Vidéo campagne Adidas Terrex" src="https://player.vimeo.com/video/460645906?title=0&byline=0&portrait=0&color=F64E29" class="w-full h-full" style="border:none" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      <div class="vimeo-facade w-full h-full"
+           data-vimeo-id="460645906"
+           style="background-image:url(https://vumbnail.com/460645906.jpg)"
+           role="button"
+           aria-label="Play Vidéo campagne Adidas Terrex"
+           tabindex="0">
+      </div>
     </div>
     </div>
   </section>
@@ -220,10 +228,10 @@
       </div>
       <div class="col-span-2 md:col-span-3">
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl" data-i18n="adidas.brief.p1">
-          Adidas Terrex needed a campaign film that would redefine how trail running is perceived — not just as sport, but as a meditative encounter with nature. The brief was clear: capture the raw intensity of mountain running in the Swiss Alps while keeping the athlete's emotional journey at the center.
+          Terrex came to us with a problem that had nothing to do with shoes. They wanted people to feel something about trail running — not just see it. The mountains, the breathing, the loneliness of a ridgeline at dawn. That was the film they needed, even if the brief didn't say it outright.
         </p>
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mt-6" data-i18n="adidas.brief.p2">
-          The film had to work across digital, social, and retail screens — meaning it needed to feel cinematic at full scale but hold attention in a 9:16 scroll.
+          It also had to live everywhere — retail screens, social feeds, full-screen on a laptop at midnight. We had to make something that held up at every size without losing the quiet.
         </p>
       </div>
     </div>
@@ -240,10 +248,10 @@
       </div>
       <div class="col-span-2 md:col-span-3">
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl" data-i18n="adidas.approach.p1">
-          We shot over four days at altitude, chasing golden hour across three different mountain passes. The creative direction leaned into contrast — the stillness of dawn against the violence of a sprint, silence broken only by breathing and gravel.
+          Four days at altitude. We chased golden hour across three passes, and most mornings we weren't sure we'd get it. The whole creative direction came down to one idea: contrast. The stillness of dawn against the violence of a sprint. Silence broken only by breathing and gravel underfoot.
         </p>
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mt-6" data-i18n="adidas.approach.p2">
-          The camera work combined stabilized tracking shots with handheld close-ups to create an intimate but expansive feel. We shot on the RED Komodo with Cooke anamorphics to give the landscape an epic, widescreen texture.
+          We mixed stabilized tracking with handheld close-ups because we wanted the viewer to feel two things at once — the scale of the Alps, and the sweat on someone's neck. The Cooke anamorphics gave us that horizontal stretch that makes a mountain feel infinite. That mattered more than sharpness.
         </p>
 
         <!-- Approach Details Grid -->
@@ -281,7 +289,7 @@
       </div>
       <div class="col-span-2 md:col-span-3">
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mb-12" data-i18n="adidas.result.p">
-          The hero film launched across Adidas Terrex's global channels and was featured in their flagship retail locations. The campaign exceeded engagement benchmarks and reinforced the brand's position in the trail running space.
+          The film went global. It played in flagship stores and across their channels. The numbers were good — 2.4M views, well above their engagement benchmarks — but honestly, the thing that felt right was seeing runners in the comments say it reminded them why they go out alone.
         </p>
 
         <!-- Metrics -->
@@ -392,62 +400,11 @@
   </footer>
 
   <script src="https://player.vimeo.com/api/player.js" defer></script>
-  <script>
-    // Vimeo hero handled by performance.js (lazy loading)
-
-    // ─── Mobile Menu ───
-    const mobileMenu = document.getElementById('mobile-menu');
-    const openMenu = () => { mobileMenu.classList.remove('opacity-0', 'pointer-events-none'); mobileMenu.classList.add('opacity-100'); document.body.style.overflow = 'hidden'; if (window.lenis) window.lenis.stop(); };
-    const closeMenu = () => { mobileMenu.classList.add('opacity-0', 'pointer-events-none'); mobileMenu.classList.remove('opacity-100'); document.body.style.overflow = ''; if (window.lenis) window.lenis.start(); };
-    document.querySelectorAll('.mobile-menu-btn').forEach(btn => btn.addEventListener('click', openMenu));
-    document.getElementById('mobile-menu-close').addEventListener('click', closeMenu);
-    document.querySelectorAll('.mobile-menu-link').forEach(link => { link.addEventListener('click', closeMenu); });
-    // Vimeo hero handled by performance.js (lazy loading)
-
-    // Glass nav scroll behavior
-    const glassNav = document.getElementById('glass-nav');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        glassNav.classList.add('visible');
-      } else {
-        glassNav.classList.remove('visible');
-      }
-    });
-
-    // Fade-in sections on scroll
-
-    // ─── Scroll Reveal ───
-    const revealEls = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    revealEls.forEach(el => revealObserver.observe(el));
-
-    // Safety net: force-reveal after 3s
-    setTimeout(() => {
-      document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
-    }, 3000);
-
-    // ─── Page Transitions ───
-    const transition = document.getElementById('page-transition');
-    document.querySelectorAll('a[href$=".html"], a[href="index.html"], a[href="/"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const href = link.getAttribute('href');
-        transition.classList.add('active');
-        setTimeout(() => { window.location.href = href; }, 400);
-      });
-    });
-  </script>
+  <script src="../assets/js/site.js" defer></script>
 
   <script src="../assets/js/translations.js" defer></script>
   <script src="../assets/js/lang-toggle.js" defer></script>
-  <script src="https://unpkg.com/lenis@1/dist/lenis.min.js" defer></script>
+  <script src="../assets/js/lenis.min.js" defer></script>
   <script src="../assets/js/performance.js" defer></script>
 </body>
 </html>

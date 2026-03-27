@@ -11,6 +11,7 @@
   <link rel="canonical" href="https://vaneickelen.com/fr/case-study-startup-campaign">
   <link rel="alternate" hreflang="en" href="https://vaneickelen.com/case-study-startup-campaign">
   <link rel="alternate" hreflang="fr" href="https://vaneickelen.com/fr/case-study-startup-campaign">
+  <link rel="alternate" hreflang="x-default" href="https://vaneickelen.com/case-study-startup-campaign">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
@@ -47,6 +48,7 @@
       "@type": "VideoObject",
       "name": "Film de Lancement Campagne Startup",
       "description": "Film de lancement produit pour campagne de crowdfunding",
+      "uploadDate": "2025-02-01",
       "thumbnailUrl": "https://vaneickelen.com/assets/og-image.jpg",
       "embedUrl": "https://player.vimeo.com/video/928454658"
     },
@@ -68,7 +70,7 @@
     "itemListElement": [
       {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://vaneickelen.com/fr/"},
       {"@type": "ListItem", "position": 2, "name": "Projets", "item": "https://vaneickelen.com/fr/projects"},
-      {"@type": "ListItem", "position": 3, "name": "Campagne Startup"}
+      {"@type": "ListItem", "position": 3, "name": "Campagne Startup", "item": "https://vaneickelen.com/fr/case-study-startup-campaign"}
     ]
   }
   </script>
@@ -79,9 +81,9 @@
   <link rel="preconnect" href="https://i.vimeocdn.com">
   <link rel="preconnect" href="https://f.vimeocdn.com">
   <link rel="preload" href="https://player.vimeo.com/api/player.js" as="script">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" as="style">
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Urbanist:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/styles.css?v=2">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Urbanist:ital,wght@0,300;0,400;1,300;1,400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Urbanist:ital,wght@0,300;0,400;1,300;1,400&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/css/styles.css?v=5">
 </head>
 <body class="bg-[#1C1C1C] text-[#EFEFEF]">
   <!-- Skip to content -->
@@ -93,8 +95,8 @@
   <!-- Glass Nav -->
   <header id="glass-nav" class="glass-nav visible fixed top-0 left-0 w-full z-50">
     <div class="relative flex items-center justify-between px-6 md:px-12 py-4">
-      <a href="index.html" class="flex items-center hover:opacity-70 transition-opacity duration-400"><img src="../assets/logo-white.svg" alt="Van Eickelen" class="h-5 md:h-[22px] w-auto opacity-80"></a>
-      <nav class="absolute left-1/2 -translate-x-1/2 translate-y-px hidden md:flex items-center gap-8">
+      <a href="index.html" class="flex items-center hover:opacity-70 transition-opacity duration-400"><img src="../assets/logo-white.svg" alt="Van Eickelen" class="h-5 md:h-[22px] w-auto opacity-80" width="60" height="20"></a>
+      <nav aria-label="Main navigation" class="absolute left-1/2 -translate-x-1/2 translate-y-px hidden md:flex items-center gap-8">
         <a href="index.html#work" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.latest">Latest</a>
         <a href="index.html#services" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.expertise">Expertise</a>
         <a href="index.html#contact" class="nav-link font-mono-nav text-[12px] uppercase tracking-[0.15em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="nav.contact">Contact</a>
@@ -149,7 +151,7 @@
 
   <!-- Case Study Hero -->
   <section class="relative w-full h-screen overflow-hidden bg-[#1C1C1C]">
-    <div id="case-hero-video" class="vimeo-card absolute inset-0 z-0" data-vimeo-defer data-vimeo-id="928454658" data-vimeo-quality="1080p"></div>
+    <div id="case-hero-video" aria-hidden="true" class="vimeo-card absolute inset-0 z-0" data-vimeo-defer data-vimeo-id="928454658" data-vimeo-quality="1080p"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-[#1C1C1C] via-[#1C1C1C]/20 to-transparent z-10"></div>
     <div class="absolute inset-0 z-20 flex flex-col justify-end px-6 md:px-12 pb-16">
       <div class="max-w-4xl">
@@ -159,7 +161,7 @@
         </h1>
         <div class="flex items-center gap-6">
           <span class="w-12 h-[1px] bg-[#F64E29]"></span>
-          <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/70" data-i18n="startup.hero.desc">Product launch film — turning a tech product into a human story</p>
+          <p class="font-body text-[12px] tracking-[0.02em] text-[#EFEFEF]/70" data-i18n="startup.hero.desc">They had a prototype. We had to make people believe in it.</p>
         </div>
       </div>
     </div>
@@ -197,7 +199,13 @@
   <section class="reveal bg-[#191919] py-16">
     <div class="max-w-[960px] mx-auto px-6">
     <div class="aspect-video bg-[#111111] overflow-hidden">
-      <iframe title="Vidéo campagne startup" src="https://player.vimeo.com/video/928454658?title=0&byline=0&portrait=0&color=F64E29" class="w-full h-full" style="border:none" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      <div class="vimeo-facade w-full h-full"
+           data-vimeo-id="928454658"
+           style="background-image:url(https://vumbnail.com/928454658.jpg)"
+           role="button"
+           aria-label="Play Vidéo campagne startup"
+           tabindex="0">
+      </div>
     </div>
     </div>
   </section>
@@ -212,10 +220,10 @@
       </div>
       <div class="col-span-2 md:col-span-3">
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl" data-i18n="startup.brief.p1">
-          A Swiss-based tech startup was preparing to launch their first consumer product — a wearable designed for outdoor athletes. They needed a launch film that could anchor their crowdfunding campaign and set the tone for the brand going forward.
+          A small team in Zurich had built a wearable for outdoor athletes. It was good. But nobody knew it existed yet, and they were about to launch a crowdfunding campaign with everything riding on the film. They needed something that would make a stranger care enough to put money down on a product they couldn't hold.
         </p>
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mt-6" data-i18n="startup.brief.p2">
-          The challenge: make a product that doesn't exist yet feel essential. The film had to communicate both the technology and the emotion behind it — why someone would care enough to back it.
+          The hard part wasn't showing the product. It was making people feel why it should exist. Specs don't move people. Stories do. We had to find the story inside the technology.
         </p>
       </div>
     </div>
@@ -232,10 +240,10 @@
       </div>
       <div class="col-span-2 md:col-span-3">
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl" data-i18n="startup.approach.p1">
-          We split the film into two acts. Act one: the problem — a runner alone in the mountains, disconnected, navigating by instinct. Act two: the product — the same runner, same mountain, but now with data, confidence, and clarity. The transition happens in a single, unbroken shot.
+          We built the film in two acts. First: a runner alone in the mountains, lost, navigating by gut feeling. Second: the same runner, same mountain, but now with something on their wrist that changes the whole feeling. We connected the two acts in a single unbroken shot because we wanted the shift to feel emotional, not like a product demo.
         </p>
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mt-6" data-i18n="startup.approach.p2">
-          Product shots were captured in a controlled tabletop studio setup with macro lenses — close enough to see the texture of the band, the glow of the display. These were intercut with the outdoor narrative to create a rhythm between intimacy and scale.
+          The product shots were macro, close enough to see the weave of the band and the glow of the display. We intercut those with the mountain footage to create a rhythm between something you can touch and something you can feel. The Laowa 100mm macro was the right call — it made a tiny screen look like it mattered.
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-12">
@@ -272,7 +280,7 @@
       </div>
       <div class="col-span-2 md:col-span-3">
         <p class="font-body text-[14px] tracking-[0.02em] text-[#EFEFEF]/70 leading-relaxed max-w-2xl mb-12" data-i18n="startup.result.p">
-          The launch film anchored a crowdfunding campaign that reached its target within the first 72 hours. The video was credited by the founding team as the single most effective piece of their launch strategy, driving both conversions and press coverage.
+          They hit their funding target in 72 hours. 340% funded by the end. The founders told us the film was the thing that made the campaign work, and we're honestly not sure if that's true or if they just had a good product. Probably both. Either way, the film gave people a reason to trust something that didn't exist yet.
         </p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           <div>
@@ -379,53 +387,11 @@
   </footer>
 
   <script src="https://player.vimeo.com/api/player.js" defer></script>
-  <script>
-    // ─── Mobile Menu ───
-    const mobileMenu = document.getElementById('mobile-menu');
-    const openMenu = () => { mobileMenu.classList.remove('opacity-0', 'pointer-events-none'); mobileMenu.classList.add('opacity-100'); document.body.style.overflow = 'hidden'; if (window.lenis) window.lenis.stop(); };
-    const closeMenu = () => { mobileMenu.classList.add('opacity-0', 'pointer-events-none'); mobileMenu.classList.remove('opacity-100'); document.body.style.overflow = ''; if (window.lenis) window.lenis.start(); };
-    document.querySelectorAll('.mobile-menu-btn').forEach(btn => btn.addEventListener('click', openMenu));
-    document.getElementById('mobile-menu-close').addEventListener('click', closeMenu);
-    document.querySelectorAll('.mobile-menu-link').forEach(link => { link.addEventListener('click', closeMenu); });
-    // Vimeo hero handled by performance.js (lazy loading)
-
-    const glassNav = document.getElementById('glass-nav');
-    window.addEventListener('scroll', () => {
-      glassNav.classList.toggle('visible', window.scrollY > 300);
-    });
-
-    // ─── Scroll Reveal ───
-    const revealEls = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    revealEls.forEach(el => revealObserver.observe(el));
-
-    // Safety net: force-reveal after 3s
-    setTimeout(() => {
-      document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
-    }, 3000);
-
-    // ─── Page Transitions ───
-    const transition = document.getElementById('page-transition');
-    document.querySelectorAll('a[href$=".html"], a[href="index.html"], a[href="/"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const href = link.getAttribute('href');
-        transition.classList.add('active');
-        setTimeout(() => { window.location.href = href; }, 400);
-      });
-    });
-  </script>
+  <script src="../assets/js/site.js" defer></script>
 
   <script src="../assets/js/translations.js" defer></script>
   <script src="../assets/js/lang-toggle.js" defer></script>
-  <script src="https://unpkg.com/lenis@1/dist/lenis.min.js" defer></script>
+  <script src="../assets/js/lenis.min.js" defer></script>
   <script src="../assets/js/performance.js" defer></script>
 </body>
 </html>
