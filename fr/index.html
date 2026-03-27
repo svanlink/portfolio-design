@@ -195,7 +195,7 @@
   <link rel="preload" href="https://player.vimeo.com/api/player.js" as="script">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Urbanist:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Urbanist:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"></noscript>
-  <link rel="stylesheet" href="../assets/css/styles.css?v=5">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=6">
   <link rel="preconnect" href="https://maps.googleapis.com">
   <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://vumbnail.com">
@@ -764,38 +764,79 @@
 
   <!-- FAQ -->
   <section id="faq" class="px-6 md:px-12 py-20 md:py-40 bg-[#161616]">
-    <div class="max-w-3xl">
-      <div class="mb-12 reveal">
-        <span class="font-mono-nav text-[10px] uppercase tracking-[0.15em] text-[#EFEFEF]/40 mb-4 block" data-i18n="faq.label">Questions Fréquentes</span>
-        <h2 class="font-heading text-[36px] md:text-[48px] uppercase tracking-[0.02em] leading-[0.9] heading-reveal" data-i18n="faq.title">Questions Fréquentes</h2>
-      </div>
+    <div class="mb-10 md:mb-16 reveal">
+      <h2 class="font-heading text-[36px] md:text-[48px] lg:text-[64px] uppercase tracking-[0.02em] leading-[0.9] heading-reveal" data-i18n="faq.title">
+        Questions Fréquentes
+      </h2>
+    </div>
 
-      <div class="space-y-0 divide-y divide-[#EFEFEF]/10 reveal">
-        <details class="group py-6">
-          <summary class="flex items-center justify-between cursor-pointer list-none font-heading text-[16px] md:text-[18px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="faq.q1">Combien coûte un film de marque en Suisse ?</summary>
-          <p class="font-body text-[13px] leading-[1.8] tracking-[0.02em] text-[#EFEFEF]/50 mt-4 max-w-2xl" data-i18n="faq.a1">Ça dépend de l'envergure. Un tournage d'un jour avec une petite équipe et une post-production basique commence généralement autour de CHF 8 000–15 000. Les campagnes plus importantes avec des tournages sur plusieurs jours, des équipes plus grandes et une post-production complète (étalonnage, design sonore, motion graphics) vont de CHF 20 000 à 60 000+. Je cadre chaque projet individuellement — chaque film est différent.</p>
-        </details>
-        <details class="group py-6">
-          <summary class="flex items-center justify-between cursor-pointer list-none font-heading text-[16px] md:text-[18px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="faq.q2">Combien de temps dure une production typique ?</summary>
-          <p class="font-body text-[13px] leading-[1.8] tracking-[0.02em] text-[#EFEFEF]/50 mt-4 max-w-2xl" data-i18n="faq.a2">De la première conversation à la livraison finale, la plupart des projets prennent 4 à 8 semaines. La pré-production (concept, script, logistique) prend généralement 1 à 2 semaines, le tournage 1 à 4 jours, et la post-production 2 à 4 semaines selon la complexité. Des délais plus courts sont possibles quand le projet le demande.</p>
-        </details>
-        <details class="group py-6">
-          <summary class="flex items-center justify-between cursor-pointer list-none font-heading text-[16px] md:text-[18px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="faq.q3">Quelle est la différence entre un film de marque et une publicité ?</summary>
-          <p class="font-body text-[13px] leading-[1.8] tracking-[0.02em] text-[#EFEFEF]/50 mt-4 max-w-2xl" data-i18n="faq.a3">Une publicité est faite pour vendre — elle dure généralement 15 à 60 secondes, centrée sur le produit, conçue pour les médias payants. Un film de marque est fait pour connecter — il dure typiquement 1 à 3 minutes, porté par une histoire, et vit sur votre site web, vos réseaux sociaux ou lors d'événements. Les deux exigent la même qualité de production, mais l'intention et la structure sont différentes.</p>
-        </details>
-        <details class="group py-6">
-          <summary class="flex items-center justify-between cursor-pointer list-none font-heading text-[16px] md:text-[18px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="faq.q4">Avec quel équipement tournez-vous ?</summary>
-          <p class="font-body text-[13px] leading-[1.8] tracking-[0.02em] text-[#EFEFEF]/50 mt-4 max-w-2xl" data-i18n="faq.a4">Ma caméra principale est la RED Komodo 6K, associée aux optiques Cooke Anamorphic /i pour la plupart des films de marque et publicités. Pour le documentaire et les tournages en mobilité, j'utilise des boîtiers Sony FX6 et FX3 avec des optiques Sony G Master. J'ai aussi des systèmes DJI pour les prises de vue aériennes. Le matériel est toujours choisi pour correspondre au projet — pas l'inverse.</p>
-        </details>
-        <details class="group py-6">
-          <summary class="flex items-center justify-between cursor-pointer list-none font-heading text-[16px] md:text-[18px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="faq.q5">Travaillez-vous en dehors de la Suisse ?</summary>
-          <p class="font-body text-[13px] leading-[1.8] tracking-[0.02em] text-[#EFEFEF]/50 mt-4 max-w-2xl" data-i18n="faq.a5">Oui. Je suis basé à Genève mais je travaille dans toute l'Europe et à l'international. Des projets récents m'ont emmené dans les Alpes suisses, en Islande et à travers la France. Le voyage et la logistique font partie du plan de production — je m'en occupe pour que vous n'ayez pas à le faire.</p>
-        </details>
-        <details class="group py-6">
-          <summary class="flex items-center justify-between cursor-pointer list-none font-heading text-[16px] md:text-[18px] uppercase tracking-[0.02em] text-[#EFEFEF] hover:text-[#F64E29] transition-colors duration-400" data-i18n="faq.q6">Quels livrables est-ce que je reçois ?</summary>
-          <p class="font-body text-[13px] leading-[1.8] tracking-[0.02em] text-[#EFEFEF]/50 mt-4 max-w-2xl" data-i18n="faq.a6">Chaque projet inclut le film principal plus des déclinaisons sociales optimisées pour chaque plateforme (16:9, 9:16, 1:1). Vous recevez aussi un fichier master étalonné, un mixage audio propre, et tous les exports finaux dans les formats dont vous avez besoin — broadcast, web, ou les deux. Les révisions font partie du processus.</p>
-        </details>
+    <div class="accordion-step open group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" role="button" tabindex="0" aria-expanded="true">
+      <div class="flex items-center justify-between p-6">
+        <div class="flex items-center gap-3 md:gap-6">
+          <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">01</span>
+          <h3 class="font-heading text-[24px] uppercase tracking-[0.02em]" data-i18n="faq.q1" id="faq-heading-1">Combien coûte un film de marque ?</h3>
+        </div>
+        <span class="accordion-icon w-10 h-10 border border-[#EFEFEF]/20 group-hover:border-[#F64E29]/30 rounded-full flex items-center justify-center transition-all duration-500">
+          <svg class="icon-plus w-4 h-4 text-[#EFEFEF]/50" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          <svg class="icon-minus w-4 h-4 text-[#EFEFEF]/50 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/></svg>
+        </span>
       </div>
+      <div id="faq-panel-1" role="region" aria-labelledby="faq-heading-1" class="accordion-content overflow-hidden max-h-0 transition-all duration-700 ease-in-out">
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]" data-i18n="faq.a1">Ça dépend de l'envergure. Un tournage d'un jour avec une petite équipe commence autour de CHF 8 000–15 000. Les campagnes plus importantes avec tournages sur plusieurs jours et post-production complète vont de CHF 20 000 à 60 000+. Je cadre chaque projet individuellement — chaque film est différent.</p>
+      </div>
+    </div>
+
+    <div class="accordion-step group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" role="button" tabindex="0" aria-expanded="false">
+      <div class="flex items-center justify-between p-6">
+        <div class="flex items-center gap-3 md:gap-6">
+          <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">02</span>
+          <h3 class="font-heading text-[24px] uppercase tracking-[0.02em]" data-i18n="faq.q2" id="faq-heading-2">Combien de temps dure une production ?</h3>
+        </div>
+        <span class="accordion-icon w-10 h-10 border border-[#EFEFEF]/20 group-hover:border-[#F64E29]/30 rounded-full flex items-center justify-center transition-all duration-500">
+          <svg class="icon-plus w-4 h-4 text-[#EFEFEF]/50" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          <svg class="icon-minus w-4 h-4 text-[#EFEFEF]/50 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/></svg>
+        </span>
+      </div>
+      <div id="faq-panel-2" role="region" aria-labelledby="faq-heading-2" class="accordion-content overflow-hidden max-h-0 transition-all duration-700 ease-in-out">
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]" data-i18n="faq.a2">De la première conversation à la livraison finale, la plupart des projets prennent 4 à 8 semaines. La pré-production prend 1 à 2 semaines, le tournage 1 à 4 jours, et la post-production 2 à 4 semaines selon la complexité. Des délais plus courts sont possibles quand le projet le demande.</p>
+      </div>
+    </div>
+
+    <div class="accordion-step group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" role="button" tabindex="0" aria-expanded="false">
+      <div class="flex items-center justify-between p-6">
+        <div class="flex items-center gap-3 md:gap-6">
+          <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">03</span>
+          <h3 class="font-heading text-[24px] uppercase tracking-[0.02em]" data-i18n="faq.q3" id="faq-heading-3">Film de marque vs. publicité ?</h3>
+        </div>
+        <span class="accordion-icon w-10 h-10 border border-[#EFEFEF]/20 group-hover:border-[#F64E29]/30 rounded-full flex items-center justify-center transition-all duration-500">
+          <svg class="icon-plus w-4 h-4 text-[#EFEFEF]/50" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          <svg class="icon-minus w-4 h-4 text-[#EFEFEF]/50 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/></svg>
+        </span>
+      </div>
+      <div id="faq-panel-3" role="region" aria-labelledby="faq-heading-3" class="accordion-content overflow-hidden max-h-0 transition-all duration-700 ease-in-out">
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]" data-i18n="faq.a3">Une publicité est faite pour vendre — 15 à 60 secondes, centrée sur le produit, conçue pour les médias payants. Un film de marque est fait pour connecter — 1 à 3 minutes, porté par une histoire, et vit sur votre site web ou vos réseaux. Les deux exigent la même qualité, mais l'intention et la structure sont différentes.</p>
+      </div>
+    </div>
+
+    <div class="accordion-step group border-t border-[#EFEFEF]/10 cursor-pointer hover:bg-[#F64E29]/5 transition-colors duration-500 reveal" role="button" tabindex="0" aria-expanded="false">
+      <div class="flex items-center justify-between p-6">
+        <div class="flex items-center gap-3 md:gap-6">
+          <span class="font-heading text-[48px] text-[#EFEFEF]/10 group-hover:text-[#F64E29]/20 transition-colors duration-500">04</span>
+          <h3 class="font-heading text-[24px] uppercase tracking-[0.02em]" data-i18n="faq.q4" id="faq-heading-4">Travaillez-vous hors de Suisse ?</h3>
+        </div>
+        <span class="accordion-icon w-10 h-10 border border-[#EFEFEF]/20 group-hover:border-[#F64E29]/30 rounded-full flex items-center justify-center transition-all duration-500">
+          <svg class="icon-plus w-4 h-4 text-[#EFEFEF]/50" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          <svg class="icon-minus w-4 h-4 text-[#EFEFEF]/50 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/></svg>
+        </span>
+      </div>
+      <div id="faq-panel-4" role="region" aria-labelledby="faq-heading-4" class="accordion-content overflow-hidden max-h-0 transition-all duration-700 ease-in-out">
+        <p class="font-body text-[13px] leading-[1.7] tracking-[0.02em] text-[#EFEFEF]/50 max-w-lg px-6 pb-6 pl-6 md:pl-[74px]" data-i18n="faq.a4">Oui. Je suis basé à Genève mais je travaille dans toute l'Europe et à l'international. Des projets récents m'ont emmené dans les Alpes suisses, en Islande et à travers la France. Le voyage et la logistique font partie du plan de production — je m'en occupe pour que vous n'ayez pas à le faire.</p>
+      </div>
+    </div>
+
+    <!-- CTA after FAQ -->
+    <div class="flex justify-center mt-16 pt-12 border-t border-[#EFEFEF]/10 reveal">
+      <a href="#contact" class="inline-flex items-center gap-3 font-mono-nav text-[11px] uppercase tracking-[0.15em] text-[#EFEFEF]/50 hover:text-[#F64E29] transition-colors duration-400"><span data-i18n="faq.cta">Votre question n'apparaît pas ? Parlons-en</span> <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
     </div>
   </section>
 
